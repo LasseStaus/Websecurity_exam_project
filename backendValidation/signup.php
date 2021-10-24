@@ -78,10 +78,10 @@ if (
 } */
 
 if (
-    strlen($_POST['user_confirm_password']) < 4 ||
+    strlen($_POST['user_confirm_password']) < 8 ||
     strlen($_POST['user_confirm_password']) > 50
 ) {
-    $error_message = "Password must be between 4 and 50 characters";
+    $error_message = "Password must be between 8 and 50 characters";
     header("Location: /signup/error/$error_message");
     exit();
 }

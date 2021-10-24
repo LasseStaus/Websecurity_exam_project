@@ -89,7 +89,7 @@ div.emoji {
   column-gap: 0.5rem;
 }
 
-input[type="submit"],
+i/* nput[type="submit"],
 button.submit {
   position: absolute;
   right: 150px;
@@ -98,7 +98,7 @@ button.submit {
 
   font-size: 26px;
   border: none;
-}
+} */
 button.submit i {
   color: var(--text-muted);
 }

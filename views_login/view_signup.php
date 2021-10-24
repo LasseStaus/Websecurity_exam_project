@@ -1,10 +1,10 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_top.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_body.php');
+//require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_top.php');
+//require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_body.php');
 require_once('./components/component_errormsg.php');
 require_once('./components/component_succcessmsg.php');
 ?>
-<div class="form-wrapper">
+<!-- <div class="form-wrapper">
   <h2>Signup</h2>
   <form id="signup-form" method="POST" action="/signup">
     <label for=" user_name"> First name <i class="fas fa-user"></i></label>
@@ -20,6 +20,9 @@ require_once('./components/component_succcessmsg.php');
     <button>Signup</button>
     <div class="swap-login">Already have an accou_loginnt? <a href="/login">Login here!</a></div>
   </form>
-</div>
+</div>  -->
+ <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/signup.php');  ?> 
+
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_bottom.php');
+?>

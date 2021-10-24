@@ -46,10 +46,10 @@ if (
 }
 
 if (
-    strlen($_POST['user_password']) < 4 ||
+    strlen($_POST['user_password']) < 8 ||
     strlen($_POST['user_password']) > 50
 ) {
-    $error_message = "Password must be between 4-50 characters";
+    $error_message = "Password must be between 8-50 characters";
     header("Location: /login/error/$error_message");
     exit();
 }

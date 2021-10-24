@@ -3,8 +3,12 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/router.php');
 
 get('/', function () {
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/index.php');
 });
+
+/* get('/', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
+}); */
 
 
 get('/index', function () {
@@ -53,7 +57,7 @@ get('/signup/error/:message', 'render_signup_error');
 function render_signup_error($message)
 {
   $error_message = $message;
-  require_once(__DIR__ . '/views/view_signup.php');
+  require_once(__DIR__ . '/views_login/view_signup.php');
   exit();
 }
 post('/signup', function () {

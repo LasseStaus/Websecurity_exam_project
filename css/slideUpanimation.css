@@ -1,0 +1,39 @@
+[data-target="slide-content"] {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.slide-up {
+  -webkit-animation: slide-up 0.3s linear both;
+          animation: slide-up 0.3s linear both;
+          opacity: 0;
+}
+
+@-webkit-keyframes slide-up {
+  from {
+    visibility: visible;
+    height: 250px;
+  }
+  to {
+    visibility: hidden;
+    height: 0;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    visibility: visible;
+    height: 100vh;
+  }
+  to {
+    visibility: hidden;
+    height: 0;
+  }
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  
+}
