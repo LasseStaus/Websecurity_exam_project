@@ -1,5 +1,12 @@
 <?php
 
+if (!is_csrf_valid() == true) {
+    $error_message = "There's no way you can hack this, loser. ";
+    header("Location: /login/error/$error_message");
+    exit();
+}
+
+
 if (
 
     empty($_POST['user_email']) ||

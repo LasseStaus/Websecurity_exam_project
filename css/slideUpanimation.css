@@ -6,18 +6,22 @@
 
 .slide-up {
   -webkit-animation: slide-up 0.3s linear both;
-          animation: slide-up 0.3s linear both;
-          opacity: 0;
+  animation: slide-up 0.3s linear both;
+  opacity: 0;
 }
 
 @-webkit-keyframes slide-up {
   from {
     visibility: visible;
     height: 250px;
+    opacity: 1;
+    z-index: 100;
   }
   to {
     visibility: hidden;
     height: 0;
+    opacity: 0;
+    z-index: -2;
   }
 }
 
@@ -25,15 +29,17 @@
   from {
     visibility: visible;
     height: 100vh;
+    opacity: 1;
+    z-index: 100;
   }
   to {
     visibility: hidden;
     height: 0;
+    opacity: 0;
+    z-index: -2;
   }
 }
-
 main {
   width: 100vw;
   height: 100vh;
-  
 }

@@ -1,11 +1,11 @@
 <?php
+
 if (!isset($_SESSION)) {
   session_start();
 }
 require('./backendValidation/login.php');
 require('./db/peberString.php');
 try {
-
 
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
@@ -17,7 +17,7 @@ try {
   $check = hash(algo: $algo, data: $_POST['user_password'] . $user['user_salt'] . $peberstring);
 
   if ($check !== $user['user_password']) {
-    $error_message = "salt does workses";
+    $error_message = "salt does workseasdasdasdasdasdasdasds";
     header("Location: /login/error/$error_message");
     exit();
   }

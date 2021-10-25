@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -8,6 +11,7 @@ require('./backendValidation/signup.php');
 //DATABASE
 
 require_once('./db/peberString.php');
+
 
 $salt = bin2hex(openssl_random_pseudo_bytes(50));
 $hashed = hash(algo: $algo, data: $_POST['user_password'] . $salt . $peberstring);

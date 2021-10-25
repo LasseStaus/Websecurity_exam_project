@@ -58,7 +58,7 @@ function route($route, $function_to_call)
 }
 function out($text)
 {
-  echo htmlspecialchars($text);
+  return htmlspecialchars($text);
 }
 function set_csrf()
 {
@@ -71,6 +71,7 @@ function set_csrf()
 }
 function is_csrf_valid()
 {
+
   if (session_status() == 1) {
     session_start();
   }
@@ -80,5 +81,7 @@ function is_csrf_valid()
   if ($_SESSION['csrf'] != $_POST['csrf']) {
     return false;
   }
+
+
   return true;
 }

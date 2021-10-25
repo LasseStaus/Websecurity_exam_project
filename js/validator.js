@@ -11,7 +11,6 @@ function validate() {
           element.classList.add("validate_error")
         }
         break;
-
       case "int":
         if (!parseInt(element.value) ||
           parseInt(element.value.length) < parseInt(element.getAttribute("data-min")) ||
@@ -34,7 +33,6 @@ function validate() {
         break;
     }
   })
-
   return one(".validate_error", event.target) ? false : true
 }
 

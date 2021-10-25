@@ -9,6 +9,13 @@ if (!isset($_SESSION['user_uuid'])) {
 require('./db/db.php');
 require('./db/fetch_posts.php');
 require('./db/peberString.php');
+/* require('./functions/globals.php'); */
+/* function out($data)
+{
+    var_dump(($data));
+    echo htmlspecialchars($data);
+}
+ */
 
 try {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
@@ -48,7 +55,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
                 <div class="post-container post-grid">
                     <?php
                     foreach ($posts as $post) {
-                        $message = openssl_decrypt(base64_decode($post['post_message']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($post['post_iv']));
+                        $message = out(openssl_decrypt(base64_decode($post['post_message']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($post['post_iv'])));
                     ?>
                         <div class="message-content">
 

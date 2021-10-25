@@ -1,20 +1,19 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/router.php');
-
+/* preloader
 get('/', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/index.php');
-});
-
-/* get('/', function () {
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
 }); */
+
+get('/', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
+});
 
 
 get('/index', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
 });
-
 
 
 // #########################################################
@@ -40,6 +39,8 @@ function render_login_success($success_message)
   exit();
 }
 post('/login', function () {
+
+
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_login.php');
 });
 
@@ -61,6 +62,7 @@ function render_signup_error($message)
   exit();
 }
 post('/signup', function () {
+
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_signup.php');
 });
 

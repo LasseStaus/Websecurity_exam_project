@@ -198,8 +198,8 @@ textarea::placeholder {
 }
 .sidebar-right {
   grid-area: "sidebarright";
-  background: yellow;
-  background: var(--background-secondary);
+  /* background: yellow; */
+  /*   background: var(--background-secondary); */
 }
 
 .chat-content {

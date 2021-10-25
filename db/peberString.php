@@ -15,7 +15,6 @@ $iv = openssl_random_pseudo_bytes($iv_len); //The length is depended on the alg,
 
 
 
-
 // $ciphertextIv= openssl_encrypt($plaintext, $alg_cbc, $key, OPENSSL_RAW_DATA, $iv ); // encrypt with the $iv // convert it to hex/base64encode
 
 // echo base64_encode($ciphertextIv)."<br>";
