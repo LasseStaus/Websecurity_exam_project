@@ -16,10 +16,12 @@ require_once('./components/component_succcessmsg.php');
         <div class="input-position">
 
           <?php
-          require_once('./components/component_errormsg.php')
+          require('./components/component_errormsg.php');
 
           ?>
+
           <?php
+          //hidden input function cookie
           set_csrf()
           ?>
 

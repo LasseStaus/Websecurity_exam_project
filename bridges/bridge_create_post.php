@@ -13,7 +13,7 @@ $tz = 'Europe/London';
 $timestamp = time();
 $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
 $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
-$currentDate = $dt->format('F j Y, H:i');
+$currentDate = $dt->format('F j Y, H:i:s');
 
 
 

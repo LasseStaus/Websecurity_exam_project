@@ -12,6 +12,7 @@ get('/', function () {
 
 
 get('/index', function () {
+
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
 });
 
