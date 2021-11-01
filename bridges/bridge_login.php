@@ -14,7 +14,8 @@ try {
   $q->execute();
   $user = $q->fetch();
   $time = time();
-  $check = hash(algo: $algo, data: $_POST['user_password'] . $user['user_salt'] . $peberstring);
+  $check = hash($algo, $_POST['user_password'] . $user['user_salt'] . $peberstring);
+
 
   if (!$user) {
     $error_message = "The account you are trying to access does not exist";

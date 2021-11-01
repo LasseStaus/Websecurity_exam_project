@@ -12,3 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
     <title>APP</title>
 </head>
+
+<nav><a href="/index">Feed</a><a href="/create-product">create product</a>
+
+    <a href="/logout">logout</a>
+</nav>

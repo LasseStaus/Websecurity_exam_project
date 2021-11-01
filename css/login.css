@@ -7,8 +7,9 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-image: url("https://i.redd.it/y1ostvqnr4711.jpg");
+  background-image: url("/assets/imgs/background.png");
   background-size: cover;
+  background-position-x: 90vh;
   background-repeat: no-repeat;
   font-family: "Whitney", sans-serif;
   text-rendering: optimizeLegibility;

@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_body.php');
 require_once('./components/component_errormsg.php');
 require_once('./components/component_succcessmsg.php');
 
-
+session_start();
 ?>
 <canvas id="svgBlob"></canvas>
 <div class="position">
@@ -14,16 +14,11 @@ require_once('./components/component_succcessmsg.php');
         <div class="primary-header">Welcome back!</div>
         <div class="secondary-header">We're so excited to see you again!</div>
         <div class="input-position">
-
           <?php
           require('./components/component_errormsg.php');
 
           ?>
-
-          <?php
-          //hidden input function cookie
-          set_csrf()
-          ?>
+          <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
 
           <div class="form-group">
             <h5 class="input-placeholder" id="email-txt">Email<span class="error-message" id="email-error"></span></h5>

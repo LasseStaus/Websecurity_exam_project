@@ -60,6 +60,7 @@
     --normal-font-size: 1rem;
     --small-font-size: 0.975rem;
     --smaller-font-size: 0.813rem;
+    --smallest-font-size: 0.6rem;
   }
 }
 * {
@@ -79,9 +80,11 @@ h4,
 h5,
 p,
 a {
-  color: var(--text-normal);
 }
 img {
   width: 100%;
   height: auto;
+}
+
+p {
 }

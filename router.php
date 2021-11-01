@@ -60,15 +60,25 @@ function out($text)
 {
   return htmlspecialchars($text);
 }
+
+//check i validering 
+
 function set_csrf()
 {
-  if (session_status() == 1) {
-    session_start();
+  if (!isset($_SESSION["csrf"])) {
+    $token = bin2hex(random_bytes(50));
+    $_SESSION["csrf"] = $token;
   }
-  $csrf_token = bin2hex(random_bytes(25));
-  $_SESSION['csrf'] = $csrf_token;
-  echo '<input type="hidden" name="csrf" value="' . $csrf_token . '">';
+  return $_SESSION["csrf"];
 }
+
+
+
+// lav input
+
+
+
+
 function is_csrf_valid()
 {
 
@@ -83,5 +93,5 @@ function is_csrf_valid()
   }
 
 
-  return true;
+  return $_SESSION['csrf'];
 }

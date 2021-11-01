@@ -7,7 +7,6 @@ body {
 .background {
   background: var(--background-secondary) !important;
 }
-
 div#preloader2 {
   position: fixed;
   left: 0;

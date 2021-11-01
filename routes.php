@@ -41,6 +41,7 @@ function render_login_success($success_message)
 }
 post('/login', function () {
 
+  // check if token is valid
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_login.php');
 });
@@ -85,13 +86,38 @@ get('/confirm/:user_confirmation_key', function ($user_confirmation_key) {
 
 
 // #########################################################
-// ################### POSTS ###############################
+// ################### Comments ###############################
 // #########################################################
 
 post('/create-post', function () {
 
 
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_post.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_comment.php');
+});
+
+
+
+
+// #########################################################
+// ################### Products ###############################
+// #########################################################
+
+get('/single-product/:product_id', function ($product_id) {
+
+  $product_id = $product_id;
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_single_product.php');
+});
+
+
+
+get('/create-product', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_create_product.php');
+});
+
+post('/create-new-product/:user_uuid', function ($id) {
+
+  $id = $id;
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_product.php');
 });
 
 
