@@ -17,6 +17,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 ?>
 
 <main>
+    <h1>HEJSA HENRIk</h1>
     <h2><?= $product['product_title'] ?></h2>
     <div class="product">
         <div> <strong>USER_ID:</strong> <?= $_SESSION['user_uuid'] ?></div>
