@@ -11,7 +11,8 @@ header {
 }
 nav {
   height: var(--header-height);
-  width: 100%;
+  /* width: 100%; */
+  width: auto;
   display: inline-flex;
   column-gap: 2rem;
   margin: 0 2rem;
