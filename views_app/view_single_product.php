@@ -10,8 +10,20 @@ require('./db/db.php');
 require('./db/fetch_product.php');
 require('./db/peberString.php');
 
+/* foreach ($products as $product) {
+$images = json_decode($product['product_image']);
+foreach ($images as $image) {
+var_dump($image);
+echo '<br>';
 
+?>
+      <img src="../product-images/<?= out($image) ?>" alt="">
 
+  <?php
+
+  }
+
+ */
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 ?>
