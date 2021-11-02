@@ -39,6 +39,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         <div> <strong>category:</strong> <?= $product['product_category'] ?></div>
     </div>
     </section> -->
+    <div class="flex wrap column">
+    <div><a href="/">Go back</a></div>
+    <div><h1>Single product page</h1></div>
+    </div>
 
     <div class = "card-wrapper">
   <div class = "card">
@@ -77,42 +81,45 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
     </div>
     <!-- card right -->
     <div class = "product-content">
-      <h2 class = "product-title">nike shoes</h2>
-      <a href = "#" class = "product-link">visit nike store</a>
-      <div class = "product-rating">
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star"></i>
-        <i class = "fas fa-star-half-alt"></i>
-        <span>4.7(21)</span>
-      </div>
+      <h2 class = "product-title"> <?= $product['product_title'] ?> </h2>
+      <div class="flex wrap column"><p>Created: <span class="small"><?= $product['product_timestamp'] ?></span></p></div>
+      <div class="flex wrap column"><p>By: <span class="small"><?= $product['user_uuid'] ?></span></p></div>
+
 
       <div class = "product-price">
         <p class = "last-price">Old Price: <span>$257.00</span></p>
-        <p class = "new-price">New Price: <span>$<?= $product['product_price'] ?> (5%)</span></p>
+        <p class = "new-price">New Price: <span>$<?= $product['product_price'] ?> </span></p>
       </div>
 
       <div class = "product-detail">
         <h2>about this item: </h2>
         <p><?= $product['product_description'] ?></p>
         <ul>
-          <li>Color: <span>Black</span></li>
-          <li>Available: <span>in stock</span></li>
+          <li>Created: <span><?= $product['product_timestamp'] ?></span></li>
+          <li>Title: <span><?= $product['product_title'] ?></span></li>
           <li>Category: <span><?= $product['product_category'] ?></span></li>
-          <li>Shipping Area: <span>All over the world</span></li>
-          <li>Shipping Fee: <span>Free</span></li>
+          <li>Price: <span><?= $product['product_price'] ?></span></li>
+          
         </ul>
       </div>
+      <hr>
+
 
       <div class = "purchase-info">
-        <input type = "number" min = "0" value = "1">
-        <button type = "button" class = "btn">
-          Add to Cart <i class = "fas fa-shopping-cart"></i>
-        </button>
-        <button type = "button" class = "btn">Compare</button>
+          <h3 class="contact-title">Contact</h3>
+      <div class = "product-detail flex wrap column">
+<!--       <span><?= $_SESSION['user_phone'] ?></span>-->    
+<!--       <span><?= $_SESSION['user_email'] ?></span>-->    
+        <span><i class="fas fa-phone"></i> <a href="tel:xx-xx-xx-xx">xx xx xx xx</a></span>
+        <span><i class="fas fa-envelope"></i> <a href="mailto:seller@mail.com">seller@mail.com</a></span>
       </div>
-
+     
+      <br>
+      <button type = "button" class = "btn">
+          Chat with seller <i class = "fas fa-user"></i>
+        </button>
+      </div>
+<!-- 
       <div class = "social-links">
         <p>Share At: </p>
         <a href = "#">
@@ -130,7 +137,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         <a href = "#">
           <i class = "fab fa-pinterest"></i>
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
