@@ -14,28 +14,40 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 ?>
 
 <main>
+    <form id="create_product" action="/create-new-product/<?= $_SESSION['user_uuid'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
 
-
-    <form action="/create-new-product/<?= $_SESSION['user_uuid'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
-
-        <div class="text">
-
-
-            <input name="product_title" type="text" value="" placeholder="Post title" />
-            <input name="product_subtitle" type="text" value="" placeholder="Post subtitle" />
-
-            <input name="product_price" type="text" value="" placeholder="Post subtitle" />
-            <input name="product_category" type="text" value="" placeholder="Post subtitle" />
-            <!--     Select image to upload:
-
-            <input type="file" name="fileToUpload" id="fileToUpload"> -->
-
-            <textarea onclick="clear_validate_error()" name="product_description" placeholder="What's on your mind" data-validate="str" data-min="1" data-max="500"></textarea>
-
-            <input type="submit" value="Create" />
-
-
+        <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+        <div class="input-pair">
+            <label for="product_title">Title</label>
+            <input name="product_title" type="text" value="" placeholder="Enter title" />
         </div>
+        <div class="input-pair">
+            <label for="product_subtitle">Subtitle</label>
+            <input name="product_subtitle" type="text" value="" placeholder="Enter title" />
+        </div>
+        <div class="input-pair">
+            <label for="product_price">price</label>
+            <input name="product_price" type="text" value="" placeholder="Enter title" />
+        </div>
+        <div class="input-pair">
+            <label for="product_category">category</label>
+            <input name="product_category" type="text" value="" placeholder="Enter title" />
+        </div>
+        <div class="input-pair">
+            <label for="product_Description">Description</label>
+            <textarea onclick="clear_validate_error()" name="product_description" placeholder="Enter description of your product" data-validate="str" data-min="1" data-max="500"></textarea>
+        </div>
+
+
+        <div class="input-pair">
+            <label for="product_images">Images</label>
+            <input type="file" name="file-to-upload[]" multiple id="fileToUpload" value="Upload images">
+        </div>
+
+
+        <button type="submit" class="submit">Create product</button>
+
+
 
     </form>
 

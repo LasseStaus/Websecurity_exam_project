@@ -56,6 +56,8 @@ function route($route, $function_to_call)
   call_user_func_array($function_to_call, $parameters);
   exit();
 }
+
+//out html special
 function out($text)
 {
   return htmlspecialchars($text);
@@ -75,9 +77,6 @@ function set_csrf()
 
 
 // lav input
-
-
-
 
 function is_csrf_valid()
 {

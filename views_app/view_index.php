@@ -13,25 +13,31 @@ require('./db/peberString.php');
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 ?>
-
 <main>
-    <h2>tis</h2>
-    <?php
-    foreach ($products as $product) {
-    ?>
-        <div class="product">
-            <div> <strong>PRODUCT ID:</strong> <?= $product['product_id'] ?></div>
-            <div> <strong>USER_ID:</strong> <?= $_SESSION['user_uuid'] ?></div>
-            <div> <strong>TS:</strong> <?= $product['product_timestamp'] ?></div>
-            <div> <strong>TITLE:</strong> <?= $product['product_title'] ?></div>
-            <div> <strong>DESCRIPTION:</strong> <?= $product['product_description'] ?></div>
-            <div> <strong>PRICE:</strong> <?= $product['product_price'] ?></div>
-            <div> <strong>category:</strong> <?= $product['product_category'] ?></div>
-            <a href="/single-product/<?= $product['product_id'] ?>"></a>
-        </div>
-    <?php
-    }
-    ?>
+    <div class="product-container">
+
+
+        <?php
+        foreach ($products as $product) {
+            $image = json_decode($product['product_image']);
+        ?>
+
+            <div class="product">
+                <!--     <div> <strong>PRODUCT ID:</strong> <?= out($product['product_id']) ?></div> -->
+                <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+                <!--        <div> <strong>USER_ID:</strong> <?= out($_SESSION['user_uuid']) ?></div> -->
+                <!--      <div class="time"> <?= out($product['product_timestamp']) ?></div> -->
+                <div class="title"> <?= out($product['product_title']) ?></div>
+                <!--     <div class="desc"> <?= out($product['product_description']) ?></div> -->
+                <div class="price"> <?= out($product['product_price']) ?> <span>Dkk</span></div>
+                <!--          <div class="category"> <?= out($product['product_category']) ?></div> -->
+                <a href="/single-product/<?= $product['product_id'] ?>"></a>
+            </div>
+        <?php
+        }
+        ?>
+
+    </div>
 </main>
 
 
