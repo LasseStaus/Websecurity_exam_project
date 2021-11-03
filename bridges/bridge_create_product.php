@@ -81,7 +81,7 @@ if (
         $q->bindValue(':product_id', bin2hex(random_bytes(16)));
         $q->bindValue(':user_uuid', $_SESSION['user_uuid']);
         $q->bindValue(':product_title', $_POST['product_title']);
-        $q->bindValue(':product_description', $encryptedDescription);
+        $q->bindValue(':product_description', base64_encode($encryptedDescription));
         $q->bindValue(':product_image', $images);
         $q->bindValue(':product_timestamp', $currentDate);
         $q->bindValue(':product_price', $_POST['product_price']);
