@@ -4,7 +4,7 @@
 
 
 require('./backendValidation/signup.php');
-require_once('./db/peberString.php');
+require_once('./db/globals.php');
 $salt = bin2hex(openssl_random_pseudo_bytes(50));
 $hashed = hash($algo, $_POST['user_password'] . $salt . $peberstring);
 try {

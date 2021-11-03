@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
   session_start();
 }
 require('./backendValidation/login.php');
-require('./db/peberString.php');
+require('./db/globals.php');
 try {
 
 

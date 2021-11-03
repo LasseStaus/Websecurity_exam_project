@@ -74,7 +74,7 @@ if (
     $currentDate = $dt->format('F j Y, H:i:s');
 
     try {
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/peberString.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/globals.php');
         $encryptedDescription = openssl_encrypt($_POST['product_description'], $encrypt_algo, $key, OPENSSL_RAW_DATA, $iv);
         require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
         $q = $db->prepare("INSERT INTO `products` VALUES ( :product_id, :user_uuid, :product_title, :product_description, :product_image, :product_timestamp, :product_price, :product_category, :product_iv)");

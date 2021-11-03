@@ -21,7 +21,7 @@ if (
     $currentDate = $dt->format('F j Y, H:i:s');
 
     try {
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/peberString.php');
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/globals.php');
         $encryptedMessage = openssl_encrypt($_POST['comment_message'], $encrypt_algo, $key, OPENSSL_RAW_DATA, $iv);
         require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
         $q = $db->prepare("INSERT INTO `comments` VALUES ( :comment_id, :user_uuid, :comment_timestamp, :comment_message, :comment_iv)");

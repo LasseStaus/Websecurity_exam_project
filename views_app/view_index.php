@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_uuid'])) {
 
 require('./db/db.php');
 require('./db/fetch_products.php');
-require('./db/peberString.php');
+require('./db/globals.php');
 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');

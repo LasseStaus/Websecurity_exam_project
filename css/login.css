@@ -11,7 +11,7 @@ body {
   background-size: cover;
   background-position-x: 90vh;
   background-repeat: no-repeat;
-  font-family: "Whitney", sans-serif;
+
   text-rendering: optimizeLegibility;
   user-select: none;
 }
