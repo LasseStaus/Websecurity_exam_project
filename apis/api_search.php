@@ -28,8 +28,6 @@ try {
   $q->bindValue(':product_title', '%' . trim($_POST['search_for']) . '%');
   $q->execute();
   $products = $q->fetchAll();
-
-
   // Cannot pass arrays or json to the front-end. You can "arrays" looking like "json" looking like string
   // echo $users; // associative array
   header("Content-type:application/json");

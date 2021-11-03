@@ -16,21 +16,14 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <nav><a href="/index">Feed</a><a href="/create-product">create product</a>
             <a href="/logout">logout</a>
         </nav>
-
-        <form onsubmit="return false" id="search-form">
-
-            <input class="search-input" name="search_for" type="text" oninput=search(); onclick="show_results()">
-
-            <button class="clear-input" onclick="clear_input()">Clear search</button>
-
-        </form>
-
-
-
+        <div class="search-container">
+            <form onsubmit="return false" id="search-form">
+                <i class="fas fa-search"></i>
+                <input class="search-input" name="search_for" type="text" placeholder="Search for product" oninput=search(); onclick="show_results()">
+                <i class="clear-input fas fa-times-circle" onclick="clear_input()"></i>
+            </form>
     </header>
-
-    <div id="search_results"></div>

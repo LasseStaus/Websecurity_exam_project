@@ -11,7 +11,7 @@ document.addEventListener('mouseup', function (e) {
     }
 });
 
-let clearInputButton = document.querySelector("button.clear-input")
+let clearInputButton = document.querySelector("i.clear-input")
 // People prof. exp. use this approach
 let search_timer // used to stop the search_timer
 function search() {
@@ -73,7 +73,7 @@ function search() {
                 document.querySelector("#search_results").insertAdjacentHTML('beforeend', single_product)
             })
 
-            clearInputButton.style.display = "block"
+            clearInputButton.style.display = "inline-flex"
             show_results()
         }, 200)
     } else {
