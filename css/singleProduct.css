@@ -1,3 +1,8 @@
+.master-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .flex {
   display: flex;
   flex: 1;
@@ -23,14 +28,16 @@
   font-size: small;
 }
 
+.smaller {
+  font-size: smaller;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-body {
-  line-height: 1.5;
-}
+
 .card-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -38,6 +45,7 @@ body {
 img {
   width: 100%;
   display: block;
+  object-fit: contain;
 }
 .img-display {
   overflow: hidden;
@@ -55,6 +63,7 @@ img {
 }
 .img-item {
   margin: 0.3rem;
+  width: 100%;
 }
 .img-item:nth-child(1),
 .img-item:nth-child(2),
@@ -75,33 +84,17 @@ img {
   color: #12263a;
   margin: 1rem 0;
 }
-.product-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 4px;
-  width: 80px;
-  background: #12263a;
-}
+
 
 .contact-title {
-  font-size: 2rem;
+  font-size: 16px;
   text-transform: capitalize;
-  font-weight: 700;
+  font-weight: 800;
   position: relative;
-  color: #12263a;
+  color: #000000;
   margin: 1rem 0;
 }
-.contact-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 4px;
-  width: 80px;
-  background: #12263a;
-}
+
 .product-link {
   text-decoration: none;
   text-transform: uppercase;
@@ -131,14 +124,15 @@ img {
 }
 .product-price span {
   font-weight: 400;
+  font-weight: 800;
+  font-size: 16px;
+  color: #000000;
 }
 .last-price span {
   color: #f64749;
   text-decoration: line-through;
 }
-.new-price span {
-  color: #256eff;
-}
+
 .product-detail h2 {
   text-transform: capitalize;
   color: #12263a;
@@ -146,8 +140,13 @@ img {
 }
 .product-detail p {
   font-size: 0.9rem;
-  padding: 0.3rem;
+ /*  padding: 0.3rem; */
   opacity: 0.8;
+  
+}
+
+.product-detail span {
+  font-weight: 800;
 }
 .product-detail ul {
   margin: 1rem 0;
@@ -242,6 +241,32 @@ img {
     } */
 
   .product-content {
-    padding-top: 40px;
+    padding-top: 85px;
   }
+
+  .master-flex {
+  flex-direction: column;
+  }
+
+  .purchase-info .btn {
+    cursor: pointer;
+    color: #fff;
+    width: 34%;
+}
+
+.img-showcase {
+ 
+  height: 40vh;
+}
+
+.img-showcase img {
+  object-fit: scale-down;
+}
+
+.img-select {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+}
+
 }

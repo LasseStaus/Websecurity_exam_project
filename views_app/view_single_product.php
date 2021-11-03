@@ -25,6 +25,11 @@ echo '<br>';
 
  */
 
+$image = json_decode($product['product_image']);
+$message = out(openssl_decrypt(base64_decode($product['product_description']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($product['product_iv'])));
+
+
+
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 ?>
 <main>
@@ -43,31 +48,32 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         <div class="product-imgs">
           <div class="img-display">
             <div class="img-showcase">
-              <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt="shoe image">
-              <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg" alt="shoe image">
-              <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg" alt="shoe image">
-              <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg" alt="shoe image">
+              <img src="../product-images/<?= out($image[0]) ?>" alt="product image">
+              <img src="../product-images/<?= out($image[1]) ?>" alt="product image">
+              <img src="../product-images/<?= out($image[2]) ?>" alt="product image">
+              <img src="../product-images/<?= out($image[3]) ?>" alt="product image">
+
             </div>
           </div>
           <div class="img-select">
             <div class="img-item">
               <a href="#" data-id="1">
-                <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_1.jpg" alt="shoe image">
+                <img src="../product-images/<?= out($image[0]) ?>" alt="product image">
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="2">
-                <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_2.jpg" alt="shoe image">
+                <img src="../product-images/<?= out($image[1]) ?>" alt="product image">
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="3">
-                <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_3.jpg" alt="shoe image">
+                <img src="../product-images/<?= out($image[2]) ?>" alt="product image">
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="4">
-                <img src="https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/shoe_4.jpg" alt="shoe image">
+                <img src="../product-images/<?= out($image[3]) ?>" alt="product image">
               </a>
             </div>
           </div>
@@ -76,39 +82,39 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         <div class="product-content">
           <h2 class="product-title"> <?= out($product['product_title']) ?> </h2>
           <div class="flex wrap column">
-            <p>Created: <span class="small"><?= out($product['product_timestamp']) ?></span></p>
+            <div class="master-flex">
+              <p class="small">Created: <span class="small"><?= out($product['product_timestamp']) ?></span></p>
+              <p class="small">By: <span class="small"><?= out($_SESSION['user_firstname']) ?> <?= out($_SESSION['user_lastname']) ?></span></p>
+            </div>
+
           </div>
           <div class="flex wrap column">
-            <p>By: <span class="small"><?= out($product['user_uuid']) ?></span></p>
+
           </div>
           <div class="product-price">
-            <p class="last-price">Old Price: <span>$257.00</span></p>
-            <p class="new-price">New Price: <span>$<?= out($product['product_price']) ?> </span></p>
+            <div class="master-flex">
+              <p class="new-price">Price:</p>
+              <p><span><?= out($product['product_price']) ?></span> DKK</p>
+            </div>
+
           </div>
           <div class="product-detail">
-            <h2>about this item: </h2>
-            <p><?= out($product['product_description']) ?></p>
-            <ul>
-              <li>Created: <span><?= out($product['product_timestamp']) ?></span></li>
-              <li>Title: <span><?= out($product['product_title']) ?></span></li>
-              <li>Category: <span><?= out($product['product_category']) ?></span></li>
-              <li>Price: <span><?= out($product['product_price']) ?></span></li>
-            </ul>
+            <p class="new-price"><span>Description:</span></p>
+            <p><?= $message ?></p>
+
           </div>
-          <hr>
-          <div class="purchase-info">
-            <h3 class="contact-title">Contact</h3>
+          <div class="product-detail">
+            <p class="contact-title">Contact:</p>
+          </div>
+          <div class="purchase-info master-flex">
             <div class="product-detail flex wrap column">
               <!--       <span><?= out($_SESSION['user_phone']) ?></span>-->
               <!--       <span><?= out($_SESSION['user_email']) ?></span>-->
               <span><i class="fas fa-phone"></i> <a href="tel:xx-xx-xx-xx">xx xx xx xx</a></span>
               <span><i class="fas fa-envelope"></i> <a href="mailto:seller@mail.com">seller@mail.com</a></span>
             </div>
-            <br>
-            <button type="button" class="btn">
-              Chat with seller <i class="fas fa-user"></i>
-            </button>
           </div>
+
         </div>
 </main>
 
