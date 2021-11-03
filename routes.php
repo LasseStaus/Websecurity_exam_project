@@ -191,5 +191,5 @@ get('/logout', function () {
 
 // For GET or POST
 any('/404', function () {
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/views/view_404.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_404.php');
 });
