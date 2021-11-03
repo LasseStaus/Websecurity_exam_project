@@ -113,9 +113,15 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
               <span><i class="fas fa-phone"></i> <a href="tel:xx-xx-xx-xx">xx xx xx xx</a></span>
               <span><i class="fas fa-envelope"></i> <a href="mailto:seller@mail.com">seller@mail.com</a></span>
             </div>
+            <br>
+          <button type="button" class="btn">
+            Chat with seller <i class="fas fa-user"></i>
+          </button>
           </div>
+         
 
         </div>
+      </div>
 </main>
 
 
