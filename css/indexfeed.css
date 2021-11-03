@@ -1,9 +1,17 @@
-.product-container {
+.product-container,
+#search_results {
   margin-top: 6rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(250px, 1fr));
   grid-template-rows: auto;
   gap: 1rem;
+  position: relative;
+}
+
+.search-result-amount {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .product {
   position: relative;

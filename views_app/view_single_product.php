@@ -110,6 +110,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         </div>
 </main>
 
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+
+<script src="/js/singleProduct.js"></script>
+
+</body>
+
+</html>

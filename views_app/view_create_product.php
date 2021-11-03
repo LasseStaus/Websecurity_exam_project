@@ -55,7 +55,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
 </main>
 
+</body>
 
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+</html>

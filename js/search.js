@@ -16,6 +16,7 @@ let clearInputButton = document.querySelector("button.clear-input")
 let search_timer // used to stop the search_timer
 function search() {
 
+    let lol = document.querySelector("#search-form");
 
     if (search_timer) {
         clearTimeout(search_timer)
@@ -24,16 +25,20 @@ function search() {
 
         search_timer = setTimeout(async function () {
 
+
             let conn = await fetch('/search', {
+
                 method: "POST",
                 body: new FormData(document.querySelector("#search-form"))
+
             })
+
             if (!conn.ok) {
                 alert('uppps....')
             }
-            let users = await conn.json()
-            console.log(users)
-            console.log("tisser")
+
+            let products = await conn.json()
+
 
 
 
@@ -41,28 +46,31 @@ function search() {
             document.querySelector("#search_results").innerHTML = ""
 
             let result_div = `
-                    <div class="search-result-amount">
-                  <h3> ${users.length} Results </h3>
-                  </div>`
+                       <div class="search-result-amount">
+                     <h3> ${products.length} Results </h3>
+                     </div>`
             document.querySelector("#search_results").insertAdjacentHTML('beforeend', result_div)
 
 
-            users.forEach(user => {
-                console.log()
-                let user_div = `
-                <div class="user">
-                <div class="container">
-                  <img src="/uploads/${user.user_image}" alt="Image uploaded by ${user.user_name}">
-                  <div class="user-name"> ${user.user_name} ${user.user_last_name}</div>
+            products.forEach(product => {
 
-                  <a class="button user" href="/view-user-profile/${user.user_uuid}">
-                    Go to Profile <i class="fas fa-long-arrow-alt-right"></i>
-                  </a>
-      
-      
-                </div>
-              </div>`
-                document.querySelector("#search_results").insertAdjacentHTML('beforeend', user_div)
+                console.log(product.product_id);
+                let image = JSON.parse(product.product_image)
+                console.log(image);
+                let single_product = `
+                   <div class="user">
+                   <div class="container">
+                     <img src="../product-images/${image[0]}" alt="Image of product ${product.product_title}">
+                     <div class="title"> ${product.product_title}</div>
+   
+                     <a class="button user" href="/single-product/${product.product_id}">
+                       Go to Product <i class="fas fa-long-arrow-alt-right"></i>
+                     </a>
+         
+         
+                   </div>
+                 </div>`
+                document.querySelector("#search_results").insertAdjacentHTML('beforeend', single_product)
             })
 
             clearInputButton.style.display = "block"
@@ -77,8 +85,11 @@ function show_results() {
     let searchForm = document.querySelector('.search-input')
     /*    console.log(event.target.value, "lol") */
     if (searchForm.value.length >= 2) {
-        document.querySelector("#search_results").style.display = "grid"
-        document.querySelector("#users").style.display = "none"
+        let search_results = document.querySelector("#search_results")
+        let product_container = document.querySelector(".product-container")
+        console.log("show results ", search_results, product_container)
+        search_results.style.display = "grid"
+        product_container.style.display = "none"
         // display search_results div
         // populate/render the individual results
     }
@@ -86,8 +97,13 @@ function show_results() {
 
 function hide_results() {
     // hide search_results div
-    document.querySelector("#search_results").style.display = "none"
-    document.querySelector("#users").style.display = "grid"
+    let search_results = document.querySelector("#search_results")
+    let product_container = document.querySelector(".product-container")
+
+    console.log("hide results ", search_results, product_container)
+    search_results.style.display = "none"
+    product_container.style.display = "grid"
+
 }
 
 function clear_input() {

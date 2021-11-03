@@ -20,4 +20,17 @@
         <nav><a href="/index">Feed</a><a href="/create-product">create product</a>
             <a href="/logout">logout</a>
         </nav>
+
+        <form onsubmit="return false" id="search-form">
+
+            <input class="search-input" name="search_for" type="text" oninput=search(); onclick="show_results()">
+
+            <button class="clear-input" onclick="clear_input()">Clear search</button>
+
+        </form>
+
+
+
     </header>
+
+    <div id="search_results"></div>

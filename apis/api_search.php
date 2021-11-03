@@ -3,37 +3,37 @@
 // Validate
 if (!isset($_POST['search_for'])) {
   http_response_code(400);
+  echo 'her';
   exit();
 }
 if (strlen($_POST['search_for']) < 2) {
   http_response_code(400);
+
+  echo 'her';
   exit();
 }
 if (strlen($_POST['search_for']) > 20) {
   http_response_code(400);
+  echo 'her';
   exit();
 }
 
 try {
-  $db_path = $_SERVER['DOCUMENT_ROOT'] . '/db/users.db';
-  $db = new PDO("sqlite:$db_path");
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
   // full text search
-  $q = $db->prepare(' SELECT user_uuid, user_name, user_last_name, user_image, user_email, user_phone 
-                      FROM users 
-                      WHERE user_name LIKE :user_name AND user_active == 1
-                      LIMIT 20
-                  
-                      COLLATE NOCASE');
-  $q->bindValue(':user_name', '%' . trim($_POST['search_for']) . '%');
+  $q = $db->prepare('SELECT product_id, product_title, product_description, product_price, product_category, product_image
+                      FROM products 
+                      WHERE product_title LIKE :product_title
+                      LIMIT 20');
+  $q->bindValue(':product_title', '%' . trim($_POST['search_for']) . '%');
   $q->execute();
-  $users = $q->fetchAll();
+  $products = $q->fetchAll();
+
 
   // Cannot pass arrays or json to the front-end. You can "arrays" looking like "json" looking like string
   // echo $users; // associative array
   header("Content-type:application/json");
-  echo json_encode($users);
+  echo json_encode($products);
 } catch (PDOException $ex) {
   echo $ex;
 }

@@ -160,8 +160,16 @@ post('/create-new-password', function () {
 
 
 post('/search', function () {
+
   require_once($_SERVER['DOCUMENT_ROOT'] . '/apis/api_search.php');
 });
+
+get('/search', function () {
+  /*   echo 'her';
+  exit; */
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_login.php');
+});
+
 
 
 

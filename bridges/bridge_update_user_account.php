@@ -72,8 +72,6 @@ try {
   $q->bindValue(':user_password', password_hash($_POST['user_password'], PASSWORD_DEFAULT));
   $q->execute();
 
-
-
   if (!$q->rowCount()) {
     echo 'soemthing went wrong';
     exit;

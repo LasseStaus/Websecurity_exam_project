@@ -1,10 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_top.php');
-
 session_start();
 ?>
-
-
 <main>
   <canvas id="svgBlob"></canvas>
   <div class="position">

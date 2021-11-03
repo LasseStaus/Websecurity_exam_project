@@ -41,12 +41,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 </main>
 
 
+<!-- <script src="/js/togglers.js"></script> -->
 
+<script src="/js/search.js"></script>
+</body>
 
-
-
-
-
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+</html>
