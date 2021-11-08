@@ -3,7 +3,7 @@
 try {
   /**development **/
   $database_user_name = 'root';
-  $database_password = '';
+  $database_password = 'root';
   $database_connection = 'mysql:host=localhost; dbname=websec_project; charset=utf8mb4';
 
   /*production

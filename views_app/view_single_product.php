@@ -114,14 +114,72 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
               <span><i class="fas fa-envelope"></i> <a href="mailto:seller@mail.com">seller@mail.com</a></span>
             </div>
             <br>
-          <button type="button" class="btn">
-            Chat with seller <i class="fas fa-user"></i>
-          </button>
+            <button type="button" class="btn">
+              Chat with seller <i class="fas fa-user"></i>
+            </button>
           </div>
-         
+
 
         </div>
       </div>
+    </div>
+
+    <div class="comments-container">
+      <h3>Questions and answers </h3>
+      <div>
+        <form id="create_comment" action="/create-comment" method="POST">
+          <input type="hidden" name="product_id" value="<?= $product_id ?>">
+          <textarea name="comment_message" id="" placeholder="Add a comment" type="submit"></textarea>
+
+          <button class="submit" type="submit"> Send</button>
+        </form>
+      </div>
+
+      <div>
+        <?php
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_comments.php');
+        ?>
+
+        <div class="product-comments-container">
+          <?php
+          foreach ($comments as $comment) {
+            $message = out(openssl_decrypt(base64_decode($comment['comment_message']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($comment['comment_iv'])));
+          ?>
+            <div class="product-comment">
+
+
+              <img src="/assets/imgs/avatar2.jpg" alt="User avatar image">
+              <div class="message">
+                <div class="message-user-information">
+                  <h5>
+                    <span><?= $comment['comment_timestamp'] ?></span>
+                  </h5>
+                </div>
+
+                <div class="message-text">
+                  <p><?= $message ?></p>
+
+
+                </div>
+
+
+                <div class="encrypted">
+                  <p class="small">Encrypted message <?= $comment['comment_message'] ?></p>
+
+                  <p class="small">Decrypted message <?= base64_decode($comment['comment_message']) ?></p>
+
+                </div>
+              </div>
+            </div>
+          <?php
+          }
+          ?>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </main>
 
 

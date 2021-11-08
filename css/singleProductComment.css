@@ -1,0 +1,35 @@
+.comments-container {
+    max-width: 470px;
+}
+
+form#create_comment {
+    display: flex;
+    flex-direction: row;
+    row-gap: 2rem;
+    margin: 5% auto 5% auto;
+}
+
+form#create_comment .submit {
+    width: 15%;
+}
+
+form#create_comment textarea {
+    width: 85%;
+}
+
+.product-comments-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 10%;
+}
+
+.product-comment {
+    display: flex;
+    gap: 1rem;
+}
+
+.product-comment img {
+    width: 10%;
+}

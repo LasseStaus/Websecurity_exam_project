@@ -17,7 +17,7 @@ try {
   $q->bindValue(':user_phone', $_POST['user_phone']);
   $q->bindValue(':user_password', $hashed);
   $q->bindValue(':user_salt', $salt);
-  $q->bindValue(':user_login_timestamp', '');
+  $q->bindValue(':user_login_timestamp', 0);
   $q->bindValue(':user_login_attempts', 0);
 
   $q->execute();

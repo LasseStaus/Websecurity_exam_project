@@ -1,11 +1,14 @@
 @import "roots.css";
 @import "createproduct.css";
+@import "editaccount.css";
 @import "indexfeed.css";
+@import "singleProductComment.css";
 
 body {
   width: 100%;
   height: 100%;
 }
+
 header {
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.212);
   display: flex;
@@ -21,13 +24,16 @@ header {
   left: 0;
   z-index: 2000;
 }
+
 header.scroll-header {
   background-color: #fff;
   box-shadow: 5px -1px 12px -5px grey;
 }
+
 header.hide {
   top: -90px;
 }
+
 nav {
   height: 100%;
 
@@ -37,9 +43,11 @@ nav {
 
   align-items: center;
 }
+
 main {
   width: 100%;
 }
+
 main::-webkit-scrollbar {
   width: 5px;
 }
@@ -79,6 +87,7 @@ a.logout {
   width: 100%;
   text-align: center;
 }
+
 .error {
   font-size: 14px;
   color: black;
@@ -90,9 +99,11 @@ a.logout {
   flex-wrap: nowrap;
   align-items: center;
 }
+
 #search-form {
   position: relative;
 }
+
 #search-form input {
   border-radius: 20px;
   border: 1px solid rgba(19, 19, 19, 0.281);
@@ -107,6 +118,7 @@ i.clear-input {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .nav-fixed {
   width: 100%;
   position: fixed;
@@ -129,4 +141,19 @@ main {
   width: 100%;
   overflow-y: scroll;
   padding-top: 5rem;
+}
+
+/* --------- error/updates -------- */
+
+.update_message {
+  padding: 1%;
+  background-color: rgb(75, 159, 255);
+  color: white;
+}
+
+.error_message {
+  padding: 1%;
+  background-color: rgb(222, 96, 96);
+  font-weight: 500;
+  color: white;
 }

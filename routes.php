@@ -89,7 +89,7 @@ get('/confirm/:user_confirmation_key', function ($user_confirmation_key) {
 // ################### Comments ###############################
 // #########################################################
 
-post('/create-post', function () {
+post('/create-comment', function () {
 
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_comment.php');
@@ -177,11 +177,37 @@ get('/search', function () {
 // ################# EDIT USER ACCOUNT #####################
 // #########################################################
 
-
-
-post('/update-user-account', function () {
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_update_user_account.php');
+get('/account', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account.php');
 });
+
+get('/account-edit/my-user-information', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account_edit_information.php');
+});
+
+get('/account-edit/change-password', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account_change_password.php');
+});
+
+get('/account-edit/change-password/:errormessage', function ($error_message) {
+  $error_message = $error_message;
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account_change_password.php');
+});
+
+get('/account-edit/change-password/:updatemessage', function ($update_message) {
+  $update_message = $update_message;
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account_change_password.php');
+});
+
+
+post('/update-account-information', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_update_account_information.php');
+});
+
+post('/update-user-account-password', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_update_user_account_password.php');
+});
+
 
 post('/upload-profile-image', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_upload_profile_image.php');

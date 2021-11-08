@@ -13,21 +13,21 @@ form#create_product {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 label {
   justify-self: flex-end;
   margin-right: 10px;
 }
+
 input,
-textarea,
 label {
   padding: 0.5rem;
 }
-textarea {
-  min-height: 200px;
-}
+
 label {
   text-transform: capitalize;
 }
+
 button.submit {
   width: 90%;
   align-self: flex-end;

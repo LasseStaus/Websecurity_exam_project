@@ -17,7 +17,9 @@
 
 <body>
     <header id="header">
-        <nav><a href="/index">Feed</a><a href="/create-product">create product</a>
+        <nav>
+            <a href="/index">Feed</a>
+            <a href="/create-product">create product</a>
             <a href="/logout">logout</a>
         </nav>
         <div class="search-container">
@@ -26,4 +28,6 @@
                 <input class="search-input" name="search_for" type="text" placeholder="Search for product" oninput=search(); onclick="show_results()">
                 <i class="clear-input fas fa-times-circle" onclick="clear_input()"></i>
             </form>
+            <a href="/account">Account</a>
+        </div>
     </header>
