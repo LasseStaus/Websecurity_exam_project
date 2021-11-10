@@ -1,3 +1,4 @@
+
 (function () {
     let doc = document.documentElement;
     let w = window;
@@ -54,3 +55,29 @@ function scrollHeader() {
     else nav.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
+
+
+
+
+const headerChevron = document.querySelector(".header-chevron");
+const profileOptions = document.querySelector(".profile-options-container");
+const profileOptionsA = document.querySelectorAll(".profile-options-container a");
+
+
+console.log(headerChevron, profileOptions, profileOptionsA, 'lol')
+
+
+
+
+
+
+headerChevron.addEventListener("click", () => {
+    headerChevron.classList.toggle("active");
+    profileOptions.classList.toggle("active");
+
+});
+
+/* profileOptionsA.forEach("click", () => {
+    headerChevron.classList.remove("active");
+    profileOptions.classList.remove("active");
+}); */

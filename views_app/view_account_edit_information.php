@@ -95,11 +95,10 @@ try {
     ?>
   </main>
 
-  </body>
-
-  </html>
 
 <?php
+
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
 } catch (PDOException $ex) {
   echo $ex;
 }

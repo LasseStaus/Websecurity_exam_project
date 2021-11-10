@@ -83,6 +83,7 @@ try {
     $_SESSION['user_uuid'] = $user['user_uuid'];
     $_SESSION['user_firstname'] = $user['user_firstname'];
     $_SESSION['user_lastname'] = $user['user_lastname'];
+    $_SESSION['user_image'] = $user['user_image'];
 
     header('Location: /index');
     exit();

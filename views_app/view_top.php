@@ -28,11 +28,22 @@
                 <input class="search-input" name="search_for" type="text" placeholder="Search for product" oninput=search(); onclick="show_results()">
                 <i class="clear-input fas fa-times-circle" onclick="clear_input()"></i>
             </form>
-            <a href="/account">Account</a>
+
         </div>
         <div class="header-profile">
             <span>Lasse</span>
-            <img src="/assets/imgs/avatar2.jpg" alt="image">
-            <i class="fas fa-chevron-down"></i>
+
+            <a href="/account"><img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="image"></a>
+            <i class="header-chevron fas fa-chevron-down"></i>
+        </div>
+
+        <div class="profile-options-container">
+            <div class="options">
+
+                <a href="/account">Go to profile <i class="fas fa-chevron-right"></i></a>
+                <a href="/account">Create Product<i class="fas fa-chevron-right"></i></a>
+                <a href="/logout">Logout <i class="fas fa-chevron-right"></i></a>
+            </div>
+
         </div>
     </header>

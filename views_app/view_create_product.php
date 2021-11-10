@@ -54,10 +54,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
 
 </main>
-
-<script src="/js/validator.js"></script>
-<script src="/js/headerScroll.js"></script>
-
-</body>
-
-</html>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
+?>

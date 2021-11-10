@@ -52,7 +52,7 @@ try {
 
         <div>
           <div class="profile-hero">
-            <img class="profile-image" src="/uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
+            <img class="profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
             <h1><?= $user['user_firstname'] ?> <?= $user['user_lastname'] ?></h1>
 
           </div>
@@ -100,7 +100,10 @@ try {
         </div>
   </main>
 
+
 <?php
+
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
 } catch (PDOException $ex) {
   echo $ex;
 }
