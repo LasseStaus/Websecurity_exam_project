@@ -177,6 +177,10 @@ get('/search', function () {
 // ################# EDIT USER ACCOUNT #####################
 // #########################################################
 
+post('/upload-profile-image', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_upload_profile_image.php');
+});
+
 get('/account', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account.php');
 });

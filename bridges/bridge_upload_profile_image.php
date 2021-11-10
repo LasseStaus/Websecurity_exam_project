@@ -27,20 +27,17 @@ if (!in_array($extension, $valid_extensions)) {
 }
 
 $random_image_name = bin2hex(random_bytes(16)) . ".$extension";
-move_uploaded_file($_FILES['file-to-upload']['tmp_name'], "uploads/$random_image_name");
+move_uploaded_file($_FILES['file-to-upload']['tmp_name'], "profile-uploads/$random_image_name");
 echo 'File uploaded';
 echo "<a href='/account'>go to account</a>";
 
 try {
-    $db_path = $_SERVER['DOCUMENT_ROOT'] . '/db/users.db';
-    $db = new PDO("sqlite:$db_path");
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
     $q = $db->prepare("UPDATE users SET user_image = '$random_image_name' WHERE user_uuid = :user_uuid");
     $q->bindValue(':user_uuid', $_SESSION['user_uuid']);
     $q->execute();
     if (!$q->rowCount()) {
-        echo 'something went wrong';
+        echo 'sometasdasdasg';
         exit();
     }
 
@@ -50,7 +47,7 @@ try {
 
     $_SESSION['user_image'] = $random_image_name;
 
-    header("Location: /account");
+    header("Location: /account-edit/my-user-information");
 
     exit();
 } catch (PDOException $ex) {

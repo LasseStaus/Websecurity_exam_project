@@ -33,6 +33,8 @@ if (!preg_match('/^[0-9]{8}+$/', $_POST['user_phone'])) {
 }
 
 
+
+
 try {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
   $q = $db->prepare('UPDATE users SET user_firstname = :user_firstname, user_lastname = :user_lastname, user_email = :user_email,

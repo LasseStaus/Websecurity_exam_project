@@ -54,8 +54,8 @@ nav {
 .header-profile img {
   border-radius: 50%;
   object-fit: cover;
-  max-height: 35px;
-  width: 100%;
+  height: 40px;
+  width: 40px;
 }
 
 .profile-options-container {
@@ -112,10 +112,6 @@ nav {
 
 .profile-options-container a:hover {
   background: rgba(219, 219, 219, 0.459);
-}
-
-main {
-  width: 100%;
 }
 
 main::-webkit-scrollbar {

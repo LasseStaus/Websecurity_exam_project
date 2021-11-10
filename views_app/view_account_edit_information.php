@@ -40,12 +40,32 @@ try {
           </li>
         </ul>
       </div>
+      <div class="account-content">
 
-      <div class="form-container-edit-account">
 
-        <h3>Edit your account credentials</h3>
+
+
+        <h3 class="account-title">Edit your account credentials</h3>
+        <form id="update-profile-image" action="/upload-profile-image" method="POST" enctype="multipart/form-data">
+          <div class="image-input-pair">
+            <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
+            <label for="upload-img">Upload new image</label>
+            <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event) " style="display: none;">
+          </div>
+
+          <button class=" button" type="submit"> Upload image</button>
+
+        </form>
+
 
         <form id="update-account-information" method="POST" action="/update-account-information" onsubmit="return validate();">
+
+          <!--     <div class="image-input-pair">
+              <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
+              <input class="file-to-upload" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)">
+
+
+            </div> -->
 
           <div class="input-pair">
             <label for="user_firstname">First name </label>
@@ -68,11 +88,9 @@ try {
           </div>
 
           <button class="submit">Update user information</button>
-
         </form>
-
-
       </div>
+
     </div>
 
     </div>
