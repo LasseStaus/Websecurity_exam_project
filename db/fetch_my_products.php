@@ -5,10 +5,7 @@ try {
     $q->bindValue(':user_uuid', $_SESSION['user_uuid']);
     $q->execute();
     $user_products = $q->fetchAll();
-   /*  if (!$user_products) {
-        header('Location: /login');
-        exit();
-    } */
+
 } catch (PDOException $ex) {
     echo $ex;
 }
