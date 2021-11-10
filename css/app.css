@@ -43,6 +43,20 @@ nav {
 
   align-items: center;
 }
+.header-profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.header-profile img {
+  border-radius: 50%;
+  object-fit: cover;
+  max-height: 50px;
+  width: 100%;
+}
 
 main {
   width: 100%;

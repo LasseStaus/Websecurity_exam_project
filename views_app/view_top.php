@@ -30,4 +30,9 @@
             </form>
             <a href="/account">Account</a>
         </div>
+        <div class="header-profile">
+            <span>Lasse</span>
+            <img src="/assets/imgs/avatar2.jpg" alt="image">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </header>
