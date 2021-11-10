@@ -95,6 +95,7 @@ try {
               <a href="/single-product/<?= $user_product['product_id'] ?>"></a>
             </div>
           <?php
+          
           }
           ?>
         </div>
