@@ -82,7 +82,8 @@ $image = json_decode($product['product_image']);
     for (var i = 0; i < passedArray.length; i++) {
         console.log(passedArray[i]);
         const file = new File(['Hello world!'], passedArray[i], {
-            type: 'png'
+            type: 'png',
+            tmp_name: 'png'
         })
         console.log(file);
         dataTransfer.items.add(file)

@@ -12,13 +12,19 @@ $valid_extensions = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'pdf', 'jfif'];
 
 
 $images = [];
-print_r($_FILES['file-to-upload']['tmp_name']);
+//print_r($_FILES['file-to-upload']['tmp_name']);
+
+$test1 = $_FILES;
+//$test2 = mime_content_type($test1);
+print_r($test1);
+/* exit; */
+
 echo '<br>';
 echo '<br>';
 
 foreach ($_FILES['file-to-upload']['tmp_name'] as $file) {
-
     $image_type = mime_content_type($file);
+    print_r($file);
     $extension = strrchr($image_type, '/');
     $extension = ltrim($extension, '/');
     //echo '<br>';
@@ -27,19 +33,21 @@ foreach ($_FILES['file-to-upload']['tmp_name'] as $file) {
         exit();
     }
     $random_image_name = bin2hex(random_bytes(16)) . ".$extension";
-    print_r($file);
+
     echo '<br>';
     //var_dump($random_image_name);
     array_push($images, $random_image_name);
     move_uploaded_file($file, "product-images/$random_image_name");
 };
 
+/* exit;
 var_dump($_FILES['file-to-upload']);
 echo '<br>';
 print_r($_FILES['file-to-upload']);
-exit;
-$images = json_encode($images);
+exit; */
 
+$images = json_encode($images);
+$testlol = json_encode($_FILES['file-to-upload']);
 
 
 //DATABASE
