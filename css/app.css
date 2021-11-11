@@ -169,13 +169,14 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .input-pair.validate_error span {
-  margin-top: 5px;
+  margin: 0;
+
   display: block;
   color: #ec4846;
   text-transform: capitalize;
   font-size: 12px;
   font-weight: 600;
-  margin: 0;
+
   padding: 0;
   border: 0;
   vertical-align: baseline;
