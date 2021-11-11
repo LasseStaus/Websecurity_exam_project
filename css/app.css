@@ -140,7 +140,51 @@ main::-webkit-scrollbar-thumb:hover {
 }
 
 .validate_error {
-  background: rgba(255, 0, 0, 0.37);
+}
+
+.input-pair input,
+.input-pair textarea {
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.input-pair label {
+  font-weight: bold;
+}
+.input-pair textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.input-pair input[type="file"] {
+  padding: 0;
+  border: none;
+  padding: 7px;
+}
+
+.input-pair span {
+  display: none;
+  grid-column: 2;
+}
+
+.input-pair.validate_error span {
+  margin-top: 5px;
+  display: block;
+  color: #ec4846;
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  transition: all 0.2s linear;
+}
+
+.validate_error input,
+.validate_error textarea {
+  border: 2px solid #f17875;
 }
 
 a.logout {

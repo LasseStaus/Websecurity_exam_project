@@ -8,12 +8,7 @@ if (!$_FILES['file-to-upload']['name']) {
     header('Location: /account-edit');
     exit;
 }
-// echo print_r($_FILES['my_picture']);
-// echo "<div>{$_FILES['my_picture']['name']}</div>"; // coderspage.png
-// echo "<div>{$_FILES['my_picture']['type']}</div>"; // image/png
-// echo "<div>{$_FILES['my_picture']['tmp_name']}</div>"; // C:\xampp\tmp\php8B68.tmp
-// echo "<div>{$_FILES['my_picture']['size']}</div>"; //14657
-// $image_file_type = strtolower(pathinfo($_FILES['my_picture']['name'], PATHINFO_EXTENSION));
+
 
 $valid_extensions = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'pdf', 'jfif'];
 
@@ -28,8 +23,7 @@ if (!in_array($extension, $valid_extensions)) {
 
 $random_image_name = bin2hex(random_bytes(16)) . ".$extension";
 move_uploaded_file($_FILES['file-to-upload']['tmp_name'], "profile-uploads/$random_image_name");
-echo 'File uploaded';
-echo "<a href='/account'>go to account</a>";
+
 
 try {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
@@ -41,13 +35,11 @@ try {
         exit();
     }
 
-
-
-
-
     $_SESSION['user_image'] = $random_image_name;
 
-    header("Location: /account-edit/my-user-information");
+
+
+    header("Location: /account");
 
     exit();
 } catch (PDOException $ex) {

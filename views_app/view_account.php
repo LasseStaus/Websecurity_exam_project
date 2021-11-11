@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_uuid'])) {
   header('Location: /account');
   exit();
 }
-
 try {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
   $q = $db->prepare('SELECT * FROM users WHERE user_uuid = :user_uuid');
@@ -20,7 +19,6 @@ try {
     exit();
   }
 ?>
-
 
   <?php
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
@@ -53,6 +51,22 @@ try {
       </div>
 
       <div class="account-content">
+        <h3 class="account-title">PROFILE TIMES</h3>
+
+        <?php
+
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/components/component_succcessmsg.php');
+
+        ?>
+        <form id="update-profile-image" action="/upload-profile-image" method="POST" enctype="multipart/form-data" onsubmit="return validate();">
+          <div class=" image-input-pair">
+            <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
+            <label class="icon-upload-label" for="upload-img"><i class="fas fa-camera"></i></label>
+            <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)" style=" display: none;">
+          </div>
+          <button class="button upload-profile-image" type="submit">Upload image</button>
+        </form>
+
         <h3 class="account-title">My products</h3>
         <div class="content-wraper-profile">
 
