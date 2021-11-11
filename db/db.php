@@ -16,6 +16,9 @@ try {
   $database_password = 'websecproject';
   $database_connection = 'mysql:host=localhost; dbname=lassxkot_websec_project; charset=utf8mb4'; */
 
+  /* $database_password = 'root'; */
+
+
   $database_options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     // PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ

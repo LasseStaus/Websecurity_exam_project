@@ -144,12 +144,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         <div class="product-comments-container">
           <?php
           foreach ($comments as $comment) {
+
             $message = out(openssl_decrypt(base64_decode($comment['comment_message']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($comment['comment_iv'])));
           ?>
             <div class="product-comment">
 
 
-              <img src="/assets/imgs/avatar2.jpg" alt="User avatar image">
+
+              <img src="../profile-uploads/<?= $comment['user_image'] ?>" alt="User avatar image">
               <div class="message">
                 <div class="message-user-information">
                   <h5>
@@ -184,8 +186,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 </main>
 
 
-<script src="/js/singleProduct.js"></script>
-<script src="/js/headerScroll.js"></script>
-</body>
-
-</html>
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
+?>
