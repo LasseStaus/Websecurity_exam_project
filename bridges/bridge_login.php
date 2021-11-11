@@ -84,6 +84,8 @@ try {
     $_SESSION['user_firstname'] = $user['user_firstname'];
     $_SESSION['user_lastname'] = $user['user_lastname'];
     $_SESSION['user_image'] = $user['user_image'];
+    $_SESSION['user_phone'] = $user['user_phone'];
+    $_SESSION['user_email'] = $user['user_email'];
 
     header('Location: /index');
     exit();

@@ -19,20 +19,21 @@ session_start();
             <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
 
             <div class="form-group">
-              <h5 class="input-placeholder" id="email-txt">Email<span id="email-error">Please provide a valid email</span></h5>
-              <input onclick="clear_validate_error()" data-validate="email" type="email" name="user_email" class="form-style" id="logemail" autocomplete="on" style="margin-bottom: 20px;">
-
+              <h5 class="input-placeholder" id="email-txt">Email</h5>
+              <input onclick="clear_validate_error()" data-validate="email" type="email" name="user_email" class="form-style" id="logemail" autocomplete="on">
+              <span id="email-error">Please provide a valid email</span>
               <i class="input-icon uil uil-at"></i>
             </div>
-            <div class="form-group">
-              <h5 class="input-placeholder" id="pword-txt">Password<span id="password-error">Please provide a valid password | 8-50 characters</span></h5>
+            <div class="form-group margin-top">
+              <h5 class="input-placeholder" id="pword-txt">Password</h5>
               <input onclick="clear_validate_error()" maxlength="50" data-validate="str" data-min="8" data-max="50" type="password" name="user_password" class="form-style" id="logpass" autocomplete="on">
+              <span id="password-error">Please provide a valid password | 8-50 characters</span>
               <i class="input-icon uil uil-lock-alt"></i>
             </div>
     </form>
   </div>
 
-  <div class="password-container"><a href="#" class="link">Forgot your password</a></div>
+  <div class="password-container"><a href="#" class="link">Forgot your password</a> <a href="/admin-login" class="link">Login as admin</a></div>
   <div class="btn-position">
 
     <button type="submit" class="btn">sign in<img src="../assets/imgs/anchorarrow.png" alt="arrow"></button>
@@ -47,7 +48,7 @@ session_start();
     </div>
     <div class="qr-pheader">Klik<span>&amp;</span>Køb</div>
 <!--     <div class="qr-sheader">Join the community <br> <strong>use our app </strong><br>to log in instantly.</div>
- -->    <div class="qr-sheader"> <a href="/signup" class="btn2">sign up<img src="../assets/imgs/anchorarrow.png" alt="arrow"></a></div>
+ -->    <div class="qr-sheader"> <a href="/signup" class="btn2">sign up<img src="/assets/imgs/anchorarrow.png" alt="arrow"></a></div>
   </div>
   </div>
   </form>

@@ -23,33 +23,39 @@ session_start();
             ?>
             <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
             <div class="form-group">
-              <h5 class="input-placeholder" id="fname-txt">First name<span class="error-message" id="fname-error">Please provide a first name | 2-50 characters</span></h5>
-              <input onclick="clear_validate_error()" type="text" name="user_firstname" data-validate="str" data-min="2" data-max="50" class="form-style" value="" id="logfname" autocomplete="off" style="margin-bottom: 20px;">
+              <h5 class="input-placeholder" id="fname-txt">First name</h5>
+              <input onclick="clear_validate_error()" type="text" name="user_firstname" data-validate="str" data-min="2" data-max="50" class="form-style" value="" id="logfname" autocomplete="off" >
+              <span class="error-message" id="fname-error">Please provide a first name | 2-50 characters</span>
               <i class="input-icon uil uil-at"></i>
             </div>
             <div class="form-group">
-              <h5 class="input-placeholder" id="lname-txt">Last name<span class="error-message" id="lname-error">Please provide a last name | 2-50 characters</span></h5>
-              <input onclick="clear_validate_error()" type="text" name="user_lastname" data-validate="str" data-min="2" data-max="50" class="form-style" id="loglname" autocomplete="off" style="margin-bottom: 20px;">
+              <h5 class="input-placeholder" id="lname-txt">Last name</h5>
+              <input onclick="clear_validate_error()" type="text" name="user_lastname" data-validate="str" data-min="2" data-max="50" class="form-style" id="loglname" autocomplete="off" >
+              <span class="error-message" id="lname-error">Please provide a last name | 2-50 characters</span>
               <i class="input-icon uil uil-at"></i>
             </div>
             <div class="form-group">
-              <h5 class="input-placeholder" id="email-txt">Email<span class="error-message" id="email-error">Please provide a valid email</span></h5>
-              <input onclick="clear_validate_error()" type="text" name="user_email" data-validate="email" data-min="1" data-max="50" class="form-style" id="logemail" autocomplete="off" style="margin-bottom: 20px;">
+              <h5 class="input-placeholder" id="email-txt">Email</h5>
+              <input onclick="clear_validate_error()" type="text" name="user_email" data-validate="email" data-min="1" data-max="50" class="form-style" id="logemail" autocomplete="off" >
+              <span class="error-message" id="email-error">Please provide a valid email</span>
               <i class="input-icon uil uil-at"></i>
             </div>
             <div class="form-group">
-              <h5 class="input-placeholder" id="phone-txt">Phone<span class="error-message" id="email-error">Please provide a valid phone nr. (8 digits)</span></h5>
-              <input onclick="clear_validate_error()" type="text" name="user_phone" pattern="\d*" data-validate="int" data-min="8" data-max="8" class="form-style" id="logemail" autocomplete="off" style="margin-bottom: 20px;">
+              <h5 class="input-placeholder" id="phone-txt">Phone</h5>
+              <input onclick="clear_validate_error()" type="text" name="user_phone" pattern="\d*" data-validate="int" data-min="8" data-max="8" class="form-style" id="logemail" autocomplete="off" >
+              <span class="error-message" id="email-error">Please provide a valid phone nr. (8 digits)</span>
               <i class="input-icon uil uil-at"></i>
             </div>
             <div class="form-group">
-              <h5 class="input-placeholder" id="pword-txt">Password<span class="error-message" id="password-error">Please provide a valid password | 8-50 characters</span></h5>
-              <input onclick="clear_validate_error()" type="password" name="user_password" data-validate="str" data-min="8" data-max="50" class="form-style" id="logpass" autocomplete="on" style="margin-bottom: 20px;">
+              <h5 class="input-placeholder" id="pword-txt">Password</h5>
+              <input onclick="clear_validate_error()" type="password" name="user_password" data-validate="str" data-min="8" data-max="50" class="form-style" id="logpass" autocomplete="on" >
+              <span class="error-message" id="password-error">Please provide a valid password | 8-50 characters</span>
               <i class="input-icon uil uil-lock-alt"></i>
             </div>
             <div class="form-group">
-              <h5 class="input-placeholder" id="pwordc-txt">Confirm Password<span class="error-message" id="password-confirm-error">Your password &amp; confirm password must match | 8-50 characters</span></h5>
+              <h5 class="input-placeholder" id="pwordc-txt">Confirm Password</h5>
               <input type="password" onclick="clear_validate_error()" name="user_confirm_password" data-match-name="user_confirm_password" data-validate="match" data-min="8" data-max="50" class="form-style" id="logpassconfirm">
+              <span class="error-message" id="password-confirm-error">Your password &amp; confirm password must match | 8-50 characters</span>
               <i class="input-icon uil uil-lock-alt"></i>
             </div>
           </div>

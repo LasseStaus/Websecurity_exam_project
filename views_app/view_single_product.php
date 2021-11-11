@@ -10,20 +10,6 @@ require('./db/db.php');
 require('./db/fetch_product.php');
 require('./db/globals.php');
 
-/* foreach ($products as $product) {
-$images = json_decode($product['product_image']);
-foreach ($images as $image) {
-var_dump($image);
-echo '<br>';
-
-?>
-      <img src="../product-images/<?= out($image) ?>" alt="">
-
-  <?php
-
-  } */
-
-
  
 
 $image = json_decode($product['product_image']);
@@ -38,9 +24,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
     <div class="flex wrap column">
       <div><a href="/">Go back</a></div>
-      <div>
-        <h1>Single product page</h1>
-      </div>
     </div>
 
     <div class="card-wrapper">
@@ -85,7 +68,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
           <div class="flex wrap column">
             <div class="master-flex">
               <p class="small">Created: <span class="small"><?= out($product['product_timestamp']) ?></span></p>
-              <p class="small">By: <span class="small"><?= out($_SESSION['user_firstname']) ?> <?= out($_SESSION['user_lastname']) ?></span></p>
+              <p class="small">By: <span class="small"><?= out($product['user_firstname']) ?> <?= out($product['user_lastname']) ?></span></p>
             </div>
 
           </div>
@@ -109,10 +92,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
           </div>
           <div class="purchase-info master-flex">
             <div class="product-detail flex wrap column">
-              <!--       <span><?= out($_SESSION['user_phone']) ?></span>-->
-              <!--       <span><?= out($_SESSION['user_email']) ?></span>-->
-              <span><i class="fas fa-phone"></i> <a href="tel:xx-xx-xx-xx">xx xx xx xx</a></span>
-              <span><i class="fas fa-envelope"></i> <a href="mailto:seller@mail.com">seller@mail.com</a></span>
+              <span><i class="fas fa-phone"></i> <a href="tel:<?= out($product['user_phone']) ?>"><?= out($product['user_phone']) ?></a></span>
+              <span><i class="fas fa-envelope"></i> <a href="mailto:<?= out($product['user_email']) ?>"><?= out($product['user_email']) ?></a></span>
             </div>
             <br>
             <button type="button" class="btn">
@@ -148,10 +129,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
             $message = out(openssl_decrypt(base64_decode($comment['comment_message']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($comment['comment_iv'])));
           ?>
             <div class="product-comment">
-
-
-
-              <img src="../profile-uploads/<?= $comment['user_image'] ?>" alt="User avatar image">
+            <div class="commentwrap wrap column">
+            <img src="../profile-uploads/<?= $comment['user_image'] ?>" alt="User avatar image">
+              <h5>
+                    <span><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></span>
+                </h5>
+              </div>
               <div class="message">
                 <div class="message-user-information">
                   <h5>

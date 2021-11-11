@@ -161,6 +161,10 @@ body {
   text-align: left;
 }
 
+.admin-btn{
+  margin-top: 20px;
+}
+
 
 
 
@@ -198,16 +202,28 @@ body {
   display: none;
 }
 
+.margin-top {
+  margin-top: 10px;
+}
+
+
+
+
+.form-group:last-child input {
+  
+  margin-bottom: 0px;
+}
+
 
 
 .form-group.validate_error span {
   display: block;
   color: #ec4846;
-  font-style: italic;
-  text-transform: none;
+  text-transform: capitalize;
   font-size: 12px;
-  font-weight: 100;
-  margin: 0;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 0;
   border: 0;
   vertical-align: baseline;
@@ -524,7 +540,7 @@ body {
   .password-container {
     display: flex;
     padding: 0;
-    width: 130%;
+    width: 144%;
     margin-top: 15px;
   }
 
