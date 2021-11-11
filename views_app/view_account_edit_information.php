@@ -40,12 +40,16 @@ try {
           </li>
         </ul>
       </div>
+      <div class="account-content">
+        <h3 class="account-title">Edit your account credentials</h3>
 
-      <div class="form-container-edit-account">
-
-        <h3>Edit your account credentials</h3>
 
         <form id="update-account-information" method="POST" action="/update-account-information" onsubmit="return validate();">
+
+          <!--     <div class="image-input-pair">
+              <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
+              <input class="file-to-upload" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)">
+            </div> -->
 
           <div class="input-pair">
             <label for="user_firstname">First name </label>
@@ -68,11 +72,9 @@ try {
           </div>
 
           <button class="submit">Update user information</button>
-
         </form>
-
-
       </div>
+
     </div>
 
     </div>
@@ -94,6 +96,32 @@ try {
     }
     ?>
   </main>
+
+  <script>
+    /*   async function uploadForm() {
+
+      console.log('lol')
+      let conn = await fetch('/upload-profile-image', {
+
+        method: "POST",
+
+        body: new FormData(document.querySelector("#update-profile-image")),
+
+        redirect: "manual"
+
+      })
+
+      console.log('lol')
+      if (!conn.ok) {
+        alert("error");
+        return
+      }
+      let response = await conn.text()
+      console.log(response, "respin");
+      document.querySelector("#profile_picture_update").setAttribute("src", response + `?v=${new Date().getTime()}`) // random, newest time always newest image "new link" because of parameter
+      document.querySelector(".instapost_profile_img").setAttribute("src", response + `?v=${new Date().getTime()}`)
+    } */
+  </script>
 
 
 <?php

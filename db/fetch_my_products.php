@@ -5,7 +5,10 @@ try {
     $q->bindValue(':user_uuid', $_SESSION['user_uuid']);
     $q->execute();
     $user_products = $q->fetchAll();
+<<<<<<< HEAD
 
+=======
+>>>>>>> lassefix1
 } catch (PDOException $ex) {
     echo $ex;
 }
