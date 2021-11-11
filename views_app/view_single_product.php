@@ -10,20 +10,6 @@ require('./db/db.php');
 require('./db/fetch_product.php');
 require('./db/globals.php');
 
-/* foreach ($products as $product) {
-$images = json_decode($product['product_image']);
-foreach ($images as $image) {
-var_dump($image);
-echo '<br>';
-
-?>
-      <img src="../product-images/<?= out($image) ?>" alt="">
-
-  <?php
-
-  } */
-
-
  
 
 $image = json_decode($product['product_image']);
