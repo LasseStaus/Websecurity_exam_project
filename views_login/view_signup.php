@@ -12,7 +12,9 @@ session_start();
     <form action="/signup" name="signup_form" method="POST" onsubmit="return validate()" class="signup-container">
       <div class="centering-wrapper">
         <div class="section1 text-center">
-          <div class="primary-header"><h1>Sign up</h1></div>
+          <div class="primary-header">
+            <h1>Sign up</h1>
+          </div>
           <div class="secondary-header">Create a new account</div>
           <div class="input-position">
             <?php
@@ -53,23 +55,24 @@ session_start();
           </div>
           <div class="password-container"><a href="/login" class="link">Already have an account?</a></div>
           <div class="btn-position">
-          <button type="submit" class="btn">sign up<img src="../assets/imgs/anchorarrow.png" alt="arrow"></button>
+            <button type="submit" class="btn">sign up<img src="../assets/imgs/anchorarrow.png" alt="arrow"></button>
 
-           <!--  <input class="btn" type="submit" value="signup"> -->
+            <!--  <input class="btn" type="submit" value="signup"> -->
           </div>
         </div>
 
         <div class="qr-signup">
-    <div class="qr-container-sign-up">
-      <img class="logo" src="/assets/imgs/logo.png" />
+          <div class="qr-container-sign-up">
+            <img class="logo" src="/assets/imgs/logo.png" />
 
-    </div>
-    <div class="qr-pheader">Klik<span>&amp;</span>Køb</div>
-<!--     <div class="qr-sheader">Join the community <br> <strong>use our app </strong><br>to log in instantly.</div>
- -->    <div class="qr-sheader"> <a href="/login" class="btn2">sign in<img src="../assets/imgs/anchorarrow.png" alt="arrow"></a></div>
-  </div>
-  </div>
-  </form>
+          </div>
+          <div class="qr-pheader">Klik<span>&amp;</span>Køb</div>
+          <!--     <div class="qr-sheader">Join the community <br> <strong>use our app </strong><br>to log in instantly.</div>
+ -->
+          <div class="qr-sheader"> <a href="/login" class="btn2">sign in<img src="../assets/imgs/anchorarrow.png" alt="arrow"></a></div>
+        </div>
+      </div>
+    </form>
   </div>
 
 
