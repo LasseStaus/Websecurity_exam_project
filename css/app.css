@@ -43,6 +43,7 @@ nav {
 
   align-items: center;
 }
+
 .header-profile {
   display: flex;
   flex-direction: row;
@@ -69,19 +70,23 @@ nav {
 
   border-radius: 10px;
 }
+
 .profile-options-container.active {
   display: block;
 }
+
 .header-chevron {
   width: 20px;
   height: 20px;
   transition: var(--trans-fast);
   cursor: pointer;
 }
+
 .header-chevron.active {
   transform: rotate(180deg);
   transition: var(--trans-fast);
 }
+
 .options {
   background: white;
   display: flex;
@@ -103,9 +108,11 @@ nav {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
 .profile-options-container a:last-child {
   border: none;
 }
+
 .profile-options-container a i {
   color: gray;
 }
@@ -267,4 +274,8 @@ main {
   background-color: rgb(222, 96, 96);
   font-weight: 500;
   color: white;
+}
+
+.pointer {
+  cursor: pointer;
 }

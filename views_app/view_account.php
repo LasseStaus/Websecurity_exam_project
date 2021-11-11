@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 }
 
 if (!isset($_SESSION['user_uuid'])) {
-  header('Location: /account');
+  header('Location: /login');
   exit();
 }
 try {
@@ -15,7 +15,7 @@ try {
   $q->execute();
   $user = $q->fetch();
   if (!$user) {
-    header('Location: /account');
+    header('Location: /login');
     exit();
   }
 ?>
@@ -89,18 +89,19 @@ try {
 
           <!-- ############## my products ##############s -->
 
+
+          <h3>My products</h3>
+
           <?php
-
-
-          require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_my_products.php');
+          require_once('./components/component_errormsg.php');
+          require_once('./components/component_succcessmsg.php');
           ?>
-
-
 
           <div class="product-container">
             <?php
             foreach ($user_products as $user_product) {
               $image = json_decode($user_product['product_image']);
+              $id = $user_product['product_id'];
             ?>
 
               <div class="product">
@@ -114,14 +115,55 @@ try {
                 <!--          <div class="category"> <?= out($user_product['product_category']) ?></div> -->
                 <a href="/single-product/<?= $user_product['product_id'] ?>"></a>
               </div>
+              <div id="<?= $user_product['product_id'] ?>" class="pointer" onclick="open_confirm_modal(this)">
+                Delete
+              </div>
+              <a href="/edit-product/<?= $user_product['product_id'] ?>">Edit</a>
             <?php
 
             }
             ?>
           </div>
+
+          <div id="confirm_modal_delete" class="confirm_modal">
+            <div class="confirm_modal_content">
+              <h3>Are you sure?</h3>
+              <form action="/delete-product" method="POST">
+                <input type="hidden" name="user_product" id="user_product" value="">
+                <div>id ?></div>
+                <button>Delete product</button>
+              </form>
+              <button class="close">Cancel</button>
+            </div>
+
+          </div>
+
         </div>
-      </div>
   </main>
+
+  <script>
+    // confirm modal
+    var modal = document.getElementById("confirm_modal_delete");
+    var span = document.getElementsByClassName("close")[0];
+    const input = document.querySelector('#user_product');
+
+    function open_confirm_modal(element) {
+      modal.style.display = "block";
+      console.log(element)
+      input.value = element.id;
+      // console.log(input);
+    }
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 
 <?php

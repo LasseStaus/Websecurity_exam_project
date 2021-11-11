@@ -8,7 +8,9 @@ session_start();
     <form action="/login" method="POST" onsubmit="return validate()" class="container">
       <div class="centering-wrapper">
         <div class="section1 text-center">
-          <div class="primary-header"> <h1>Sign in</h1></div>
+          <div class="primary-header">
+            <h1>Sign in</h1>
+          </div>
           <div class="secondary-header">Sign in to your account</div>
           <div class="input-position">
             <?php
@@ -37,8 +39,9 @@ session_start();
   <div class="btn-position">
 
     <button type="submit" class="btn">sign in<img src="../assets/imgs/anchorarrow.png" alt="arrow"></button>
-<!--     <input class="btn" type="submit" value="sign in" ><img src="../assets/imgs/anchorarrow.png" alt="arrow">
- -->  </div>
+    <!--     <input class="btn" type="submit" value="sign in" ><img src="../assets/imgs/anchorarrow.png" alt="arrow">
+ -->
+  </div>
   </div>
 
   <div class="qr-login">
@@ -47,8 +50,9 @@ session_start();
 
     </div>
     <div class="qr-pheader">Klik<span>&amp;</span>Køb</div>
-<!--     <div class="qr-sheader">Join the community <br> <strong>use our app </strong><br>to log in instantly.</div>
- -->    <div class="qr-sheader"> <a href="/signup" class="btn2">sign up<img src="/assets/imgs/anchorarrow.png" alt="arrow"></a></div>
+    <!--     <div class="qr-sheader">Join the community <br> <strong>use our app </strong><br>to log in instantly.</div>
+ -->
+    <div class="qr-sheader"> <a href="/signup" class="btn2">sign up<img src="/assets/imgs/anchorarrow.png" alt="arrow"></a></div>
   </div>
   </div>
   </form>
