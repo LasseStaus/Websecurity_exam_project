@@ -89,6 +89,9 @@ try {
 
           <!-- ############## my products ##############s -->
 
+          <?php
+          require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_my_products.php');
+          ?>
 
           <h3>My products</h3>
 
