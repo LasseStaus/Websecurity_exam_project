@@ -42,6 +42,7 @@ session_start();
   </div>
 
   <div class="btn-position admin-btn">
+  <div class="password-container"><a href="/login" class="link">Login as user</a></div>
 
     <button type="submit" class="btn">sign in<img src="/assets/imgs/anchorarrow.png" alt="arrow"></button>
 <!--     <input class="btn" type="submit" value="sign in" ><img src="../assets/imgs/anchorarrow.png" alt="arrow">
