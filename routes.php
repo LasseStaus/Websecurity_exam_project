@@ -6,6 +6,10 @@ get('/', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/index.php');
 }); */
 
+// #########################################################
+// ################### USER INDEX ###############################
+// #########################################################
+
 get('/', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
 });
@@ -15,6 +19,46 @@ get('/index', function () {
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_index.php');
 });
+
+// #########################################################
+// ################### ADMIN INDEX ###############################
+// ########################################################
+
+get('/admin-index', function () {
+
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_admin_index.php');
+});
+
+// #########################################################
+// ################### ADMIN LOGIN ###############################
+// #########################################################
+
+get('/admin-login', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_admin_login.php');
+});
+
+get('/admin-login/error/:message', 'render_admin_login_error');
+function render_admin_login_error($message)
+{
+  $error_message = $message;
+  require_once(__DIR__ . '/views_login/view_admin_login.php');
+  exit();
+}
+get('/admin-login/success/:message', 'render_admin_login_success');
+function render_admin_login_success($success_message)
+{
+  $success_message = $success_message;
+  require_once(__DIR__ . '/views_login/view_admin_login.php');
+  exit();
+}
+post('/admin-login', function () {
+
+  // check if token is valid
+
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_admin_login.php');
+});
+
+
 
 
 // #########################################################
