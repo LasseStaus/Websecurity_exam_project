@@ -1,37 +1,5 @@
 <?php
-
-if (!isset($_SESSION)) {
-
-  session_start();
-}
-//TODO LASSE SET VALIDATION FOR EMPTY EMAIL AND OTHER STUFF
-
-
-if (!isset($_POST['user_firstname'])) {
-  header('Location: /account-edit');
-  exit();
-}
-
-if (!isset($_POST['user_lastname'])) {
-  header('Location: /account-edit');
-  exit();
-}
-
-if (!isset($_POST['user_email'])) {
-  header('Location: /account-edit');
-  exit();
-}
-
-if (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
-  header('Location: /account-edit');
-  exit();
-}
-if (!preg_match('/^[0-9]{8}+$/', $_POST['user_phone'])) {
-
-  header("Location: /account-edit");
-  exit();
-}
-
+require('./backendValidation/update_account_information.php');
 
 try {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
@@ -45,12 +13,8 @@ try {
   $q->bindValue(':user_phone', $_POST['user_phone']);
   $q->execute();
 
-  if (!$q->rowCount()) {
-    echo 'soemthing went wrong';
-    exit;
-  }
-
-  header("Location: /account-edit/my-user-information");
+  $success_message = "You have changed your user information";
+  header("Location: /account-edit/my-user-information/success/$success_message");
 } catch (PDOException $ex) {
   echo $ex;
 }

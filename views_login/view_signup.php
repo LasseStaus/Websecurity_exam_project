@@ -38,8 +38,8 @@ session_start();
               <i class="input-icon uil uil-at"></i>
             </div>
             <div class="form-group">
-              <h5 class="input-placeholder" id="phone-txt">Phone<span class="error-message" id="email-error">Please provide a valid phone nr. (8 digits)</span></h5>
-              <input onclick="clear_validate_error()" type="text" name="user_phone" pattern="\d*" data-validate="int" data-min="8" data-max="8" class="form-style" id="logemail" autocomplete="off" style="margin-bottom: 20px;">
+              <h5 class="input-placeholder" id="phone-txt">Phone<span class="error-message" id="phone-error">Please provide a valid phone nr. (8 digits)</span></h5>
+              <input onclick="clear_validate_error()" type="text" name="user_phone" pattern="\d*" data-validate="int" data-min="8" maxlength="8" data-max="8" class="form-style" id="logemail" autocomplete="off" style="margin-bottom: 20px;">
               <i class="input-icon uil uil-at"></i>
             </div>
             <div class="form-group">
