@@ -21,9 +21,10 @@ echo '<br>';
 
   <?php
 
-  }
+  } */
 
- */
+
+ 
 
 $image = json_decode($product['product_image']);
 $message = out(openssl_decrypt(base64_decode($product['product_description']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($product['product_iv'])));
