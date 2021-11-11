@@ -41,7 +41,7 @@
             <div class="options">
 
                 <a href="/account">Go to profile <i class="fas fa-chevron-right"></i></a>
-                <a href="/account">Create Product<i class="fas fa-chevron-right"></i></a>
+                <a href="/create-product">Create Product<i class="fas fa-chevron-right"></i></a>
                 <a href="/logout">Logout <i class="fas fa-chevron-right"></i></a>
             </div>
 

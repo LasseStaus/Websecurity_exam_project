@@ -90,8 +90,6 @@ get('/confirm/:user_confirmation_key', function ($user_confirmation_key) {
 // #########################################################
 
 post('/create-comment', function () {
-
-
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_comment.php');
 });
 
@@ -111,6 +109,10 @@ get('/single-product/:product_id', function ($product_id) {
 
 
 get('/create-product', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_create_product.php');
+});
+get('/create-product/error/:message', function ($error_message) {
+  $error_message = $error_message;
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_create_product.php');
 });
 
@@ -177,9 +179,14 @@ get('/search', function () {
 // ################# EDIT USER ACCOUNT #####################
 // #########################################################
 
+post('/upload-profile-image', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_upload_profile_image.php');
+});
+
 get('/account', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account.php');
 });
+
 
 get('/account-edit/my-user-information', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account_edit_information.php');
