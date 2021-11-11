@@ -245,6 +245,16 @@ img {
 
 }
 
+@media screen and (min-width: 333px) {
+
+.comments-container {
+  
+  display: block;
+  margin: 0 auto;
+  
+  }
+}
+
 @media screen and (min-width: 992px) {
   .card {
     display: grid;
@@ -294,5 +304,15 @@ img {
   width: 50%;
   margin: 0 auto;
 }
+
+.comments-container {
+  
+  display: block;
+  margin: 0;
+  
+  }
+
+
+
 
 }

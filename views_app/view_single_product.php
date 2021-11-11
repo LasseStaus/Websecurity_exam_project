@@ -24,9 +24,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
     <div class="flex wrap column">
       <div><a href="/">Go back</a></div>
-      <div>
-        <h1>Single product page</h1>
-      </div>
     </div>
 
     <div class="card-wrapper">
