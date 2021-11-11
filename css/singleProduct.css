@@ -138,16 +138,21 @@ img {
   color: #12263a;
   padding-bottom: 0.6rem;
 }
-.product-detail p {
-  font-size: 0.9rem;
- /*  padding: 0.3rem; */
-  opacity: 0.8;
+.product-detail p {    
+  margin-top: 10px;
   
 }
 
 .product-detail span {
   font-weight: 800;
+  display: flex;
+    gap: 1rem;
 }
+.product-detail a {
+  text-decoration: none;
+  color: black;
+}
+
 .product-detail ul {
   margin: 1rem 0;
   font-size: 0.9rem;

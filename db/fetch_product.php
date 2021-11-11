@@ -6,7 +6,12 @@
 
 try {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
-    $q = $db->prepare("SELECT * FROM products WHERE product_id = '$product_id'");
+    $q = $db->prepare("SELECT * FROM products
+                       INNER JOIN users
+                       ON users.user_uuid = products.user_uuid 
+                       WHERE product_id = '$product_id'");
+
+
     $q->execute();
     $product = $q->fetch();
 } catch (PDOException $ex) {
