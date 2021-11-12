@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require('./db/fetch_user_products.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
@@ -6,8 +8,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 <main>
 
     <a href="/admin-index">Go back</a>
-    <h1>Products of <?= $user_firstname ?> <?= $user_lastname ?></h1>
-    <h2>ID: <?= $user_id ?></h2>
+    <h1>Products of <?= $user_id ?></h1>
+
     <div class="page-container">
 
 

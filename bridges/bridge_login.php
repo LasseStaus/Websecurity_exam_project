@@ -9,7 +9,7 @@ try {
 
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
-  $q = $db->prepare('SELECT * FROM users WHERE user_email = :user_email');
+  $q = $db->prepare('SELECT * FROM users WHERE user_email = :user_email AND user_status = 1');
   $q->bindValue(':user_email', $_POST['user_email']);
   $q->execute();
   $user = $q->fetch();

@@ -6,7 +6,7 @@ $user_id = $_POST['user_uuid'];
 
 if (!is_csrf_valid() == true) {
     $error_message = "You can't hack signup. as";
-    header("Location: /signup/error/$error_message");
+    header("Location: /404");
     exit();
 }
 
