@@ -59,13 +59,13 @@ form#update-account-information {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .input-pair {
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 130px 1fr;
   grid-template-rows: auto;
   align-items: flex-start;
   justify-content: flex-start;

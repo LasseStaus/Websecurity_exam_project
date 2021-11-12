@@ -2,7 +2,7 @@ form#create_product {
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -29,7 +29,23 @@ label {
 }
 
 button.submit {
-  width: 90%;
+  width: 100%;
   align-self: flex-end;
   padding: 1rem;
+  grid-column: 2;
+}
+
+i#new-images {
+  justify-self: end;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: var(--trans-fast);
+}
+i#new-images:hover {
+  transform: scale(1.15);
+  transition: var(--trans-fast);
+}
+
+button {
+  cursor: pointer;
 }

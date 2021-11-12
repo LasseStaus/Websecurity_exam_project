@@ -43,8 +43,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         </div>
         <div class="input-pair">
             <label for="product_images">Images</label>
-            <input type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="Upload images">
+            <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="Upload images" onchange="printImages(this)">
             <span>Please provide 1-4 images of the product</span>
+        </div>
+        <div class="input-pair">
+            <div id="images-preview-container">
+
+            </div>
         </div>
 
         <button type=" submit" class="submit">Create product</button>
@@ -56,26 +61,26 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 </main>
 
 <script>
-    /*   let loadFile = function(event) {
-        var output = document.querySelector(".img-show-input");
-        output.src = URL.createObjectURL(event.target.files[0]);
-        output.classList.add("contain")
-        output.onload = function() {
-            URL.revokeObjectURL(output.src) // free memory
+    function printImages(element) {
+        const div = document.getElementById("images-preview-container");
+        div.innerHTML = "";
+
+        let files = element.files;
+
+        if (files.length < 1 || files.length > 4) {
+            alert('1-4 images');
+            return
         }
-        const button = document.querySelector("button.upload-profile-image");
-        button.classList.add("show");
+        for (var i = 0; i < files.length; i++) {
 
-    };
- */
-    /*     function showInputImages(element) {
-            if (element.files.length > 1 && element.files.length <= 4) {
-                console.log("hej")
-                console.log(element.files, "this")
-                let image = document.createElement("img");
+            let output = document.createElement("img")
+            div.appendChild(output);
+            output.src = URL.createObjectURL(event.target.files[i]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
             }
-
-        } */
+        }
+    }
 </script>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');

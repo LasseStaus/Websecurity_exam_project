@@ -1,4 +1,4 @@
-document.addEventListener('mouseup', function (e) {
+document.addEventListener('keydown', function (e) {
     let container = document.getElementById('search_results');
 
     console.log(container)

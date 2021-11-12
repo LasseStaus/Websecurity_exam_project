@@ -1,26 +1,77 @@
 <?php
 session_start();
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!is_csrf_valid() == true) {
+    $error_message = "You can't hack signup. as";
+    header("Location: /signup/error/$error_message");
+    exit();
+}
 
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/backendValidation/createProduct.php');
+
+if (isset($_FILES['file-to-upload']['name'])) {
+    require($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_update_product_new_images.php');
+    exit;
+};
+
+if (!isset($_FILES['file-to-upload'])) {
+    require($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_update_product_no_new_images.php');
+    exit;
+}
+
+
+
+
+
+
+
+
 
 $valid_extensions = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'pdf', 'jfif'];
+
+
 $images = [];
+print_r($_FILES['file-to-upload']['tmp_name']);
+
+$test1 = $_FILES;
+//$test2 = mime_content_type($test1);
+print_r($test1);
+exit;
+
+echo '<br>';
+echo '<br>';
+
 foreach ($_FILES['file-to-upload']['tmp_name'] as $file) {
     $image_type = mime_content_type($file);
+    print_r($file);
     $extension = strrchr($image_type, '/');
     $extension = ltrim($extension, '/');
+    //echo '<br>';
     if (!in_array($extension, $valid_extensions)) {
         echo "mmm.. hacking me?";
         exit();
     }
     $random_image_name = bin2hex(random_bytes(16)) . ".$extension";
+
+    echo '<br>';
+    //var_dump($random_image_name);
     array_push($images, $random_image_name);
     move_uploaded_file($file, "product-images/$random_image_name");
 };
 
+/* exit;
+var_dump($_FILES['file-to-upload']);
+echo '<br>';
+print_r($_FILES['file-to-upload']);
+exit; */
+
 $images = json_encode($images);
+$testlol = json_encode($_FILES['file-to-upload']);
+
 
 //DATABASE
 
