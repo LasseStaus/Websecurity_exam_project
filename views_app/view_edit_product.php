@@ -15,13 +15,13 @@ $message = out(openssl_decrypt(base64_decode($product['product_description']), $
 $image = json_decode($product['product_image']);
 ?>
 
-<main>
+<main id="edit">
     <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/components/component_errormsg.php');
     ?>
+    <h3 class="page-title">Edit Product</h3>
+    <form id="create_product" action="/update-product/<?= $product['product_id'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
 
-    <h3>Edit Product</h3>
-    <form id="create_product" action="/create-new-product/<?= $_SESSION['user_uuid'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
 
         <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
         <div class="input-pair">
@@ -45,26 +45,49 @@ $image = json_decode($product['product_image']);
             <textarea name="product_description" data-validate="str" data-min="1" data-max="500"><?= $message ?></textarea>
             <span>Please provide a description of the product</span>
         </div>
-        <div class="input-pair">
-            <label for="product_images">Images</label>
-            <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>">
-            <span>Please provide 1-4 images of the product</span>
+        <div id="file-input" class="input-pair">
+
+            <?php
+            if (isset($error_message)) {
+
+            ?>
+                <label for="product_images">Images</label>
+                <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
+                <span>Please provide 1-4 images of the product</span>
+
+            <?php
+
+            } else {
+
+
+            ?>
+                <i id="new-images" class="fas fa-upload" onclick="newImages()"></i>
+
+
+                <div id="images-preview-container">
+                    <?php
+                    foreach ($image as $img) {
+                    ?>
+                        <img src="../product-images/<?= out($img) ?>" alt="Current product image">
+                    <?php
+                    }
+                    ?>
+                </div>
+            <?php
+
+
+            }
+            ?>
+
+
         </div>
 
-        <!--         <?php
-                        foreach ($image as $img) {
-                        ?>
-            <div class="input-pair">
-                <img src="../product-images/<?= out($img) ?>" alt="Current product image">
-                <input type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>">
-
-            </div>
-        <?php
-                        }
-        ?> -->
 
 
-        <button type=" submit" class="submit">Create product</button>
+        <div class="input-pair">
+
+            <button type=" submit" class="submit">Update product</button>
+        </div>
 
     </form>
 
@@ -74,58 +97,76 @@ $image = json_decode($product['product_image']);
 
 
 <script>
-    let passedArray = <?php echo json_encode($image) ?>;
-    const fileInput = document.querySelector("#input");
-    console.log(passedArray);
-    const dataTransfer = new DataTransfer()
-    let newArray = [];
-    for (var i = 0; i < passedArray.length; i++) {
-        console.log(passedArray[i]);
-        const file = new File(['Hello world!'], passedArray[i], {
-            type: 'png',
-            tmp_name: 'png'
-        })
-        console.log(file);
-        dataTransfer.items.add(file)
-        //Do something
+    function printImages(element) {
+        const div = document.getElementById("images-preview-container");
+        const h2 = document.createElement("h2");
+        h2.textContent = "Selected images";
+        h2.classList = "grid-c-2";
+        div.innerHTML = "";
+
+        let files = element.files;
+
+        if (files.length < 1 || files.length > 4) {
+            alert('1-4 images');
+            return
+        }
+        for (var i = 0; i < files.length; i++) {
+            let output = document.createElement("img")
+            div.appendChild(output);
+            output.src = URL.createObjectURL(event.target.files[i]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        }
     }
-    fileInput.files = dataTransfer.files
-    /*  const fileInput = document.querySelector("#input");
-
-     foreach(file in passedArray, () => {
-         console.log(file);
-
-     })
-
-     passedArray.foreach(image, () => {
-         console.log(image);
-     }) */
 
 
-    const file = new File(['Hello world!'], 'hello.txt', {
-        type: 'text/plain'
-    })
+    function newImages() {
+        const div = document.getElementById("images-preview-container");
+        div.innerHTML = "";
+        const button = document.getElementById("new-images");
+        const container = document.getElementById("file-input")
+        button.remove();
 
-    /*     dataTransfer.items.add(file)
+        let inputPairContent = `
+        
+                <label for="product_images">Images</label>
+                <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
+                <span>Please provide 1-4 images of the product</span>
+  `
 
-        fileInput.files = dataTransfer.files */
+        container.insertAdjacentHTML('beforeend', inputPairContent)
+
+    }
+
 
     /* 
-        function getFiles(input) {
-            const files = new Array(input.files.length)
-            for (let i = 0; i < input.files.length; i++)
-                files[i] = input.files.item(i)
-            return files
+        <div class="input-pair">
+                <label for="product_images">Images</label>
+                <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
+                <span>Please provide 1-4 images of the product</span>
+            </div> */
+
+
+
+
+
+    /*     let passedArray = <?php echo json_encode($image) ?>;
+        const fileInput = document.querySelector("#input");
+        console.log(passedArray);
+        const dataTransfer = new DataTransfer()
+        let newArray = [];
+        for (var i = 0; i < passedArray.length; i++) {
+            console.log(passedArray[i]);
+            const file = new File(['Hello world!'], passedArray[i], {
+                type: 'png',
+                tmp_name: 'png'
+            })
+            console.log(file);
+            dataTransfer.items.add(file)
+            //Do something
         }
-
-        setFiles(document.querySelector("#input"), passedArray);
-
-        function setFiles(input, files) {
-            const dataTransfer = new DataTransfer()
-            for (const file of files)
-                dataTransfer.items.add(file)
-            fileInput.files = dataTransfer.files
-        } */
+        fileInput.files = dataTransfer.files */
 </script>
 
 <?php

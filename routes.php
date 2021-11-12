@@ -279,6 +279,17 @@ get('/account-edit/change-password/success/:successmessage', function ($success_
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account_change_password.php');
 });
 
+post('/update-product/:product_id', function ($product_id) {
+
+  $product_id = $product_id;
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_update_product_check.php');
+});
+
+get('/update-product/error/:errormessage/:product_id', function ($error_message, $product_id) {
+  $error_message = $error_message;
+  $product_id = $product_id;
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_edit_product.php');
+});
 
 post('/update-account-information', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_update_account_information.php');
