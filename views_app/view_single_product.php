@@ -120,7 +120,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
       <div>
         <?php
         require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_comments.php');
-        ?>
+        
+         ?>
 
         <div class="product-comments-container">
           <?php
@@ -128,7 +129,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
             $message = out(openssl_decrypt(base64_decode($comment['comment_message']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($comment['comment_iv'])));
           ?>
-            <div class="product-comment">
+          <!--   <div class="product-comment">
             <div class="commentwrap wrap column">
             <img src="../profile-uploads/<?= $comment['user_image'] ?>" alt="User avatar image">
               <h5>
@@ -156,10 +157,98 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
                 </div>
               </div>
+            </div> -->
+
+
+            <div class="comment-thread">
+        <!-- Comment 1 start -->
+
+
+          <div class="comment" id="comment-1">
+        <a href="#" class="comment-border-link">
+            
+        </a>
+        <summary>
+            <div class="comment-heading">
+               
+                <div class="comment-info">
+                    <a href="#" class="comment-author"><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></a>
+                    <p class="m-0">
+                     <?= $comment['comment_timestamp'] ?>
+                    </p>
+                </div>
             </div>
+        </summary>
+               
+     
+        <div class="comment-body">
+            <p>
+            <?= $message ?>
+            </p>
+
+        
+            <button class="replybtn" type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Reply</button>
+
+            <!-- Reply form start -->
+            <form action="/create-reply" method="POST" class="reply-form d-none" id="comment-1-reply-form">
+            <input type="hidden" name="product_id" value="<?= $product_id ?>"> 
+            <input type="hidden" name="comment_id" value="<?= $comment_id ?>"> 
+                <textarea name="reply_body" placeholder="Reply to comment" rows="4"></textarea>
+                <button type="submit">Submit</button>
+                <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Cancel</button>
+            </form>
+            <!-- Reply form end -->
+        </div>
+        <?php
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_replies.php');
+       
+        ?>
+                  <!-- <div class="replymsg">  <p><?= $replyMsg ?></p></div> -->
+
+                  
+          <div class="replybox" id="">
+        <a href="#" class="reply-border-link">
+            
+        </a>
+        <summary>
+            <div class="reply-heading">
+               
+                <div class="comment-info">
+                    <a href="#" class="comment-author"><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></a>
+                    <p class="m-0">
+                     <?= $comment['comment_timestamp'] ?>
+                    </p>
+                </div>
+            </div>
+        </summary>
+               
+        
+        <div class="reply-body">
+        <p><?= $replyMsg ?></p>
+                
+           <!--  <a href="#load-more">Load more replies</a> -->
+        </div> 
+    </details>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <?php
           }
           ?>
+          </div>
         </div>
       </div>
 
