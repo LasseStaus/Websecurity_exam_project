@@ -1,13 +1,5 @@
 <?php
 
-/* 
-$adminsalt = bin2hex(openssl_random_pseudo_bytes(50));
-$adminhashed = hash($algo, "admin" . $adminsalt . $peberstring);
-echo $adminsalt;
-echo "<br>";
-echo $adminhashed;
-exit(); */
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_top.php');
 session_start();
 ?>

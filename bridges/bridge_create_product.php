@@ -34,10 +34,10 @@ foreach ($_FILES['file-to-upload']['tmp_name'] as $file) {
     move_uploaded_file($file, "product-images/$random_image_name");
 };
 
-var_dump($_FILES['file-to-upload']);
+/* var_dump($_FILES['file-to-upload']);
 echo '<br>';
 print_r($_FILES['file-to-upload']);
-exit;
+exit; */
 $images = json_encode($images);
 
 
