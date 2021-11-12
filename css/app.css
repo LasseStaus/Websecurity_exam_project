@@ -2,6 +2,7 @@
 @import "createproduct.css";
 @import "editaccount.css";
 @import "indexfeed.css";
+@import "admin.css";
 @import "singleProductComment.css";
 
 body {
@@ -146,8 +147,7 @@ main::-webkit-scrollbar-thumb:hover {
   margin: 0 auto;
 }
 
-.validate_error {
-}
+.validate_error {}
 
 .input-pair input,
 .input-pair textarea {
@@ -156,9 +156,11 @@ main::-webkit-scrollbar-thumb:hover {
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
 .input-pair label {
   font-weight: bold;
 }
+
 .input-pair textarea {
   min-height: 160px;
   resize: vertical;

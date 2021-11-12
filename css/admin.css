@@ -1,0 +1,27 @@
+.users-container {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.users-container td,
+.users-container th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.users-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.users-container tr:hover {
+    background-color: #ddd;
+}
+
+.users-container th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #588dcd;
+    color: white;
+}

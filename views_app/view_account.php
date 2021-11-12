@@ -43,9 +43,7 @@ try {
             <a href="/account-edit/change-password">Change password</a>
           </li>
           <li>
-            <form action="/delete-account/<?= $_SESSION['user_uuid'] ?>" method="POST">
-              <button type="submit" class="small">Delete account</button>
-            </form>
+            <button type="submit" class="small" onclick="open_confirm_modal_account()">Delete account</button>
           </li>
         </ul>
       </div>
@@ -118,7 +116,7 @@ try {
                 <!--          <div class="category"> <?= out($user_product['product_category']) ?></div> -->
                 <a href="/single-product/<?= $user_product['product_id'] ?>"></a>
               </div>
-              <div id="<?= $user_product['product_id'] ?>" class="pointer" onclick="open_confirm_modal(this)">
+              <div id="<?= $user_product['product_id'] ?>" title="<?= $user_product['product_title'] ?>" class="pointer" onclick="open_confirm_modal_product(this)">
                 Delete
               </div>
               <a href="/edit-product/<?= $user_product['product_id'] ?>">Edit</a>
@@ -128,42 +126,69 @@ try {
             ?>
           </div>
 
-          <div id="confirm_modal_delete" class="confirm_modal">
+          <div id="confirm_modal_delete_account" class="confirm_modal">
             <div class="confirm_modal_content">
               <h3>Are you sure?</h3>
+              <form action="/delete-account" method="POST">
+                <button>Delete account</button>
+              </form>
+              <button class="close_account">Cancel</button>
+            </div>
+          </div>
+
+          <div id="confirm_modal_delete_product" class="confirm_modal">
+            <div class="confirm_modal_content">
+              <h3>Are you sure you want to delete?</h3>
+              <p id="product_name_show"> </p>
               <form action="/delete-product" method="POST">
                 <input type="hidden" name="user_product" id="user_product" value="">
-                <div>id ?></div>
                 <button>Delete product</button>
               </form>
               <button class="close">Cancel</button>
             </div>
-
           </div>
 
         </div>
   </main>
 
   <script>
-    // confirm modal
-    var modal = document.getElementById("confirm_modal_delete");
-    var span = document.getElementsByClassName("close")[0];
-    const input = document.querySelector('#user_product');
+    // confirm modal delete account
+    let modal_account = document.getElementById("confirm_modal_delete_account");
+    let span_account = document.getElementsByClassName("close_account")[0];
 
-    function open_confirm_modal(element) {
-      modal.style.display = "block";
-      console.log(element)
-      input.value = element.id;
-      // console.log(input);
+    function open_confirm_modal_account() {
+      modal_account.style.display = "block";
     }
 
-    span.onclick = function() {
-      modal.style.display = "none";
+    span_account.onclick = function() {
+      modal_account.style.display = "none";
     }
 
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target == modal_account) {
+        modal_account.style.display = "none";
+      }
+    }
+
+    // confirm modal delete product
+    let modal_product = document.getElementById("confirm_modal_delete_product");
+    let span = document.getElementsByClassName("close")[0];
+    const input = document.querySelector('#user_product');
+
+    function open_confirm_modal_product(element) {
+      modal_product.style.display = "block";
+      input.value = element.id;
+      let product_title = element.title;
+      document.getElementById('product_name_show').innerHTML = product_title
+    }
+
+    span.onclick = function() {
+      modal_product.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal_product) {
+        modal_product.style.display = "none";
       }
     }
   </script>

@@ -2,44 +2,69 @@
 
 session_start();
 
-if (!isset($_SESSION['admin_user_uuid'])){
+if (!isset($_SESSION['admin_user_uuid'])) {
     header('Location: /admin-login');
     exit();
 }
 
 require('./db/db.php');
-require('./db/fetch_products.php');
+require('./db/fetch_users.php');
 require('./db/globals.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
 ?>
 <main>
 
-<h1>ADMIN PAGE</h1>
+    <h1>ADMIN PAGE</h1>
     <div class="page-container">
 
 
         <div id="search_results"></div>
-        <div class="product-container">
+        <table class="users-container">
+            <tr class="user">
+                <th>User id</th>
+                <th>User name</th>
+                <th>User lastname</th>
+                <th>User email</th>
+                <th>User status</th>
+                <th>Change status</th>
+                <th>User products</th>
+            </tr>
             <?php
-            foreach ($products as $product) {
-                $image = json_decode($product['product_image']);
+            foreach ($users as $user) {
+
             ?>
 
-                <table class="product">
-                    <!--     <div> <strong>PRODUCT ID:</strong> <?= out($product['product_id']) ?></div> -->
-                    <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
-                    <!--        <div> <strong>USER_ID:</strong> <?= out($_SESSION['user_uuid']) ?></div> -->
-                    <!--      <div class="time"> <?= out($product['product_timestamp']) ?></div> -->
-                    <div class="title"> <?= out($product['product_title']) ?></div>
-                    <!--     <div class="desc"> <?= out($product['product_description']) ?></div> -->
-                    <div class="price"> <?= out($product['product_price']) ?> <span>Dkk</span></div>
-                    <!--          <div class="category"> <?= out($product['product_category']) ?></div> -->
-                    <a href="/single-product/<?= $product['product_id'] ?>"></a>
-                </table>
+                <tr class="user">
+                    <td><?= $user['user_uuid'] ?></td>
+                    <td><?= $user['user_firstname'] ?></td>
+                    <td><?= $user['user_lastname'] ?></td>
+                    <td><?= $user['user_email'] ?></td>
+                    <td>
+                        <?php if ($user['user_status'] == 1) { ?>
+                            Active
+                        <?php } else {
+                        ?> Blocked <?php
+                                } ?></td>
+                    <td>
+                        <form action="/admin/change-user-status" method="POST">
+                            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                            <input type="hidden" name="user_id" value="<?= $user['user_uuid'] ?>">
+                            <input type="hidden" name="user_status" value="<?= $user['user_status'] ?>">
+                            <button type="submit"> <?php if ($user['user_status'] == 1) { ?>Block user <?php } else {
+                                                                                                        ?> Unblock user<?php
+                                                                                                                    } ?>
+                            </button>
+                        </form>
+                    </td>
+                    <td>
+                        <a href="/admin/show_user_products/<?= $user['user_uuid'] ?>">Show products</a>
+                    </td>
+                </tr>
             <?php
             }
             ?>
-        </div>
+        </table>
     </div>
 </main>
 <?php

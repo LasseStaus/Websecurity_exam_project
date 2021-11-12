@@ -29,6 +29,21 @@ get('/admin-index', function () {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_admin_index.php');
 });
 
+get('/admin/show_user_products/:user_id', function ($user_id) {
+
+  $user_id = $user_id;
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_admin_user_product.php');
+});
+
+post('/admin/change-user-status', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_admin_change_user_status.php');
+});
+post('/admin/change-product-status', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_admin_change_product_status.php');
+});
+
+
+
 // #########################################################
 // ################### ADMIN LOGIN ###############################
 // #########################################################
@@ -240,6 +255,10 @@ get('/account', function () {
 get('/account/success/:successmessage', function ($success_message) {
   $success_message = $success_message;
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_account.php');
+});
+
+post('/delete-account', function () {
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_delete_my_account.php');
 });
 
 post('/delete-product', function () {
