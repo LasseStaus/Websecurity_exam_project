@@ -15,6 +15,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 <main>
     <div class="page-container">
 
+        <div class="search-container">
+            <form onsubmit="return false" id="search-form">
+                <i class="fas fa-search"></i>
+                <input class="search-input" name="search_for" type="text" placeholder="Search for product" oninput=search(); onclick="show_results()">
+                <i class="clear-input fas fa-times-circle" onclick="clear_input()"></i>
+            </form>
+
+        </div>
 
         <div id="search_results"></div>
         <div class="product-container">

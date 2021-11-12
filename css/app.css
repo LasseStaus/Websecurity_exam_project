@@ -79,6 +79,7 @@ nav {
   object-fit: cover;
   height: 40px;
   width: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.534);
 }
 
 .profile-options-container {
@@ -253,6 +254,7 @@ a.logout {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 #search-form {

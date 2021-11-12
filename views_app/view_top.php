@@ -23,16 +23,9 @@
             <a href="/create-product">create product</a>
             <a href="/logout">logout</a>
         </nav>
-        <div class="search-container">
-            <form onsubmit="return false" id="search-form">
-                <i class="fas fa-search"></i>
-                <input class="search-input" name="search_for" type="text" placeholder="Search for product" oninput=search(); onclick="show_results()">
-                <i class="clear-input fas fa-times-circle" onclick="clear_input()"></i>
-            </form>
 
-        </div>
         <div class="header-profile">
-            <span>Lasse</span>
+            <span><?= $_SESSION['user_firstname'] ?></span>
 
             <a href="/account"><img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="image"></a>
             <i class="header-chevron fas fa-chevron-down"></i>
