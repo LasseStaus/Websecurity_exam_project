@@ -120,34 +120,37 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
             <img src="../product-images/1eb520be6cb2ff887b7cfae487cd6d76.png" alt="test">
             <div class="heading">
-              <h6><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></h6><i class="fas fa-circle"></i><span><?= $comment['comment_timestamp'] ?></span>
+              <h6><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></h6><i class="circle fas fa-circle"></i><span><?= $comment['comment_timestamp'] ?></span>
             </div>
             <div class="comment-content"><?= $commentMessage ?> </div>
             <div class="comment-buttons">
-
-              <button class="replybtn" type="button" data-target="<?= $comment['comment_id'] ?>" onclick="printReplyForm(this)">Reply</button>
+              <div class="replies_number_container">
+                <i class="fas fa-caret-down" onclick="showReplies(this)"></i>
+                <span class="comment_replies_number"> 6 replies</span>
+              </div>
+              <i class="circle fas fa-circle"></i>
+              <button class="replybtn" type="button" data-target="<?= $comment['comment_id'] ?>" onclick="showReplyForm(this)">Reply</button>
 
             </div>
-            <form action="/create-reply/<?= $comment['comment_id'] ?>" method="POST" class="reply-form" id="comment-1-reply-form">
+            <form action="/create-reply/<?= $comment['comment_id'] ?>" data-target="<?= $comment['comment_id'] ?>" method="POST" class="reply-form">
               <input type="hidden" name="product_id" value="<?= $product_id ?>">
-              <textarea name="reply_message" placeholder="Reply to comment" rows="4">sadasdasd</textarea>
+              <textarea name="reply_message" placeholder="Reply to comment" rows="4">Add a comment</textarea>
               <input type="submit" value="submitlll">
-              <!--     <button type="button" onclick="cancelReply(this)">Cancel</button> -->
+              <button type="button" onclick="cancelReply(this)">Cancel</button>
             </form>
             <div class="replies-container">
               <?php
               $comment_id = $comment['comment_id'];
               require($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_replies.php');
               foreach ($replies as $reply) {
+
                 $replyMessage = out(openssl_decrypt(base64_decode($reply['reply_body']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($reply['reply_iv'])));
               ?>
                 <div class="single-reply-container">
                   <img src="../profile-uploads/<?= $reply['user_image'] ?>" alt="Profile image of <?= $reply['user_firstname'] ?> ">
-
                   <div class="heading">
                     <h6><?= $reply['user_firstname'] ?> <?= $reply['user_lastname'] ?></h6><i class="circle fas fa-circle"></i><span><?= $reply['updated_at'] ?></span>
                   </div>
-
                   <div class="reply-message">
                     <p><?= $replyMessage ?> </p>
 

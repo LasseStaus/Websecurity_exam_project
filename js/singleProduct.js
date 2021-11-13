@@ -18,53 +18,47 @@ function slideImage() {
 
 window.addEventListener('resize', slideImage);
 
+function countReplies() {
+    let allComments = document.querySelectorAll(".single-comment-container");
 
 
-function printReplyForm(element) {
-    console.log(element)
-    console.log(element.dataset.target);
-    let currentComment = element.parentNode;
-    /*  currentComment.innerHTML = ""; */
+    allComments.forEach(element => {
+        let count = 0;
+        let span = element.querySelector(".comment_replies_number");
+        let replyContainers = element.querySelectorAll('.replies-container');
 
-    let replyForm = `<form action="/create-reply" method="POST" class="reply-form" id="comment-1-reply-form">
-    <input type="hidden" name="product_id" value="<?= $product_id ?>">
-    <textarea name="reply_body" placeholder="Reply to comment" rows="4"></textarea>
-    <button type="submit">Submit</button>
-    <button type="button" onclick="cancelReply(this)">Cancel</button>
-  </form>`;
-
-    currentComment.insertAdjacentHTML('beforeend', replyForm);
+        //  let replies = replyContainers.querySelectorAll(".single-reply-container");
+        for (let i = 0; i < replyContainers.length; i++) {
+            console.log('hej');
+            count++;
+        }
+        span.textContent = count + "Replies";
 
 
+        console.log(span)
+    })
+
+    // console.log(allComments)
 }
+
+countReplies();
+function showReplyForm(element) {
+    let allForms = document.querySelectorAll(".reply-form");
+    allForms.forEach(form => {
+        form.classList.remove("show");
+    })
+    let container = element.parentNode.parentNode;
+    container.querySelector(".reply-form").classList.toggle("show");
+}
+function showReplies(element) {
+    let container = element.parentNode.parentNode.parentNode;
+    element.classList.toggle("active");
+    container.querySelector(".replies-container").classList.toggle("show");
+}
+
 
 function cancelReply(element) {
-    element.parentNode.remove();
+    let container = element.parentNode.parentNode;
+    container.querySelector(".reply-form").classList.remove("show");
 }
-/*
 
-document.addEventListener(
-    "click",
-    function (event) {
-        var target = event.target;
-        var replyForm;
-
-
-        if (target.matches("[data-toggle='reply-form']")) {
-            replyForm = document.getElementById(target.getAttribute("data-target"));
-            //replyBox = document.getElementById(target.getAttribute("data-target"));
-
-            replyForm.classList.toggle("d-none");
-            replyForm.classList.toggle("z-index");
-            //replyBox.classList.toggle("hidden");
-
-
-        }
-    },
-    false
-
-
-);
-
-
- */
