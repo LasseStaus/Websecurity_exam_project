@@ -1,13 +1,10 @@
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keyup', function (e) {
     let container = document.getElementById('search_results');
-
     console.log(container)
-
     if (!container.contains(e.target)) {
         container.style.display = 'none';
         hide_results();
         /*   document.querySelector("input.search-input").value = ""; */
-
     }
 });
 
