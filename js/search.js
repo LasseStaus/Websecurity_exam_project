@@ -12,33 +12,21 @@ let clearInputButton = document.querySelector("i.clear-input")
 // People prof. exp. use this approach
 let search_timer // used to stop the search_timer
 function search() {
-
     let lol = document.querySelector("#search-form");
-
     if (search_timer) {
         clearTimeout(search_timer)
     }
     if (event.target.value.length >= 2) {
-
         search_timer = setTimeout(async function () {
-
-
             let conn = await fetch('/search', {
-
                 method: "POST",
                 body: new FormData(document.querySelector("#search-form"))
-
             })
 
             if (!conn.ok) {
                 alert('uppps....')
             }
-
             let products = await conn.json()
-
-
-
-
             // populate the results
             document.querySelector("#search_results").innerHTML = ""
 
