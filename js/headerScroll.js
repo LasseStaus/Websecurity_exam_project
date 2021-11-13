@@ -59,21 +59,22 @@ window.addEventListener('scroll', scrollHeader)
 
 
 
-const headerChevron = document.querySelector(".header-chevron");
+const headerChevron = document.querySelector(".small_profile_picture");
+const profile_container = document.querySelector("main")
 const profileOptions = document.querySelector(".profile-options-container");
-const profileOptionsA = document.querySelectorAll(".profile-options-container a");
 
-
-console.log(headerChevron, profileOptions, profileOptionsA, 'lol')
-
+console.log(parent);
 
 
 
+headerChevron.addEventListener("mouseover", () => {
+    headerChevron.classList.add("active");
+    profileOptions.classList.add("active");
 
-
-headerChevron.addEventListener("click", () => {
-    headerChevron.classList.toggle("active");
-    profileOptions.classList.toggle("active");
+});
+profile_container.addEventListener("mouseover", () => {
+    headerChevron.classList.remove("active");
+    profileOptions.classList.remove("active");
 
 });
 

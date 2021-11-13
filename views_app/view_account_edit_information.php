@@ -27,10 +27,10 @@ try {
       <div class="account-sidenav">
         <ul>
           <li>
-            <h3>My DBA</h3>
+            <h1>My account</h1>
           </li>
           <li>
-            <a href="/account">My account</a>
+            <a href="/account">My overview</a>
           </li>
           <li>
             <a href="/account-edit/my-user-information" class="active"> My user information</a>
@@ -38,10 +38,14 @@ try {
           <li>
             <a href="/account-edit/change-password">Change password</a>
           </li>
+          <li>
+            <button type="submit" class="medium_button" onclick="open_confirm_modal_account()">Delete account</button>
+          </li>
         </ul>
       </div>
+
       <div class="account-content">
-        <h3 class="account-title">Edit your account credentials</h3>
+        <h2 class="account-title">Edit user information</h2>
 
 
         <?php
@@ -74,9 +78,9 @@ try {
             <input type="text" name="user_phone" data-validate="int" data-min="2" data-max="10" value="<?= $user['user_phone'] ?>">
             <span>Please provide a valid phone nr. (8 digits)</span>
           </div>
-
-          <button type="submit" class="submit">Update user information</button>
-
+          <div class="btn-position-right">
+            <button type="submit" class="small_button">Update user information</button>
+          </div>
         </form>
       </div>
 
