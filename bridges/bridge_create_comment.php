@@ -34,6 +34,8 @@ if (
         $q->bindValue(':comment_iv',  base64_encode($iv));
         $q->bindValue(':product_id',   $product_id);
 
+
+
         $q->execute();
         if (!$q->rowCount()) {
             echo 'vi er her', $_SESSION['user_uuid'];

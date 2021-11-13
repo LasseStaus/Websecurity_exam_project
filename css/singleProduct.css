@@ -85,7 +85,6 @@ img {
   margin: 1rem 0;
 }
 
-
 .contact-title {
   font-size: 16px;
   text-transform: capitalize;
@@ -138,15 +137,14 @@ img {
   color: #12263a;
   padding-bottom: 0.6rem;
 }
-.product-detail p {    
+.product-detail p {
   margin-top: 10px;
-  
 }
 
 .product-detail span {
   font-weight: 800;
   display: flex;
-    gap: 1rem;
+  gap: 1rem;
 }
 .product-detail a {
   text-decoration: none;
@@ -236,22 +234,16 @@ img {
   color: #fff;
 }
 
-
 @media screen and (max-width: 333px) {
-
   .master-flex {
     flex-direction: column;
-    }
-
+  }
 }
 
 @media screen and (min-width: 333px) {
-
-.comments-container {
-  
-  display: block;
-  margin: 0 auto;
-  
+  .comments-container {
+    display: block;
+    margin: 0 auto;
   }
 }
 
@@ -281,38 +273,110 @@ img {
   }
 
   .master-flex {
-  flex-direction: column;
+    flex-direction: column;
   }
 
   .purchase-info .btn {
     cursor: pointer;
     color: #fff;
     width: 34%;
-}
-
-.img-showcase {
- 
-  height: 40vh;
-}
-
-.img-showcase img {
-  object-fit: scale-down;
-}
-
-.img-select {
-  display: flex;
-  width: 50%;
-  margin: 0 auto;
-}
-
-.comments-container {
-  
-  display: block;
-  margin: 0;
-  
   }
 
+  .img-showcase {
+    height: 40vh;
+  }
 
+  .img-showcase img {
+    object-fit: scale-down;
+  }
 
+  .img-select {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+  }
 
+  .comments-container {
+    display: block;
+    margin: 0;
+  }
+}
+
+.create-comment-container {
+}
+
+.single-comment-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+}
+
+.single-reply-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+}
+.reply-message {
+  grid-column: 2;
+}
+.replies-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  grid-column: 2;
+}
+
+.single-comment-container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.342);
+  grid-row: 1 / span 2;
+}
+
+.comment-content {
+  grid-column: 2;
+}
+
+.single-comment-container .heading {
+  display: inline-flex;
+  padding-bottom: 3px;
+  align-items: baseline;
+}
+
+.single-comment-container .heading span {
+  color: rgba(0, 0, 0, 0.856);
+  font-size: var(--smaller-font-size);
+}
+
+.single-comment-container h6 {
+  color: #bd7f1b;
+  font-weight: bold;
+}
+.single-comment-container i.circle {
+  font-size: 8px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: lightgray;
+}
+.single-comment-container form {
+  display: flex;
+  grid-column: 2;
+}
+
+.replybtn {
+  grid-column: 2;
+  width: auto;
+  justify-self: flex-end;
+}
+
+.replies {
+  grid-column: 2;
+  color: red;
+}
+.all-comments-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  row-gap: 2rem;
 }
