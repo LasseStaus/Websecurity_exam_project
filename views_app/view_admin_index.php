@@ -10,16 +10,14 @@ if (!isset($_SESSION['admin_user_uuid'])) {
 require('./db/db.php');
 require('./db/fetch_users.php');
 require('./db/globals.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
 
 ?>
 <main>
 
-    <h1>ADMIN PAGE</h1>
     <div class="page-container">
+        <h1>ADMIN PAGE</h1>
 
-
-        <div id="search_results"></div>
         <table class="users-container">
             <tr class="user">
                 <th>User id</th>

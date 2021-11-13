@@ -2,6 +2,11 @@
 
 // ########### VALIDATION ######################
 
+if (!is_csrf_valid() == true) {
+    header("Location: /404");
+    exit();
+}
+
 if (!isset($_SESSION)) {
     session_start();
 }
