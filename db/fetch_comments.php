@@ -10,6 +10,10 @@ try {
                         ");
     $q->execute();
     $comments = $q->fetchAll();
+
+  /*   foreach ($comments as $comment) {
+        //
+    } */
 } catch (PDOException $ex) {
     echo $ex;
 }

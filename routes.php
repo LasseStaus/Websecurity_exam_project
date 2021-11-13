@@ -157,10 +157,9 @@ post('/create-comment', function () {
 // #########################################################
 
 post('/create-reply', function () {
- 
- 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_reply.php');
 });
+
 
 
 
@@ -175,11 +174,11 @@ get('/single-product/:product_id', function ($product_id) {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_single_product.php');
 });
 
-get('/single-product/:comment_id', function ($comment_id) {
+/* get('/single-product/:comment_id', function ($comment_id) {
 
   $comment_id = $comment_id;
   require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_single_product.php');
-});
+}); */
 
 
 get('/edit-product/:product_id', function ($product_id) {

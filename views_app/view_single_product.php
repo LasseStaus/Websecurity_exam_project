@@ -120,6 +120,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
       <div>
         <?php
         require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_comments.php');
+      
         
         
          ?>
@@ -185,37 +186,26 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
             </div>
         </summary>
                
-     
         <div class="comment-body">
             <p>
             <?= $message ?>
             </p>
 
-            
-
           
-
-        
             <button class="replybtn" type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Reply</button>
 
             <!-- Reply form start -->
             <form action="/create-reply" method="POST" class="reply-form d-none" id="comment-1-reply-form">
-           
-            <input type="hidden" name="comment_id" value="<?= $comment_id ?>"> 
+
+            <input type="hidden" name="comment_id" value="<?= $comment['comment_id'] ?>"> 
             <input type="hidden" name="product_id" value="<?= $product_id ?>"> 
-         
-            
-                <textarea name="reply_body" placeholder="Reply to comment" rows="4"></textarea>
-                <button type="submit">Submit</button>
-                <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Cancel</button>
+
+            <textarea name="reply_body" placeholder="Reply to comment" rows="4"></textarea>
+            <button type="submit">Submit</button>
+            <button type="button" data-toggle="reply-form" data-target="comment-1-reply-form">Cancel</button>
             </form>
             <!-- Reply form end -->
-        </div>
-        <?php
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_replies.php');
-       
-        ?>
-                  <!-- <div class="replymsg">  <p><?= $replyMsg ?></p></div> -->
+            
 
 
         <!--############################################# -->
@@ -227,34 +217,39 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         <!--############################################# -->
                
         <?php 
+        
+        $comment_id = $comment['comment_id'];
+         require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_replies.php');
 
         foreach ($replies as $reply) {
         $replyMsg = out(openssl_decrypt(base64_decode($reply['reply_body']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($reply['reply_iv'])));
-        }
+        
+      }
 
         ?> 
+
+       
+      </div>
                   
-          <div class=" replybox" id="replyBox">
+          <div class="replybox" id="replyBox">
         <a href="#" class="reply-border-link">
             
         </a>
         <summary>
             <div class="reply-heading">
                
-                <div class="comment-info">
-                    <a href="#" class="comment-author"><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></a>
+              <!--     <div class="comment-info">
+                    <a href="#" class="comment-author"><?= $reply['user_firstname'] ?> <?= $reply['user_lastname'] ?></a>
                     <p class="m-0">
-                     <?= $comment['comment_timestamp'] ?>
+                     <?= $reply['created_at'] ?>
                     </p>
-                </div>
-            </div> 
+                </div>   
+            </div>  -->
         </summary>
 
-      
         <div class="reply-body">
         <p><?= $replyMsg ?></p>
                 
-           <!--  <a href="#load-more">Load more replies</a> -->
         </div>  
     </div>
  
