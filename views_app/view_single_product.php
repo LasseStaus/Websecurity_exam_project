@@ -91,7 +91,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
               <span><i class="fas fa-envelope"></i> <a href="mailto:<?= out($product['user_email']) ?>"><?= out($product['user_email']) ?></a></span>
             </div>
             <br>
-           
+
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         ?>
           <div class="single-comment-container">
 
-            <img src="../product-images/1eb520be6cb2ff887b7cfae487cd6d76.png" alt="test">
+            <img src="../profile-uploads/<?= $comment['user_image'] ?> " alt="profile image of <?= $comment['user_firstname'] ?>">
             <div class="heading">
               <h6><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></h6><i class="circle fas fa-circle"></i><span><?= $comment['comment_timestamp'] ?></span>
             </div>
