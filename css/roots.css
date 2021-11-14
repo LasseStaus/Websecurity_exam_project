@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap");
+
 :root {
   --header-height: 80px;
 
@@ -15,15 +17,18 @@
   --background-accent: #4f545c;
   --dark-blue: #0d1d47;
 
-  --text-normal: #dcddde;
+  --text-normal: black;
   --text-muted: #72767d;
 
-  --channeltextarea-background: #40444b;
+  --button-bg: black;
+  --button-bg-hover: rgb(92, 91, 91);
+  --button-color: white;
+  --button-color-hover: white;
 
   --header-bg: ;
 
   /*fonts & typo */
-  --body-font: "SF Mono Regular";
+  --body-font: "Roboto", sans-serif;
   --big-font-size: 2rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -50,6 +55,7 @@
   --z-fixed: 100;
 
   --trans-fast: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --trans-chill: all 0.3s ease-in-out;
   --submit-form-height: 44px;
 }
 
@@ -72,7 +78,7 @@
 }
 html,
 body {
-  font-family: "sans-serif";
+  font-family: var(--body-font);
   height: 100%;
 }
 h1,
@@ -82,11 +88,60 @@ h4,
 h5,
 p,
 a {
+  text-transform: capitalize;
 }
+
+.h1 {
+  font-size: var(--h1-font-size);
+}
+.h2 {
+  font-size: var(--h2-font-size);
+}
+.h3 {
+  font-size: var(--h3-font-size);
+}
+
 img {
   width: 100%;
   height: auto;
 }
 
 p {
+  color: var(--text-normal);
+  font-size: var(--normal-font-size);
+}
+
+a,
+li,
+ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+/*universal classes*/
+.flex_container {
+  display: flex;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+.flex {
+  display: flex;
+  flex: 1;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
 }

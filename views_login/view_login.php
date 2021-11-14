@@ -6,7 +6,7 @@ session_start();
   <div class="flex_container">
 
     <div class="image_login_container">
-      <img src="/assets/imgs/shopping.svg" alt="">
+      <img src="/assets/imgs/shopping.svg" alt="background image">
     </div>
 
     <div class="login_signup_form">
@@ -26,14 +26,14 @@ session_start();
               <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
 
               <div class="form-group">
-                <h5 class="input-placeholder" id="email-txt">Email</h5>
-                <input onclick="clear_validate_error()" data-validate="email" type="email" name="user_email" class="form-style" id="logemail" autocomplete="on">
+                <h5 id="email-txt">Email</h5>
+                <input onclick="clear_validate_error()" data-validate="email" type="email" name="user_email" id="logemail" autocomplete="on">
                 <span id="email-error">Please provide a valid email</span>
                 <i class="input-icon uil uil-at"></i>
               </div>
-              <div class="form-group margin-top">
-                <h5 class="input-placeholder" id="pword-txt">Password</h5>
-                <input onclick="clear_validate_error()" maxlength="50" data-validate="str" data-min="8" data-max="50" type="password" name="user_password" class="form-style" id="logpass" autocomplete="on">
+              <div class="form-group ">
+                <h5 id="pword-txt">Password</h5>
+                <input onclick="clear_validate_error()" maxlength="50" data-validate="str" data-min="8" data-max="50" type="password" name="user_password" id="logpass" autocomplete="on">
                 <span id="password-error">Please provide a valid password | 8-50 characters</span>
                 <i class="input-icon uil uil-lock-alt"></i>
               </div>
@@ -41,7 +41,7 @@ session_start();
 
       <div class="password-container"><a href="#" class="link2">Forgot your password?</a> <a href="/admin-login" class="link2">Login as admin</a></div>
       <div class="btn-position">
-        <button type="submit" class="btn">sign in</button>
+        <button type="submit" class="button large">sign in</button>
         <div>
           <p>Don't have an account?</p> <a href="/signup" class="link">sign up</a>
         </div>

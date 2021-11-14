@@ -4,23 +4,6 @@
   justify-content: space-between;
 }
 
-.flex {
-  display: flex;
-  flex: 1;
-}
-
-.wrap {
-  flex-wrap: wrap;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.row {
-  flex-direction: row;
-}
-
 .margin-10 {
   margin: 10px;
 }

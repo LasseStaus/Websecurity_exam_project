@@ -26,7 +26,7 @@
         </nav>
 
         <div class="header-profile">
-            <a class="medium_button" href="/create-product">create product</a>
+            <a class="button medium_button" href="/create-product">create product</a>
             <a class="small_profile_picture" href="/account"><img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="image"></a>
             <!-- <i class="header-chevron fas fa-chevron-down"></i> -->
         </div>
