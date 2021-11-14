@@ -10,10 +10,6 @@ session_start();
 
   <div class="flex_container">
 
-    <div class="image_login_container2">
-      <img src="/assets/imgs/clothes.svg" alt="">
-    </div>
-
     <div class="login_signup_form">
       <form action="/signup" name="signup_form" method="POST" onsubmit="return validate()">
         <div class="centering-wrapper">
@@ -75,6 +71,11 @@ session_start();
         </div>
       </form>
     </div>
+
+    <div class="image_login_container2">
+      <img src="/assets/imgs/clothes.svg" alt="">
+    </div>
+  </div>
 
 
 </main>
