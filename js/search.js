@@ -24,7 +24,8 @@ function search() {
             })
 
             if (!conn.ok) {
-                alert('uppps....')
+                console.log('Could not connect to database');
+                
             }
             let products = await conn.json()
             // populate the results

@@ -1,11 +1,9 @@
 <?php
 
-$user_id = $_POST['user_uuid'];
 
 // ########### VALIDATION ######################
 
 if (!is_csrf_valid() == true) {
-    $error_message = "You can't hack signup. as";
     header("Location: /404");
     exit();
 }
@@ -20,6 +18,8 @@ if (!isset($_SESSION['admin_user_uuid'])) {
 }
 
 // ########### UPDATE user status (delete) ##############
+
+$user_id = $_POST['user_uuid'];
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
 

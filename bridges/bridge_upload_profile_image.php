@@ -1,5 +1,10 @@
 <?php
 
+if (!is_csrf_valid() == true) {
+    header("Location: /404");
+    exit();
+}
+
 if (!isset($_SESSION)) {
     session_start();
 };
@@ -8,6 +13,7 @@ if (!$_FILES['file-to-upload']['name']) {
     header('Location: /account-edit');
     exit;
 }
+
 
 
 $valid_extensions = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'pdf', 'jfif'];

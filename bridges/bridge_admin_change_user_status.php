@@ -3,8 +3,7 @@
 // ########### VALIDATION ######################
 
 if (!is_csrf_valid() == true) {
-    $error_message = "You can't hack signup. as";
-    header("Location: /signup/error/$error_message");
+    header("Location: /404");
     exit();
 }
 
@@ -28,10 +27,6 @@ if ($_POST['user_status'] == 1) {
         $q->bindValue(':user_uuid', $_POST['user_id']);
         $q->bindValue(':user_status', 1);
         $q->execute();
-
-        // $q = $db->prepare("UPDATE products SET product_status = 0 WHERE user_uuid = :user_uuid");
-        // $q->bindValue(':user_uuid', $_POST['user_id']);
-        // $q->execute();
 
         header("Location: /admin-index");
         exit();

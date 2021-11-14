@@ -27,10 +27,10 @@ try {
             <div class="account-sidenav">
                 <ul>
                     <li>
-                        <h3>My DBA</h3>
+                        <h1>My account</h1>
                     </li>
                     <li>
-                        <a href="/account">My account</a>
+                        <a href="/account">My overview</a>
                     </li>
                     <li>
                         <a href="/account-edit/my-user-information"> My user information</a>
@@ -38,11 +38,14 @@ try {
                     <li>
                         <a href="/account-edit/change-password" class="active">Change password</a>
                     </li>
+                    <li>
+                        <button type="submit" class="medium_button" onclick="open_confirm_modal_account()">Delete account</button>
+                    </li>
                 </ul>
             </div>
 
             <div class="account-content">
-
+                <h2 class="account-title">Change password</h2>
 
                 <?php
                 require_once('./components/component_errormsg.php');
@@ -62,8 +65,9 @@ try {
                         <input type="password" name="user_confirm_password" data-match-name="user_password" data-validate="match" data-min="4" data-max="16" placeholder="Confirm new password" id="logpassconfirm">
                         <span>Your password &amp; confirm password must match | 8-50 characters</span>
                     </div>
-
-                    <button type="submit" class="submit">Change password</button>
+                    <div class="btn-position-right">
+                        <button type="submit" class="small_button">Change password</button>
+                    </div>
 
                 </form>
 
