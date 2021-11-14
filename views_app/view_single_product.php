@@ -91,9 +91,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
               <span><i class="fas fa-envelope"></i> <a href="mailto:<?= out($product['user_email']) ?>"><?= out($product['user_email']) ?></a></span>
             </div>
             <br>
-            <button type="button" class="btn">
-              Chat with seller <i class="fas fa-user"></i>
-            </button>
+           
           </div>
         </div>
       </div>
