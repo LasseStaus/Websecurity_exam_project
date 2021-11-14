@@ -6,9 +6,51 @@
   margin: var(--mr-0);
 }
 
+main {
+  padding: var(--p-0);
+}
+
+#comments-section {
+  background: var(--module-bg);
+  padding: var(--p-1);
+  margin-top: var(--mt-1-45);
+ /*  border-radius: var(--radius-20);
+  filter: var(--drop-shadow-2-4-6-black); */
+}
+
+.goback-href{
+  width: 100%;
+  font-size: var(--f-size-xxl);
+  font-weight: var(--font-regular);
+  display: block;
+  position: relative;
+  top: var(--top-10);
+  right: var(--right-270);
+}
+
+
+
+.goback-href a {
+  color: var(--text-normal);
+}
+
+.goback-href a:hover {
+  letter-spacing: var(--ls-2px);
+  filter: var(--drop-shadow-2-1-0-black);
+  transition: var(--trans-all-1s-ease-in-ease-out);
+}
+
+.gainsboro{
+  background: var(--gainsboro);
+}
+
 .card-wrapper {
   max-width: var(--max-width-1100px);
   margin: var(--m-auto);
+  background: var(--module-bg);
+ /*  filter: var(--drop-shadow-2-4-6-black); */
+/*   border-radius: var(--radius-20); */
+  padding: var(--p-1);
 }
 
 img {
@@ -73,13 +115,22 @@ img {
 
 .product-price {
   margin: var(--m-1-0);
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-semi-b-bold);
+
 }
+
+.product-price p {
+  font-size: var(--f-size-16-px);
+  font-weight: var(--font-semi-b-bold);
+  padding: var(--p-1px);
+
+  
+}
+
+
 
 .product-price span {
   font-weight: var(--font-semi-bold);
-  font-size: var( --f-size-16-px);
+  font-size: var(--f-size-xxl);
   color: var(--text-normal);
 }
 
@@ -127,7 +178,7 @@ img {
 @media screen and (min-width: 992px) {
   .card {
     display: grid;
-    grid-template-columns: var(--grid-template-columns-1-1fr);
+    grid-template-columns: var(--grid-template-columns-2-1fr);
     grid-gap: var(--grid-gap-1-5);
   }
 

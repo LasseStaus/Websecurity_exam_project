@@ -17,15 +17,22 @@
   --background-accent: #4f545c;
   --dark-blue: #0d1d47;
 
+  --module-bg: white;
+
   --text-normal: black;
   --text-muted: #72767d;
 
+  --gainsboro: gainsboro;
   --button-bg: black;
   --button-bg-hover: rgb(92, 91, 91);
   --button-color: white;
   --button-color-hover: white;
 
   --header-bg: ;
+
+  /* FX & Effects */
+  --drop-shadow-2-1-0-black: drop-shadow(2px 1px 0px black);
+  --drop-shadow-2-4-6-black: drop-shadow(2px 4px 6px black);
 
   /* opacity */
 
@@ -47,11 +54,16 @@
   --w-10: 10%;
 
   /* heights */
-
+  --h-100-vh: 100vh;
   --h-40-vh: 40vh;
+
+  /* borders & radius */
+
+  --radius-20: 20px;
 
   /* gap */
   --grid-template-columns-1-1fr: repeat(1, 1fr);
+  --grid-template-columns-2-1fr: repeat(2, 1fr);
   --grid-gap-1-5: 1.5rem; 
 
   --small-gap: 1rem;
@@ -70,6 +82,8 @@
   --smallest-font-size: 0.675rem;
 
   --f-size-16-px: 16px;
+  --f-size-xxl: xx-large;
+  
 
   --font-regular: 400;
   --font-medium: 500;
@@ -90,14 +104,27 @@
   --mb-2-5: 2.5rem;
   --mb-3: 3rem;
 
+  --mt-1-45: 1.45rem;
+
   --mr-0: 0;
 
   --m-10: 10px;
   --m-1-0: 1rem 0;
 
+  /* top */
+
+  --top-10: 10px;
+
+  /* right */
+
+  --right-270: 270px;
+
   /* paddings */
   --p-0: 0;
+  --p-1px: 1px;
+  --p-1: 1rem;
   /* top */
+  --p-t-0px: 0px;
   --p-t-85px: 85px;
 
   /* bottom */
@@ -107,12 +134,17 @@
   --z-tooltip: 10;
   --z-fixed: 100;
 
+  /* spacing */
+
+  --ls-2px: 2px; 
+
 /* transitions */
 
   --trans-fast: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
   --trans-chill: all 0.3s ease-in-out;
 
   --trans-all-05-ease: all 0.5s ease;
+  --trans-all-1s-ease-in-ease-out: all 1s ease-in-ease-out;
 
 
   --submit-form-height: 44px;
@@ -202,6 +234,10 @@ ul {
   flex: 1;
 }
 
+.height-100-vh {
+  height: var(--h-100-vh);
+}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -220,6 +256,10 @@ ul {
 
 .margin-10 {
   margin: var(--m-10);
+}
+
+.padding-0 {
+  padding: var(--p-0);
 }
 
 .small {

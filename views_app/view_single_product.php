@@ -19,11 +19,11 @@ $message = out(openssl_decrypt(base64_decode($product['product_description']), $
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 ?>
-<main>
+<main class="height-100-vh">
   <div class="page-container">
 
     <div class="flex wrap column">
-      <div><a href="/">Go back</a></div>
+      <div class="goback-href"><a href="/">Go back</a></div>
     </div>
     <div class="card-wrapper">
       <div class="card">
