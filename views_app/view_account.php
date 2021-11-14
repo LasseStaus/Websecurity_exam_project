@@ -36,13 +36,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_user.php');
           <a href="/account-edit/change-password">Change password</a>
         </li>
         <li>
-          <button type="submit" class="medium_button" onclick="open_confirm_modal_account()">Delete account</button>
+          <button type="submit" class="button medium" onclick="open_confirm_modal_account()">Delete account</button>
         </li>
       </ul>
     </div>
 
-    <div class="account-content">
-      <h2 class="account-title">My overview</h2>
+    <div class="account-content flex column">
+      <h2 class="h2">My overview</h2>
 
       <?php
 
@@ -50,13 +50,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_user.php');
 
       ?>
 
-      <div class="flex-align-center">
+      <div class="flex flex_center_center row">
 
         <form id="update-profile-image" action="/upload-profile-image" method="POST" enctype="multipart/form-data" onsubmit="return validate();">
 
           <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
 
-          <div class=" image-input-pair">
+          <div class=" flex_container column flex_center_center nowrap">
             <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
             <label class="icon-upload-label" for="upload-img"><i class="fas fa-camera"></i></label>
             <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)" style=" display: none;">
@@ -69,31 +69,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_user.php');
         </div>
       </div>
 
-      <div class="content-wraper-profile">
 
-        <div>
+      <!-- ############## my products ##############s -->
 
+      <?php
+      require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_my_products.php');
+      ?>
 
-
-
-
-
-
-          <div class="options">
-
-
-          </div>
-
-        </div>
-
-
-
-        <!-- ############## my products ##############s -->
-
-        <?php
-        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_my_products.php');
-        ?>
-
+      <div class="flex column">
         <h3>My products</h3>
 
         <?php

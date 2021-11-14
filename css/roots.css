@@ -16,6 +16,12 @@
   --background-tertiary: #202225;
   --background-accent: #4f545c;
   --dark-blue: #0d1d47;
+  --black-bg: #000;
+
+  --container-login-bg: rgb(223, 211, 159);
+  --container-login-admin-bg: rgb(143, 190, 168);
+  --container-singup-bg: rgb(159, 198, 223);
+  --light-grey: rgb(240, 240, 240);
 
   --text-normal: black;
   --text-muted: #72767d;
@@ -42,6 +48,25 @@
   --font-semi-bold: 600;
   --font-bold: 800;
 
+  /* widths */
+  --max-width-1100px: 1100px;
+
+  --w-100: 100%;
+  --w-90: 90%;
+  --w-80: 80%;
+  --w-70: 70%;
+  --w-60: 60%;
+  --w-50: 50%;
+  --w-40: 40%;
+  --w-30: 30%;
+  --w-20: 20%;
+  --w-10: 10%;
+
+
+
+  /* heights */
+  --h-40-vh: 40vh;
+
   --mb-0-25: 0.25rem;
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
@@ -51,12 +76,25 @@
   --mb-2-5: 2.5rem;
   --mb-3: 3rem;
 
+  --m-5: 5px;
+  --m-10: 10px;
+  --m-20: 20px;
+  --m-1-0: 1rem 0;
+
   --z-tooltip: 10;
   --z-fixed: 100;
 
   --trans-fast: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
   --trans-chill: all 0.3s ease-in-out;
   --submit-form-height: 44px;
+
+  /* gap */
+  --grid-template-columns-1-1fr: repeat(1, 1fr);
+  --grid-template-columns-2-1fr: repeat(2, 1fr);
+  --grid-template-columns-3-1fr: repeat(3, 1fr);
+  --grid-gap-1-5: 1.5rem;
+
+  --small-gap: 1rem;
 }
 
 @media screen and (min-width: 958px) {
@@ -71,16 +109,19 @@
     --smallest-font-size: 0.6rem;
   }
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 html,
 body {
   font-family: var(--body-font);
   height: 100%;
 }
+
 h1,
 h2,
 h3,
@@ -94,9 +135,11 @@ a {
 .h1 {
   font-size: var(--h1-font-size);
 }
+
 .h2 {
   font-size: var(--h2-font-size);
 }
+
 .h3 {
   font-size: var(--h3-font-size);
 }
@@ -119,9 +162,20 @@ ul {
 }
 
 /*universal classes*/
+
+.grid {
+  display: grid;
+}
+
 .flex_container {
   display: flex;
 }
+
+.flex_center_center {
+  align-items: center;
+  justify-content: center;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -129,6 +183,7 @@ ul {
 .text-center {
   text-align: center;
 }
+
 .flex {
   display: flex;
   flex: 1;
@@ -138,10 +193,40 @@ ul {
   flex-wrap: wrap;
 }
 
+.nowrap {
+  flex-wrap: nowrap;
+}
+
 .column {
   flex-direction: column;
 }
 
 .row {
   flex-direction: row;
+}
+
+.master-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.margin-5-top {
+  margin-top: var(--m-5);
+}
+
+.margin-5-top {
+  margin-bottom: var(--m-5);
+}
+
+.margin-10-top {
+  margin-top: var(--m-10);
+}
+
+.margin-20-top {
+  margin-top: var(--m-20);
+}
+
+.margin-10-bottom {
+  margin-bottom: var(--m-10);
 }

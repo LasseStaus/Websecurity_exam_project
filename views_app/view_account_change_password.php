@@ -39,7 +39,7 @@ try {
                         <a href="/account-edit/change-password" class="active">Change password</a>
                     </li>
                     <li>
-                        <button type="submit" class="medium_button" onclick="open_confirm_modal_account()">Delete account</button>
+                        <button type="submit" class="button medium_button" onclick="open_confirm_modal_account()">Delete account</button>
                     </li>
                 </ul>
             </div>
@@ -54,19 +54,19 @@ try {
 
                 <form id="update-account-information" method="POST" action="/update-user-account-password" onsubmit="return validate();">
                     <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
-                    <div class=" input-pair">
-                        <label for="user_password">New Password</label>
+                    <div class="form-group">
+                        <h5 id="new-pword-txt">New password</h5>
                         <input type="password" name="user_password" data-validate="str" data-min="4" data-max="16" placeholder="Enter new password  ">
                         <span>Please provide a valid password | 8-50 characters</span>
                     </div>
 
-                    <div class="input-pair">
-                        <label for="user_confirm_password">Confirm New Password</label>
+                    <div class="form-group">
+                        <h5 id="conf-pword-txt">Confirm password</h5>
                         <input type="password" name="user_confirm_password" data-match-name="user_password" data-validate="match" data-min="4" data-max="16" placeholder="Confirm new password" id="logpassconfirm">
                         <span>Your password &amp; confirm password must match | 8-50 characters</span>
                     </div>
-                    <div class="btn-position-right">
-                        <button type="submit" class="small_button">Change password</button>
+                    <div class="btn-position">
+                        <button type="submit" class="button large">Change password</button>
                     </div>
 
                 </form>
