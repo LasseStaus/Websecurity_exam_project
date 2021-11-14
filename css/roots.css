@@ -233,6 +233,9 @@ ul {
   display: flex;
   flex: 1;
 }
+.grid{
+  display: grid;
+}
 
 .height-100-vh {
   height: var(--h-100-vh);
@@ -269,3 +272,5 @@ ul {
 .smaller {
   font-size: var(--smaller-font-size);
 }
+
+
