@@ -22,20 +22,15 @@ function search() {
                 method: "POST",
                 body: new FormData(document.querySelector("#search-form"))
             })
-
             if (!conn.ok) {
                 console.log('Could not connect to database');
-                
             }
             let products = await conn.json()
             // populate the results
             document.querySelector("#search_results").innerHTML = ""
+            let resultDiv = document.querySelector(".search-result-amount");
+            resultDiv.textContent = products.length + " results";
 
-            let result_div = `
-                       <div class="search-result-amount">
-                     <h3> ${products.length} Results </h3>
-                     </div>`
-            document.querySelector("#search_results").insertAdjacentHTML('beforeend', result_div)
 
 
             products.forEach(product => {
@@ -45,12 +40,13 @@ function search() {
                 console.log(image);
                 let single_product = `
                    <div class="user">
-                   <div class="container">
+                   <div class="product">
                      <img src="../product-images/${image[0]}" alt="Image of product ${product.product_title}">
                      <div class="title"> ${product.product_title}</div>
+                     <div class="price"> ${product.product_price}<span> Dkk</span></div>
    
-                     <a class="button user" href="/single-product/${product.product_id}">
-                       Go to Product <i class="fas fa-long-arrow-alt-right"></i>
+                     <a href="/single-product/${product.product_id}">
+                   
                      </a>
          
          
