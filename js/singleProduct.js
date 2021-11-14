@@ -10,7 +10,7 @@ imgBtns.forEach((imgItem) => {
     });
 });
 
-function slideImage(){
+function slideImage() {
     const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
 
     document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
@@ -18,31 +18,79 @@ function slideImage(){
 
 window.addEventListener('resize', slideImage);
 
+function countReplies() {
+    let allComments = document.querySelectorAll(".single-comment-container");
+
+    allComments.forEach(element => {
+        let span = element.querySelector(".comment_replies_number");
+        let replyContainer = element.querySelector('.replies-container');
+        let replies = replyContainer.querySelectorAll(".single-reply-container");
+        let count = 0;
+        if (replies.length < 1) {
+            span.textContent = count + " replies";
+            span.parentNode.querySelector("i").remove();
+        } else {
 
 
-
-
-document.addEventListener(
-    "click",
-    function(event) {
-        var target = event.target;
-        var replyForm;
-    
-       
-        if (target.matches("[data-toggle='reply-form']")) {
-            replyForm = document.getElementById(target.getAttribute("data-target"));
-            //replyBox = document.getElementById(target.getAttribute("data-target"));
-           
-            replyForm.classList.toggle("d-none");
-            replyForm.classList.toggle("z-index");
-            //replyBox.classList.toggle("hidden");
-            
-           
+            for (let i = 0; i < replies.length; i++) {
+                count++;
+            }
+            span.textContent = count + " replies";
         }
-    },
-    false
 
-   
-);
+    })
+
+
+}
+
+countReplies();
+let allForms = document.querySelectorAll(".reply-form");
+function showReplyForm(element) {
+
+    console.log("hej")
+
+    allForms.forEach(form => {
+        console.log(form)
+        form.classList.remove("show");
+    })
+    let container = element.parentNode.parentNode;
+    container.querySelector(".reply-form").classList.toggle("show");
+}
+function showReplies(element) {
+    allForms.forEach(form => {
+        console.log(form)
+        form.classList.remove("show");
+    })
+    let container = element.parentNode.parentNode.parentNode;
+    element.classList.toggle("active");
+    container.querySelector(".replies-container").classList.toggle("show");
+}
+
+
+function cancelReply(element) {
+    let container = element.parentNode.parentNode;
+    container.querySelector(".reply-form").classList.remove("show");
+}
+
+let textarea = document.querySelectorAll(".resize-ta");
+
+textarea.forEach(ele => {
+    console.log(ele)
+    ele.addEventListener("keyup", () => {
+        ele.style.height = calcHeight(ele.value) + "px";
+    });
+
+})
+
+// Dealing with Input width
+
+
+// Dealing with Textarea Height
+function calcHeight(value) {
+    let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+    // min-height + lines x line-height + padding + border
+    let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2;
+    return newHeight;
+}
 
 
