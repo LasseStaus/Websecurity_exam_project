@@ -17,9 +17,12 @@
   --background-accent: #4f545c;
   --dark-blue: #0d1d47;
 
+  --module-bg: white;
+
   --text-normal: black;
   --text-muted: #72767d;
 
+  --gainsboro: gainsboro;
   --button-bg: black;
   --button-bg-hover: rgb(92, 91, 91);
   --button-color: white;
@@ -27,22 +30,72 @@
 
   --header-bg: ;
 
+  /* FX & Effects */
+  --drop-shadow-2-1-0-black: drop-shadow(2px 1px 0px black);
+  --drop-shadow-2-4-6-black: drop-shadow(2px 4px 6px black);
+
+  /* opacity */
+
+  --opacity-08: 0.8; 
+
+  /* widths */
+
+  --max-width-1100px: 1100px;
+  
+  --w-100: 100%;
+  --w-90: 90%;
+  --w-80: 80%;
+  --w-70: 70%;
+  --w-60: 60%;
+  --w-50: 50%;
+  --w-40: 40%;
+  --w-30: 30%;
+  --w-20: 20%;
+  --w-10: 10%;
+
+  /* heights */
+  --h-100-vh: 100vh;
+  --h-40-vh: 40vh;
+
+  /* borders & radius */
+
+  --radius-20: 20px;
+
+  /* gap */
+  --grid-template-columns-1-1fr: repeat(1, 1fr);
+  --grid-template-columns-2-1fr: repeat(2, 1fr);
+  --grid-gap-1-5: 1.5rem; 
+
+  --small-gap: 1rem;
+
   /*fonts & typo */
   --body-font: "Roboto", sans-serif;
+  --bigger-font-size: 3rem;
   --big-font-size: 2rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
+  --h4-font-size: 0.9rem;
   --normal-font-size: 0.938rem;
   --small-font-size: 0.875rem;
   --smaller-font-size: 0.813rem;
   --smallest-font-size: 0.675rem;
+
+  --f-size-16-px: 16px;
+  --f-size-xxl: xx-large;
+  
+
   --font-regular: 400;
   --font-medium: 500;
   --font-semi-bold: 600;
+  --font-semi-b-bold: 700;
   --font-bold: 800;
 
+  /* margins */
+  --m-auto: 0 auto;
+  --m-0: 0;
   --mb-0-25: 0.25rem;
+  --mb-0-3: 0.3rem;
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
   --mb-1: 0.5rem;
@@ -51,11 +104,49 @@
   --mb-2-5: 2.5rem;
   --mb-3: 3rem;
 
+  --mt-1-45: 1.45rem;
+
+  --mr-0: 0;
+
+  --m-10: 10px;
+  --m-1-0: 1rem 0;
+
+  /* top */
+
+  --top-10: 10px;
+
+  /* right */
+
+  --right-270: 270px;
+
+  /* paddings */
+  --p-0: 0;
+  --p-1px: 1px;
+  --p-1: 1rem;
+  /* top */
+  --p-t-0px: 0px;
+  --p-t-85px: 85px;
+
+  /* bottom */
+  --p-b-06: 0.6rem;
+
+/* z-index */
   --z-tooltip: 10;
   --z-fixed: 100;
 
+  /* spacing */
+
+  --ls-2px: 2px; 
+
+/* transitions */
+
   --trans-fast: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
   --trans-chill: all 0.3s ease-in-out;
+
+  --trans-all-05-ease: all 0.5s ease;
+  --trans-all-1s-ease-in-ease-out: all 1s ease-in-ease-out;
+
+
   --submit-form-height: 44px;
 }
 
@@ -69,6 +160,7 @@
     --small-font-size: 0.975rem;
     --smaller-font-size: 0.813rem;
     --smallest-font-size: 0.6rem;
+    --bigger-font-size: 3rem;
   }
 }
 * {
@@ -102,7 +194,7 @@ a {
 }
 
 img {
-  width: 100%;
+  width: var(--w-100);
   height: auto;
 }
 
@@ -122,6 +214,14 @@ ul {
 .flex_container {
   display: flex;
 }
+
+.master-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -132,6 +232,13 @@ ul {
 .flex {
   display: flex;
   flex: 1;
+}
+.grid{
+  display: grid;
+}
+
+.height-100-vh {
+  height: var(--h-100-vh);
 }
 
 .wrap {
@@ -145,3 +252,25 @@ ul {
 .row {
   flex-direction: row;
 }
+
+.margin-10-top {
+  margin-top: var(--m-10);
+}
+
+.margin-10 {
+  margin: var(--m-10);
+}
+
+.padding-0 {
+  padding: var(--p-0);
+}
+
+.small {
+  font-size: var(--small-font-size);
+}
+
+.smaller {
+  font-size: var(--smaller-font-size);
+}
+
+
