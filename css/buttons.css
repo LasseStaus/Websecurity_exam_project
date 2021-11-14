@@ -16,16 +16,28 @@
   color: var(--button-color);
   cursor: pointer;
 }
+
 .button.large {
   width: 100%;
 }
-.small_button {
-}
+
+.small_button {}
+
 .medium_button {
   border-radius: 25px;
 }
+
 button:hover {
   transition: var(--trans-chill);
   background-color: var(--button-bg-hover);
   color: var(--button-color-hover);
+}
+
+.link {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 400;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  margin: 0;
 }

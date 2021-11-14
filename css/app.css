@@ -2,7 +2,7 @@
 @import "form.css";
 @import "buttons.css";
 @import "createproduct.css";
-@import "editaccount.css";
+@import "account.css";
 @import "indexfeed.css";
 @import "admin.css";
 @import "singleProductComment.css";
@@ -52,26 +52,6 @@ header {
 
 header img {
   width: 70%;
-}
-
-.btn-position-right {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.link {
-  color: #000000;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0 auto;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  border-bottom: 1px solid #000;
-  padding-bottom: 2px;
 }
 
 header.scroll-header {
@@ -220,9 +200,6 @@ main#edit {
   margin-bottom: 20px;
 }
 
-.validate_error {
-}
-
 .input-pair input,
 .input-pair textarea {
   border: 1px solid black;
@@ -314,7 +291,6 @@ main {
   width: 100%;
   max-width: 1480px;
   margin: 0 auto;
-  padding-top: 5rem;
 }
 
 /* --------- error/updates -------- */
