@@ -102,15 +102,19 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
     require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_comments.php');
     ?>
     <section id="comments-section">
-      <h3>Comment Section</h3>
+
       <div class="create-comment-container">
 
-        <form id="create_comment" action="/create-comment" method="POST">
-          <h4>Write a comment to seller</h4>
-          <input type="hidden" name="product_id" value="<?= $product_id ?>">
-          <textarea name="comment_message" id="" placeholder="Add a comment"></textarea>
-          <button class="submit" type="submit"> Send</button>
-        </form>
+        <div class="create-comment-form-container">
+          <h4>Write a message to <?= out($product['user_firstname']) ?></h4>
+          <img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="Image of <?= $_SESSION['user_firstname'] ?>">
+
+          <form id="create_comment" action="/create-comment" method="POST">
+            <input type="hidden" name="product_id" value="<?= $product_id ?>">
+            <textarea name="comment_message" class="resize-ta" id="" placeholder="Add a comment"></textarea>
+            <button class="submit-create-comment" type="submit"> Send</button>
+          </form>
+        </div>
       </div>
       <div class="all-comments-container">
         <?php foreach ($comments as $comment) {
@@ -134,24 +138,28 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
             </div>
             <form action="/create-reply/<?= $comment['comment_id'] ?>" data-target="<?= $comment['comment_id'] ?>" method="POST" class="reply-form">
               <input type="hidden" name="product_id" value="<?= $product_id ?>">
-              <textarea name="reply_message" placeholder="Reply to comment" rows="4">Add a comment</textarea>
-              <input type="submit" value="submitlll">
-              <button type="button" onclick="cancelReply(this)">Cancel</button>
+              <textarea name="reply_message" class="resize-ta" rows="0" placeholder="Reply to comment"></textarea>
+              <button type="submit">Send</button>
+
+              <i type="button" class="fas fa-times" onclick="cancelReply(this)"></i>
             </form>
             <div class="replies-container">
               <?php
               $comment_id = $comment['comment_id'];
               require($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_replies.php');
+              $count = 0;
               foreach ($replies as $reply) {
-
+                $count++;
                 $replyMessage = out(openssl_decrypt(base64_decode($reply['reply_body']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($reply['reply_iv'])));
               ?>
-                <div class="single-reply-container">
+                <div class="single-reply-container" data-times="<?= $count ?>">
                   <img src="../profile-uploads/<?= $reply['user_image'] ?>" alt="Profile image of <?= $reply['user_firstname'] ?> ">
                   <div class="heading">
                     <h6><?= $reply['user_firstname'] ?> <?= $reply['user_lastname'] ?></h6><i class="circle fas fa-circle"></i><span><?= $reply['updated_at'] ?></span>
                   </div>
                   <div class="reply-message">
+
+
                     <p><?= $replyMessage ?> </p>
 
                   </div>
@@ -160,6 +168,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
               }
               ?>
             </div>
+
           </div>
 
         <?php

@@ -330,6 +330,35 @@ img {
   display: flex;
 }
 
+.single-comment-container textarea {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  resize: none;
+  min-height: 40px;
+  line-height: 20px;
+  max-height: 120px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.424);
+}
+.single-comment-container textarea:focus {
+  -moz-appearance: none;
+  outline: 0px none transparent;
+}
+textarea:focus {
+  -moz-appearance: none;
+  outline: 0px none transparent;
+}
+
+.single-comment-container textarea::-webkit-scrollbar {
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .single-comment-container img {
   width: 40px;
   height: 40px;
@@ -393,15 +422,40 @@ i.fa-caret-down.active {
   height: 0px;
   width: 100%;
   opacity: 0;
+  border: none;
 }
 .single-comment-container form.show {
-  display: block;
+  display: flex;
   height: 100%;
   width: 100%;
   opacity: 1;
   transition: all 0.2s;
+  margin-top: 15px;
+  align-items: center;
+  column-gap: 20px;
 }
-
+.create-comment-form-container h4 {
+  grid-column: 1 / span 2;
+  margin-bottom: 30px;
+}
+.create-comment-form-container img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.383);
+  object-fit: cover;
+}
+.create-comment-form-container textarea {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  resize: none;
+  min-height: 40px;
+  line-height: 20px;
+  max-height: 120px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.281);
+}
 .comment_replies_number {
   font-size: var(--smallest-font-size);
 }
@@ -435,4 +489,28 @@ i.fa-caret-down.active {
   flex-wrap: nowrap;
   flex-direction: column;
   row-gap: 2rem;
+}
+
+form#create_comment {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+.create-comment-form-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  grid-column: 2;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  column-gap: 2rem;
+}
+button.submit-create-comment {
+  align-self: flex-end;
+  width: min-content;
+  padding: 0.6rem 1.85rem;
+  margin-top: 10px;
 }

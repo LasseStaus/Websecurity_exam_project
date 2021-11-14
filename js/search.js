@@ -1,12 +1,12 @@
-document.addEventListener('keyup', function (e) {
+/* document.addEventListener('keydown', function (e) {
     let container = document.getElementById('search_results');
     console.log(container)
     if (!container.contains(e.target)) {
         container.style.display = 'none';
         hide_results();
-        /*   document.querySelector("input.search-input").value = ""; */
+        document.querySelector("input.search-input").value = "";
     }
-});
+}); */
 
 let clearInputButton = document.querySelector("i.clear-input")
 // People prof. exp. use this approach

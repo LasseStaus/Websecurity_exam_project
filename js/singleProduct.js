@@ -21,36 +21,46 @@ window.addEventListener('resize', slideImage);
 function countReplies() {
     let allComments = document.querySelectorAll(".single-comment-container");
 
-
     allComments.forEach(element => {
-        let count = 0;
         let span = element.querySelector(".comment_replies_number");
-        let replyContainers = element.querySelectorAll('.replies-container');
+        let replyContainer = element.querySelector('.replies-container');
+        let replies = replyContainer.querySelectorAll(".single-reply-container");
+        let count = 0;
+        if (replies.length < 1) {
+            span.textContent = count + " replies";
+            span.parentNode.querySelector("i").remove();
+        } else {
 
-        //  let replies = replyContainers.querySelectorAll(".single-reply-container");
-        for (let i = 0; i < replyContainers.length; i++) {
-            console.log('hej');
-            count++;
+
+            for (let i = 0; i < replies.length; i++) {
+                count++;
+            }
+            span.textContent = count + " replies";
         }
-        span.textContent = count + "Replies";
 
-
-        console.log(span)
     })
 
-    // console.log(allComments)
+
 }
 
 countReplies();
+let allForms = document.querySelectorAll(".reply-form");
 function showReplyForm(element) {
-    let allForms = document.querySelectorAll(".reply-form");
+
+    console.log("hej")
+
     allForms.forEach(form => {
+        console.log(form)
         form.classList.remove("show");
     })
     let container = element.parentNode.parentNode;
     container.querySelector(".reply-form").classList.toggle("show");
 }
 function showReplies(element) {
+    allForms.forEach(form => {
+        console.log(form)
+        form.classList.remove("show");
+    })
     let container = element.parentNode.parentNode.parentNode;
     element.classList.toggle("active");
     container.querySelector(".replies-container").classList.toggle("show");
@@ -61,4 +71,26 @@ function cancelReply(element) {
     let container = element.parentNode.parentNode;
     container.querySelector(".reply-form").classList.remove("show");
 }
+
+let textarea = document.querySelectorAll(".resize-ta");
+
+textarea.forEach(ele => {
+    console.log(ele)
+    ele.addEventListener("keyup", () => {
+        ele.style.height = calcHeight(ele.value) + "px";
+    });
+
+})
+
+// Dealing with Input width
+
+
+// Dealing with Textarea Height
+function calcHeight(value) {
+    let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+    // min-height + lines x line-height + padding + border
+    let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2;
+    return newHeight;
+}
+
 
