@@ -13,6 +13,12 @@ require('./db/globals.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 ?>
 <main id="index">
+
+    <div class="index_intro_banner flex flex_center_center flex_row_reverse">
+        <h1> <span>Reboot</span> the things your are not using, and give them a <span>new life today</span>. </h1>
+        <img src="/assets/imgs/people-discussing-about-online-payment.svg" alt="">
+    </div>
+
     <div class="broad-page-container">
 
         <div class="search-container">

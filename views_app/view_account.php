@@ -52,7 +52,7 @@ require('./db/globals.php');
 
         ?>
 
-        <div class="flex flex_center_center row wrap  ">
+        <div class="flex_container flex_center_center row wrap  ">
 
           <form id="update-profile-image" action="/upload-profile-image" method="POST" enctype="multipart/form-data" onsubmit="return validate();">
 
