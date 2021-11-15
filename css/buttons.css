@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.button_bg_light {
+  background-color: var(--button-bg_grey);
+}
+
 .button.large {
   width: 100%;
 }

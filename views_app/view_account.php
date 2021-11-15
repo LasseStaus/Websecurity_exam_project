@@ -15,136 +15,150 @@ if (!isset($_SESSION['user_uuid'])) {
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_user.php');
+require('./db/globals.php');
 ?>
 
 <main>
 
-  <div class="content-container-profile">
+  <div class="account_container">
+    <h1>My account</h1>
+    <div class="account_content_container">
 
-    <div class="account-sidenav">
-      <ul>
-        <li>
-          <h1>My account</h1>
-        </li>
-        <li>
-          <a href="/account" class="active">My overview</a>
-        </li>
-        <li>
-          <a href="/account-edit/my-user-information"> My user information</a>
-        </li>
-        <li>
-          <a href="/account-edit/change-password">Change password</a>
-        </li>
-        <li>
-          <button type="submit" class="button medium" onclick="open_confirm_modal_account()">Delete account</button>
-        </li>
-      </ul>
-    </div>
-
-    <div class="account-content flex column">
-      <h2 class="h2">My overview</h2>
-
-      <?php
-
-      require_once($_SERVER['DOCUMENT_ROOT'] . '/components/component_succcessmsg.php');
-
-      ?>
-
-      <div class="flex flex_center_center row">
-
-        <form id="update-profile-image" action="/upload-profile-image" method="POST" enctype="multipart/form-data" onsubmit="return validate();">
-
-          <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
-
-          <div class=" flex_container column flex_center_center nowrap">
-            <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
-            <label class="icon-upload-label" for="upload-img"><i class="fas fa-camera"></i></label>
-            <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)" style=" display: none;">
-          </div>
-          <button class="button upload-profile-image" type="submit">Upload image</button>
-        </form>
-        <div class="account-subtitle">
-          <p> <?= $user['user_firstname'] ?> <?= $user['user_lastname'] ?></p>
-          <p> <?= $user['user_email'] ?></p>
-        </div>
+      <div class="account-sidenav">
+        <ul>
+          <li>
+          </li>
+          <li>
+            <a href="/account" class="active">My overview</a>
+          </li>
+          <li>
+            <a href="/account-edit/my-user-information"> My user information</a>
+          </li>
+          <li>
+            <a href="/account-edit/change-password">Change password</a>
+          </li>
+          <li>
+            <button type="submit" class="button medium_button" onclick="open_confirm_modal_account()">Delete account</button>
+          </li>
+        </ul>
       </div>
 
-
-      <!-- ############## my products ##############s -->
-
-      <?php
-      require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_my_products.php');
-      ?>
-
-      <div class="flex column">
-        <h3>My products</h3>
+      <div class="account-content flex column">
+        <h2 class="h2">My overview</h2>
 
         <?php
-        require_once('./components/component_errormsg.php');
-        require_once('./components/component_succcessmsg.php');
+
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/components/component_succcessmsg.php');
+
         ?>
 
-        <div class="products-container">
+        <div class="flex flex_center_center row wrap  ">
+
+          <form id="update-profile-image" action="/upload-profile-image" method="POST" enctype="multipart/form-data" onsubmit="return validate();">
+
+            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+
+            <div class=" flex_container column ">
+              <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
+              <label class="icon-upload-label pointer" for="upload-img"><i class="fas fa-camera"></i></label>
+              <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)" style=" display: none;">
+            </div>
+            <button class="button upload-profile-image" type="submit">Upload image</button>
+          </form>
+          <div class="account-subtitle">
+            <p> <?= $user['user_firstname'] ?> <?= $user['user_lastname'] ?></p>
+            <p> <?= $user['user_email'] ?></p>
+          </div>
+        </div>
+
+
+        <!-- ############## my products ##############s -->
+
+        <?php
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_my_products.php');
+        ?>
+
+        <div class="flex column">
+          <h3>My products</h3>
+
           <?php
-          foreach ($user_products as $user_product) {
-            $image = json_decode($user_product['product_image']);
-            $id = $user_product['product_id'];
+          require_once('./components/component_errormsg.php');
+          require_once('./components/component_succcessmsg.php');
           ?>
 
-            <div class="product_container">
-              <div class="product">
-                <div>
-                  <!--     <div> <strong>PRODUCT ID:</strong> <?= out($user_product['product_id']) ?></div> -->
-                  <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($user_product['product_title']) ?>">
-                  <!--        <div> <strong>USER_ID:</strong> <?= out($_SESSION['user_uuid']) ?></div> -->
-                  <!--      <div class="time"> <?= out($user_product['product_timestamp']) ?></div> -->
+          <div class="products-container">
+            <?php
+            foreach ($user_products as $user_product) {
+              $image = json_decode($user_product['product_image']);
+              $description = out(openssl_decrypt(base64_decode($user_product['product_description']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($user_product['product_iv'])));
+            ?>
+
+              <div class="product_container">
+                <div class="product">
+                  <div class="img-container">
+                    <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($user_product['product_title']) ?>">
+                  </div>
+                  <div class="product-info">
+                    <div class="product-info-top">
+                      <div class="title"> <?= out($user_product['product_title']) ?></div>
+                      <div class="price"> <?= out($user_product['product_price']) ?> <span>Dkk</span></div>
+                    </div>
+                    <p class="description">
+                      <?= $description ?>
+                    </p>
+                  </div>
+                  <a href="/single-product/<?= $product['product_id'] ?>"></a>
                 </div>
-                <div>
-                  <div class="title"> <?= out($user_product['product_title']) ?></div>
-                  <!--     <div class="desc"> <?= out($user_product['product_description']) ?></div> -->
-                  <div class="price"> <?= out($user_product['product_price']) ?> <span>Dkk</span></div>
-                  <!--          <div class="category"> <?= out($user_product['product_category']) ?></div> -->
-                  <a href="/single-product/<?= $user_product['product_id'] ?>"></a>
+                <div class="edit_product_container">
+                  <a id="<?= $user_product['product_id'] ?>" title="<?= $user_product['product_title'] ?>" class="pointer link" onclick="open_confirm_modal_product(this)">
+                    Delete
+                  </a>
+                  <a class="link" href="/edit-product/<?= $user_product['product_id'] ?>">Edit</a>
                 </div>
               </div>
-              <div class="edit_product_container">
-                <a id="<?= $user_product['product_id'] ?>" title="<?= $user_product['product_title'] ?>" class="pointer link" onclick="open_confirm_modal_product(this)">
-                  Delete
-                </a>
-                <a class="link" href="/edit-product/<?= $user_product['product_id'] ?>">Edit</a>
+            <?php
+
+            }
+            ?>
+          </div>
+
+          <div id="confirm_modal_delete_account" class="confirm_modal text-center ">
+            <div class="confirm_modal_content">
+              <h3>Are you sure?</h3>
+              <p class="margin-5"> You are about to delete your account</p>
+              <div class="flex_container flex_row_reverse flex_center_center margin-20-top">
+                <form action="/delete-account" method="POST">
+                  <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                  <button class=" margin-5 button medium_button">Delete account</button>
+                </form>
+                <button class=" margin-5 close_account button medium_button button_bg_light">Cancel</button>
+              </div>
+
+            </div>
+          </div>
+
+          <div id="confirm_modal_delete_product" class="confirm_modal text-center ">
+            <div class="confirm_modal_content">
+              <h3>Are you sure?</h3>
+              <div class="flex_container flex_center_center">
+                <p class="margin-5"> You are about to delete product:</p>
+                <p class="margin-5" id="product_name_show"> </p>
+              </div>
+              <div class="flex_container flex_row_reverse flex_center_center margin-20-top">
+                <form action="/delete-product" method="POST">
+                  <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                  <input type="hidden" name="user_product" id="user_product" value="">
+                  <button class=" margin-5 button medium_button">Delete product</button>
+                </form>
+                <button class="margin-5 close button medium_button button_bg_light">Cancel</button>
               </div>
             </div>
-          <?php
-
-          }
-          ?>
-        </div>
-
-        <div id="confirm_modal_delete_account" class="confirm_modal">
-          <div class="confirm_modal_content">
-            <h3>Are you sure?</h3>
-            <form action="/delete-account" method="POST">
-              <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
-              <button>Delete account</button>
-            </form>
-            <button class="close_account">Cancel</button>
           </div>
-        </div>
 
-        <div id="confirm_modal_delete_product" class="confirm_modal">
-          <div class="confirm_modal_content">
-            <h3>Are you sure you want to delete?</h3>
-            <p id="product_name_show"> </p>
-            <form action="/delete-product" method="POST">
-              <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
-              <input type="hidden" name="user_product" id="user_product" value="">
-              <button>Delete product</button>
-            </form>
-            <button class="close">Cancel</button>
-          </div>
         </div>
-
       </div>
+    </div>
+  </div>
 </main>
 
 <script>

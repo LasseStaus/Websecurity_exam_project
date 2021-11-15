@@ -1,5 +1,47 @@
 @import "roots.css";
 
+.account_container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.account_content_container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 10px;
+}
+
+.account-content {
+  align-items: flex-start;
+  padding: 30px 1rem 1rem 1rem;
+  row-gap: 2rem;
+}
+
+.account-content h2 {
+  font-weight: var(--font-medium)
+}
+
+.account-content h3 {
+  margin-bottom: 3%;
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-medium);
+}
+
+.account_content_container .product {
+  grid-template-rows: 180px auto;
+}
+
+.account_content_container .product img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.account_content_container .product .img-container {
+  overflow: hidden;
+}
+
+
 /* My overview ----profile_image */
 .icon-upload-label {
   display: inline-block;
@@ -36,7 +78,7 @@ button.upload-profile-image.show {
 
 /* My overview ---name and email */
 .account-subtitle {
-  margin-top: var(--m-20)
+  margin-top: -20px
 }
 
 .account-subtitle p:nth-child(1) {
@@ -60,60 +102,12 @@ button.upload-profile-image.show {
   gap: var(--grid-gap-1-5);
 }
 
-.product_container {
-  width: var(--w-100);
-  background-color: var(--light-grey);
-  padding: 2%;
-}
-
 .edit_product_container {
   margin-top: var(--m-5);
 }
 
 .edit_product_container a {
   margin-left: var(--m-5);
-}
-
-.product {
-  padding: 2px;
-}
-
-
-
-
-/* --------- product ---------- */
-
-form#update-account-information {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-  width: 100%;
-  max-width: 500px;
-  margin-top: 3%;
-}
-
-.account-content {
-  align-items: flex-start;
-  padding: 80px 1rem 1rem 1rem;
-  row-gap: 2rem;
-}
-
-.account-content h2 {
-  font-weight: var(--font-medium)
-}
-
-.account-content h3 {
-  margin-bottom: 3%;
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-medium);
-}
-
-.content-container-profile {
-  display: grid;
-  max-width: 1100px;
-  margin: 0 auto;
-  grid-template-columns: 250px 1fr;
-  gap: 10px;
 }
 
 
@@ -130,20 +124,14 @@ form#update-account-information {
 }
 
 .account-sidenav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
   width: var(--w-100);
   height: 100vh;
 }
 
 .account-sidenav ul li a {
   display: block;
-  color: #000;
-  padding: 2px 0;
+  color: var(--text-normal);
   margin: 30px 0;
-  text-decoration: none;
-  width: 55%;
 }
 
 .account-sidenav ul li a.active {
@@ -153,9 +141,13 @@ form#update-account-information {
 
 .account-sidenav ul li a:hover:not(.active) {
   color: black;
-  font-weight: 700;
+  width: max-content;
+  font-weight: var(--font-semi-bold);
   border-bottom: 1px solid var(--black-bg);
+  padding-bottom: 2px;
 }
+
+/* --------- Confirm modal ---------- */
 
 .confirm_modal {
   display: none;
@@ -167,17 +159,50 @@ form#update-account-information {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: var(--black-bg);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .confirm_modal_content {
   background-color: white;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: var(--w-100);
+  border: 1px solid var(--light-grey);
+  border-radius: 10px;
+  max-width: 700px;
 }
 
-.close {
-  cursor: pointer;
+
+/* --------- MOBILE MEDIA QUERY ---------- */
+
+@media screen and (max-width: 760px) {
+  .account_content_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .account_container {
+    padding: 1rem;
+  }
+
+  .account-sidenav ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    overflow-y: scroll;
+    flex-wrap: wrap-reverse
+  }
+
+  .products-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .account_container {
+    max-width: 700px;
+  }
 }

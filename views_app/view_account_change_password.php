@@ -22,56 +22,56 @@ try {
     ?>
     <main>
 
-        <div class="content-container-profile">
+        <div class="account_container">
+            <h1>My account</h1>
+            <div class="account_content_container">
 
-            <div class="account-sidenav">
-                <ul>
-                    <li>
-                        <h1>My account</h1>
-                    </li>
-                    <li>
-                        <a href="/account">My overview</a>
-                    </li>
-                    <li>
-                        <a href="/account-edit/my-user-information"> My user information</a>
-                    </li>
-                    <li>
-                        <a href="/account-edit/change-password" class="active">Change password</a>
-                    </li>
-                    <li>
-                        <button type="submit" class="button medium_button" onclick="open_confirm_modal_account()">Delete account</button>
-                    </li>
-                </ul>
-            </div>
+                <div class="account-sidenav">
+                    <ul>
+                        <li>
+                            <a href="/account">My overview</a>
+                        </li>
+                        <li>
+                            <a href="/account-edit/my-user-information"> My user information</a>
+                        </li>
+                        <li>
+                            <a href="/account-edit/change-password" class="active">Change password</a>
+                        </li>
+                        <li>
+                            <button type="submit" class="button medium_button" onclick="open_confirm_modal_account()">Delete account</button>
+                        </li>
+                    </ul>
+                </div>
 
-            <div class="account-content">
-                <h2 class="account-title">Change password</h2>
+                <div class="account-content">
+                    <h2 class="account-title">Change password</h2>
 
-                <?php
-                require_once('./components/component_errormsg.php');
-                require_once('./components/component_succcessmsg.php');
-                ?>
+                    <?php
+                    require_once('./components/component_errormsg.php');
+                    require_once('./components/component_succcessmsg.php');
+                    ?>
 
-                <form id="update-account-information" method="POST" action="/update-user-account-password" onsubmit="return validate();">
-                    <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
-                    <div class="form-group">
-                        <h5 id="new-pword-txt">New password</h5>
-                        <input type="password" name="user_password" data-validate="str" data-min="4" data-max="16" placeholder="Enter new password  ">
-                        <span>Please provide a valid password | 8-50 characters</span>
-                    </div>
+                    <form class="form_container_max_width margin margin-20-top" id="update-account-information" method="POST" action="/update-user-account-password" onsubmit="return validate();">
+                        <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                        <div class="form-group">
+                            <h5 id="new-pword-txt">New password</h5>
+                            <input type="password" name="user_password" data-validate="str" data-min="4" data-max="16" placeholder="Enter new password  ">
+                            <span>Please provide a valid password | 8-50 characters</span>
+                        </div>
 
-                    <div class="form-group">
-                        <h5 id="conf-pword-txt">Confirm password</h5>
-                        <input type="password" name="user_confirm_password" data-match-name="user_password" data-validate="match" data-min="4" data-max="16" placeholder="Confirm new password" id="logpassconfirm">
-                        <span>Your password &amp; confirm password must match | 8-50 characters</span>
-                    </div>
-                    <div class="btn-position">
-                        <button type="submit" class="button large">Change password</button>
-                    </div>
+                        <div class="form-group">
+                            <h5 id="conf-pword-txt">Confirm password</h5>
+                            <input type="password" name="user_confirm_password" data-match-name="user_password" data-validate="match" data-min="4" data-max="16" placeholder="Confirm new password" id="logpassconfirm">
+                            <span>Your password &amp; confirm password must match | 8-50 characters</span>
+                        </div>
+                        <div class="btn-position">
+                            <button type="submit" class="button large">Change password</button>
+                        </div>
 
-                </form>
+                    </form>
 
 
+                </div>
             </div>
         </div>
 

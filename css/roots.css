@@ -21,7 +21,9 @@
   --container-login-bg: rgb(223, 211, 159);
   --container-login-admin-bg: rgb(143, 190, 168);
   --container-singup-bg: rgb(159, 198, 223);
+
   --light-grey: rgb(240, 240, 240);
+  --medium-grey: rgb(207, 207, 207);
 
   --module-bg: white;
 
@@ -30,6 +32,7 @@
 
   --gainsboro: gainsboro;
   --button-bg: black;
+  --button-bg_grey: rgb(165, 165, 165);
   --button-bg-hover: rgb(92, 91, 91);
   --button-color: white;
   --button-color-hover: white;
@@ -265,7 +268,6 @@ ul {
   justify-content: space-between;
 }
 
-
 .flex_center_center {
   align-items: center;
   justify-content: center;
@@ -282,6 +284,10 @@ ul {
 .flex {
   display: flex;
   flex: 1;
+}
+
+.flex_row_reverse {
+  flex-direction: row-reverse;
 }
 
 .grid {
@@ -312,9 +318,12 @@ ul {
   padding: var(--p-0);
 }
 
-
 .margin-10 {
   margin: var(--m-10);
+}
+
+.margin-5 {
+  margin: var(--m-5);
 }
 
 .margin-5-top {
@@ -329,6 +338,8 @@ ul {
   margin-top: var(--m-20);
 }
 
+
+
 .margin-10-bottom {
   margin-bottom: var(--m-10);
 }
@@ -340,4 +351,8 @@ ul {
 
 .smaller {
   font-size: var(--smaller-font-size);
+}
+
+.pointer {
+  cursor: pointer;
 }

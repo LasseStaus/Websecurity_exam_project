@@ -29,13 +29,14 @@ form input {
   transition: border-color 0.2s ease-in-out;
 }
 
-form input:focus,
-form input:active {
-  border-color: #b9b9b9;
+.form_container_max_width {
+  width: 100%;
+  max-width: 400px;
 }
 
-form input:active h5 {
-  color: #b9b9b9;
+form input:focus,
+form input:active {
+  border-color: var(--medium-grey)
 }
 
 /* --- form error --- */

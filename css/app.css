@@ -291,6 +291,7 @@ main {
   width: 100%;
   max-width: 1480px;
   margin: 0 auto;
+  padding-top: 50px;
 }
 
 /* --------- error/updates -------- */
@@ -306,8 +307,4 @@ main {
   background-color: rgb(222, 96, 96);
   font-weight: 500;
   color: white;
-}
-
-.pointer {
-  cursor: pointer;
 }
