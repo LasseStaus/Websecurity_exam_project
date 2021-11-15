@@ -43,6 +43,10 @@ section {
   margin-bottom: 50px;
 }
 
+.mobile-hide {
+  display: block;
+}
+
 .product a:after {
   position: absolute;
   content: "";
@@ -155,6 +159,7 @@ i.clear-input {
 /* media queries */
           /***/
 
+
 @media only screen and (max-width: 996px) {
 
   #search-form {
@@ -190,4 +195,19 @@ i.clear-input {
   white-space: pre-line;
   overflow: hidden;
 }
+
+.mobile-hide {
+  display: none;
+}
+
+}
+
+@media only screen and (min-width: 768px) {
+  #search-form {
+   margin: inherit;
+   }
+        
+  .search-container {
+   column-gap: 1rem;   
+  }
 }
