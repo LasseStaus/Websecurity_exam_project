@@ -7,110 +7,101 @@ if (!isset($_SESSION['user_uuid'])) {
 }
 
 require('./db/db.php');
-require('./db/fetch_product.php');
+
 require('./db/globals.php');
 
-
-
+require('./db/fetch_product.php');
 $image = json_decode($product['product_image']);
 $message = out(openssl_decrypt(base64_decode($product['product_description']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($product['product_iv'])));
 
 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
+
 ?>
-<main class="height-100-vh">
+<main>
   <div class="page-container">
+    <div class="product-content-container">
+      <h2 class=" h1 product-title"><?= out($product['product_title']) ?></h2>
 
-    <div class="flex wrap column">
-      <div class="goback-href"><a href="/">Go back</a></div>
-    </div>
-    <div class="card-wrapper">
-      <div class="card">
-        <!-- card left -->
-        <div class="product-imgs">
-          <div class="img-display">
-            <div class="img-showcase">
-              <img src="../product-images/<?= out($image[0]) ?>" alt="product image">
-              <img src="../product-images/<?= out($image[1]) ?>" alt="product image">
-              <img src="../product-images/<?= out($image[2]) ?>" alt="product image">
-              <img src="../product-images/<?= out($image[3]) ?>" alt="product image">
+      <div class="product-imgs">
+        <div class="img-display">
+          <div class="img-showcase">
+            <?php
 
-            </div>
-          </div>
-          <div class="img-select">
-            <div class="img-item">
-              <a href="#" data-id="1">
-                <img src="../product-images/<?= out($image[0]) ?>" alt="product image">
-              </a>
-            </div>
-            <div class="img-item">
-              <a href="#" data-id="2">
-                <img src="../product-images/<?= out($image[1]) ?>" alt="product image">
-              </a>
-            </div>
-            <div class="img-item">
-              <a href="#" data-id="3">
-                <img src="../product-images/<?= out($image[2]) ?>" alt="product image">
-              </a>
-            </div>
-            <div class="img-item">
-              <a href="#" data-id="4">
-                <img src="../product-images/<?= out($image[3]) ?>" alt="product image">
-              </a>
-            </div>
+            foreach ($image as $index => $item) {
+
+            ?>
+              <img src="../product-images/<?= out($item) ?>" alt="product image">
+            <?php
+
+
+            }
+            ?>
           </div>
         </div>
-        <!-- card right -->
-        <div class="product-content">
-          <h2 class="product-title"> <?= out($product['product_title']) ?> </h2>
-          <div class="flex wrap column">
-            <div class="master-flex">
-              <p class="small">Created: <span class="small"><?= out($product['product_timestamp']) ?></span></p>
-              <p class="small">By: <span class="small"><?= out($product['user_firstname']) ?> <?= out($product['user_lastname']) ?></span></p>
-            </div>
-          </div>
-          <div class="flex wrap column">
-          </div>
-          <div class="product-price">
-            <div class="master-flex">
-              <p class="new-price">Price:</p>
-              <p><span><?= out($product['product_price']) ?></span> DKK</p>
-            </div>
-          </div>
-          <div class="product-detail">
-            <p class="new-price"><span>Description:</span></p>
-            <p><?= $message ?></p>
-          </div>
-          <div class="product-detail">
-            <p class="contact-title">Contact:</p>
-          </div>
-          <div class="purchase-info master-flex">
-            <div class="product-detail flex wrap column">
-              <span><i class="fas fa-phone"></i> <a href="tel:<?= out($product['user_phone']) ?>"><?= out($product['user_phone']) ?></a></span>
-              <span><i class="fas fa-envelope"></i> <a href="mailto:<?= out($product['user_email']) ?>"><?= out($product['user_email']) ?></a></span>
-            </div>
-            <br>
+        <div class="img-select">
+          <?php
+          $count = 0;
+          if (count($image) > 1) {
 
-          </div>
+
+            foreach ($image as $index => $item) {
+              $count++
+              // other
+          ?>
+              <div class="img-item">
+                <a href="#" data-id="<?= $count ?>">
+                  <img src="../product-images/<?= out($item) ?>" alt="product image">
+                </a>
+              </div>
+          <?php
+            }
+          }
+          ?>
         </div>
+        <?php
+
+        ?>
       </div>
+      <!-- card right -->
+      <div class="product-content">
+        <div class="description">
+
+          <h2 class="product-title h2"> About this product </h2>
+          <p><?= $message ?></p>
+        </div>
+
+
+        <div class="product-info">
+          <div class="created-by">
+            <p class="price"><span><?= out($product['product_price']) ?></span> DKK</p>
+            <div>
+
+              <p>Created: <span><?= out($product['product_timestamp']) ?></span></p>
+              <p>By: <span><?= out($product['user_firstname']) ?> <?= out($product['user_lastname']) ?></span></p>
+            </div>
+          </div>
+          <a href="#comments-section" class="button large">Contact seller</a>
+        </div>
+
+      </div>
+
     </div>
+
     <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/db/fetch_comments.php');
     ?>
     <section id="comments-section">
 
       <div class="create-comment-container">
-
         <div class="create-comment-form-container">
           <h4>Write a message to <?= out($product['user_firstname']) ?></h4>
           <img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="Image of <?= $_SESSION['user_firstname'] ?>">
-
           <form id="create_comment" action="/create-comment" method="POST">
             <input type="hidden" name="product_id" value="<?= $product_id ?>">
             <textarea name="comment_message" class="resize-ta" id="" placeholder="Add a comment"></textarea>
-            <button class="submit-create-comment" type="submit"> Send</button>
+            <button class="button small submit-create-comment" type="submit"> Send</button>
           </form>
         </div>
       </div>
@@ -175,6 +166,42 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
       </div>
 
     </section>
+
+    <section id="newest-products">
+      <h3 class="h3 section-header">Other products on Reboot</h3>
+      <div class="new-products-container">
+
+
+        <?php require('./db/fetch_products.php');
+        foreach ($products as $product) {
+          $image = json_decode($product['product_image']);
+          $newest_description = out(openssl_decrypt(base64_decode($product['product_description']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($product['product_iv'])));
+        ?>
+
+          <div class="product">
+            <div class="img-container">
+              <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+            </div>
+            <div class="product-info">
+              <div class="product-info-top">
+                <div class="title"> <?= out($product['product_title']) ?></div>
+                <div class="price"> <?= out($product['product_price']) ?> <span>Dkk</span></div>
+              </div>
+              <p class="description">
+                <?= $newest_description ?>
+              </p>
+            </div>
+            <a href="/single-product/<?= $product['product_id'] ?>"></a>
+          </div>
+        <?php
+        }
+
+        ?>
+      </div>
+
+    </section>
+
+
   </div>
 </main>
 

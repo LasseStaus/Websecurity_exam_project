@@ -5,6 +5,7 @@ let imgId = 1;
 imgBtns.forEach((imgItem) => {
     imgItem.addEventListener('click', (event) => {
         event.preventDefault();
+        console.log('hej', imgItem)
         imgId = imgItem.dataset.id;
         slideImage();
     });
@@ -12,10 +13,15 @@ imgBtns.forEach((imgItem) => {
 
 function slideImage() {
     const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
-
+    console.log(displayWidth)
     document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
 }
 
+
+
+function singleImageContainer() {
+
+}
 window.addEventListener('resize', slideImage);
 
 function countReplies() {
