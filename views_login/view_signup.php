@@ -73,7 +73,7 @@ session_start();
     </div>
 
     <div class="image_signup_login_container container_signup_bg flex flex_center_center">
-      <img src="/assets/imgs/clothes.svg" alt="">
+      <img src="/assets/imgs/man-working-remotely-and-drinking-coffee.svg" alt="">
     </div>
 
   </div>

@@ -19,9 +19,6 @@
         <nav>
             <a href="/admin-index" class="link">Administration</a>
             <a href="/logout" class="button medium_button">logout</a>
-            <div class="header-profile">
-                <span>Admin</span>
-            </div>
         </nav>
 
 
