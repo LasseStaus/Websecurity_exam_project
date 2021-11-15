@@ -23,7 +23,7 @@
 <body>
     <header id="header">
         <nav>
-            <a href="/index"><img src="/assets/imgs/logoheader.png" alt="logo"></a>
+            <a href="/index"><img src="/assets/imgs/logo.png" alt="logo"></a>
         </nav>
 
         <div class="header-profile">

@@ -16,80 +16,83 @@ $image = json_decode($product['product_image']);
 ?>
 
 <main id="edit">
-    <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/components/component_errormsg.php');
-    ?>
-    <h3 class="page-title">Edit Product</h3>
-    <form id="create_product" action="/update-product/<?= $product['product_id'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
+
+    <div class=" text-center form_container_max_width">
+        <?php
+        require_once($_SERVER['DOCUMENT_ROOT'] . '/components/component_errormsg.php');
+        ?>
+        <h1 class="page-title">Edit Product</h1>
+        <form id="create_product" action="/update-product/<?= $product['product_id'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
 
 
-        <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
-        <div class="input-pair">
-            <label for="product_title">Title </label>
-            <input name="product_title" type="text" value="<?= $product['product_title'] ?>" placeholder="Enter title" data-validate="str" data-min="1" data-max="50" />
-            <span>Please provide a title</span>
-        </div>
+            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+            <div class="form-group">
+                <h5 for="product_title">Title </h5>
+                <input name="product_title" type="text" value="<?= $product['product_title'] ?>" placeholder="Enter title" data-validate="str" data-min="1" data-max="50" />
+                <span>Please provide a title</span>
+            </div>
 
-        <div class="input-pair">
-            <label for="product_price">price </label>
-            <input name="product_price" type="text" value="<?= $product['product_price'] ?>" placeholder="Enter title" data-validate="int" data-min="1" data-max="50" />
-            <span>Please provide price</span>
-        </div>
-        <div class="input-pair">
-            <label for="product_category">category </label>
-            <input name="product_category" type="text" value="<?= $product['product_category'] ?>" placeholder="Enter title" data-validate="str" data-min="1" data-max="50" />
-            <span>Please provide a category</span>
-        </div>
-        <div class="input-pair">
-            <label for="product_description">Description </label>
-            <textarea name="product_description" data-validate="str" data-min="1" data-max="500"><?= $message ?></textarea>
-            <span>Please provide a description of the product</span>
-        </div>
-        <div id="file-input" class="input-pair">
+            <div class="form-group">
+                <h5 for="product_price">price </h5>
+                <input name="product_price" type="text" value="<?= $product['product_price'] ?>" placeholder="Enter title" data-validate="int" data-min="1" data-max="50" />
+                <span>Please provide price</span>
+            </div>
+            <div class="form-group">
+                <h5 for="product_category">category </h5>
+                <input name="product_category" type="text" value="<?= $product['product_category'] ?>" placeholder="Enter title" data-validate="str" data-min="1" data-max="50" />
+                <span>Please provide a category</span>
+            </div>
+            <div class="form-group">
+                <h5 for="product_description">Description </h5>
+                <textarea name="product_description" data-validate="str" data-min="1" data-max="500"><?= $message ?></textarea>
+                <span>Please provide a description of the product</span>
+            </div>
+            <div id="file-input" class="form-group">
 
-            <?php
-            if (isset($error_message)) {
+                <?php
+                if (isset($error_message)) {
 
-            ?>
-                <label for="product_images">Images</label>
-                <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
-                <span>Please provide 1-4 images of the product</span>
+                ?>
+                    <h5 for="product_images">Images</h5>
+                    <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
+                    <span>Please provide 1-4 images of the product</span>
 
-            <?php
+                <?php
 
-            } else {
-
-
-            ?>
-                <i id="new-images" class="fas fa-upload" onclick="newImages()"></i>
+                } else {
 
 
-                <div id="images-preview-container">
-                    <?php
-                    foreach ($image as $img) {
-                    ?>
-                        <img src="../product-images/<?= out($img) ?>" alt="Current product image">
-                    <?php
-                    }
-                    ?>
-                </div>
-            <?php
+                ?>
+                    <i id="new-images" class="fas fa-upload" onclick="newImages()"></i>
 
 
-            }
-            ?>
+                    <div id="images-preview-container">
+                        <?php
+                        foreach ($image as $img) {
+                        ?>
+                            <img src="../product-images/<?= out($img) ?>" alt="Current product image">
+                        <?php
+                        }
+                        ?>
+                    </div>
+                <?php
 
 
-        </div>
+                }
+                ?>
+
+
+            </div>
 
 
 
-        <div class="input-pair">
+            <div class="form-group">
 
-            <button type=" submit" class="submit">Update product</button>
-        </div>
+                <button type=" submit" class="submit button large">Update product</button>
+            </div>
 
-    </form>
+        </form>
+    </div>
 
 
 
@@ -130,7 +133,7 @@ $image = json_decode($product['product_image']);
 
         let inputPairContent = `
         
-                <label for="product_images">Images</label>
+                <h5 for="product_images">Images</h5>
                 <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
                 <span>Please provide 1-4 images of the product</span>
   `
@@ -141,8 +144,8 @@ $image = json_decode($product['product_image']);
 
 
     /* 
-        <div class="input-pair">
-                <label for="product_images">Images</label>
+        <div class="form-group">
+                <h5 for="product_images">Images</h5>
                 <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
                 <span>Please provide 1-4 images of the product</span>
             </div> */

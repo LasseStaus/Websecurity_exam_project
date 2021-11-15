@@ -53,14 +53,14 @@
   position: relative;
 }
 
-.icon-upload-label {
+.icon-upload-h5 {
   display: inline-block;
   position: absolute;
   padding: 0px;
   bottom: 0;
 }
 
-.icon-upload-label i {
+.icon-upload-h5 i {
   background: gainsboro;
   padding: 0.5rem;
   border-radius: 50%;

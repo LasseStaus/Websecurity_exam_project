@@ -51,7 +51,7 @@ header {
 }
 
 header img {
-  width: 70%;
+  width: 100%;
 }
 
 header.scroll-header {
@@ -65,8 +65,8 @@ header.hide {
 
 nav {
   height: 100%;
-
-  width: auto;
+  width: 100%;
+  max-width: 170px;
   display: inline-flex;
   column-gap: 2rem;
 
@@ -210,7 +210,7 @@ main#edit {
   text-transform: capitalize;
 }
 
-.input-pair label {
+.input-pair h5 {
   font-weight: bold;
 }
 
