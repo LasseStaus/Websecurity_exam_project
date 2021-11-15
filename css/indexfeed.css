@@ -149,3 +149,45 @@ i.clear-input {
   top: 50%;
   transform: translateY(-50%);
 }
+
+
+/****/
+/* media queries */
+          /***/
+
+@media only screen and (max-width: 996px) {
+
+  #search-form {
+    margin: 0 auto;
+  }
+
+  .search-container {
+  column-gap: 0rem;
+
+  }
+
+.product {
+  grid-template-rows: 400px 120px;
+}
+.product-container {
+  grid-template-columns: auto;
+}
+.new-products-container{
+  grid-template-columns: auto;
+}
+
+#index .price {
+  
+  font-weight: var(--font-bold);
+}
+
+.product-info {
+  grid-template-rows: 40px 80px;
+}
+
+#index p.description {
+  height: 100%;
+  white-space: pre-line;
+  overflow: hidden;
+}
+}
