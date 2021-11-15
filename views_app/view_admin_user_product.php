@@ -8,8 +8,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
 <main>
 
     <div class="page-container">
-        <a href="/admin-index">Go back</a>
-        <h1>Products of <?= $user_id ?></h1>
+        <a class="link" href="/admin-index">Go back</a>
+        <h1 class="margin-20-top">Products of product <?= $user_id ?></h1>
 
         <?php
         if (!$products) {
@@ -47,9 +47,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
                                 <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
                                 <input type="hidden" name="user_uuid" value="<?= $product['user_uuid'] ?>">
                                 <input type="hidden" name="product_status" value="<?= $product['product_status'] ?>">
-                                <button type="submit"> <?php if ($product['product_status'] == 1) { ?>Unpublish <?php } else {
-                                                                                                                ?> Publish<?php
-                                                                                                                        } ?>
+                                <button type="submit" class="button medium_button button_bg_light"> <?php if ($product['product_status'] == 1) { ?>Unpublish <?php } else {
+                                                                                                                                                                ?> Publish<?php
+                                                                                                                                                                        } ?>
                                 </button>
                             </form>
                         </td>

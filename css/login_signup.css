@@ -26,7 +26,6 @@
 /* --- Login/signup form -- */
 
 .login_signup_form {
-  width: var(--w-70);
   height: 100vh;
 }
 

@@ -206,13 +206,10 @@ post('/create-new-product/:user_uuid', function ($id) {
 
 
 // #########################################################
-// ################### LOST PASSWORD ######################
+// ################### PASSWORD ######################
 // #########################################################
 
 
-get('/lost-password', function () {
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/views/view_new_password.php');
-});
 get('/lost-password/success/:message', 'render_success_message');
 function render_success_message($success_message)
 {

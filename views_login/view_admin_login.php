@@ -11,7 +11,7 @@ session_start();
 
     <div class="login_signup_form flex flex_center_center">
 
-      <div class=" text-center">
+      <div class=" text-center form_container_max_width">
         <div>
           <h1>Sign in admin</h1>
           <div>Sign in to your account</div>
@@ -43,7 +43,6 @@ session_start();
 
 
           <div class="master-flex margin-10-bottom">
-            <a href="#" class="link">Forgot your password?</a>
             <a href="/login" class="link">Login as user</a>
           </div>
 

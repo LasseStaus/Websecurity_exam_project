@@ -41,7 +41,6 @@ session_start();
 
 
           <div class="master-flex margin-10-bottom">
-            <a href="#" class="link">Forgot your password?</a>
             <a href="/admin-login" class="link">Login as admin</a>
           </div>
 

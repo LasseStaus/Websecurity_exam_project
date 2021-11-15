@@ -344,6 +344,10 @@ ul {
   margin-bottom: var(--m-10);
 }
 
+.margin-20-bottom {
+  margin-bottom: var(--m-20);
+}
+
 
 .small {
   font-size: var(--small-font-size);

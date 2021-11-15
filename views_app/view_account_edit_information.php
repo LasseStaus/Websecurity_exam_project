@@ -51,30 +51,30 @@ try {
           require_once('./components/component_succcessmsg.php');
           ?>
 
-          <form class="form_container_max_width margin margin-20-top" id="update-account-information" method="POST" action="/update-account-information">
+          <form class="form_container_max_width margin margin-20-top" id="update-account-information" method="POST" action="/update-account-information" onsubmit="return validate()">
             <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
             <div class="form-group">
               <h5 id="fname-txt">First name</h5>
               <input type="text" name="user_firstname" data-validate="str" data-min="2" data-max="50" value="<?= $user['user_firstname'] ?>">
-              <span>Please provide a first name | 2-50 characters</span>
+              <span class="error-message">Please provide a first name | 2-50 characters</span>
             </div>
 
             <div class="form-group">
               <h5 id="lname-txt">Last name</h5>
               <input type="text" name="user_lastname" data-validate="str" data-min="2" data-max="50" value="<?= $user['user_lastname'] ?>">
-              <span>Please provide a last name | 2-50 characters</span>
+              <span class="error-message">Please provide a last name | 2-50 characters</span>
             </div>
 
             <div class="form-group">
               <h5 id="email-txt">Email</h5>
               <input type="text" name="user_email" data-validate="email" data-min="" data-max="" value="<?= $user['user_email'] ?>">
-              <span>Please provide a valid email</span>
+              <span class="error-message">Please provide a valid email</span>
             </div>
 
             <div class="form-group">
               <h5 id="phone-txt">Phone</h5>
               <input type="text" name="user_phone" data-validate="int" data-min="2" data-max="10" value="<?= $user['user_phone'] ?>">
-              <span>Please provide a valid phone nr. (8 digits)</span>
+              <span class="error-message">Please provide a valid phone nr. (8 digits)</span>
             </div>
             <div class="btn-position-right">
               <button type="submit" class="button large">Update user information</button>

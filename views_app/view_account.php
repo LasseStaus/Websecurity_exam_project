@@ -58,7 +58,7 @@ require('./db/globals.php');
 
             <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
 
-            <div class=" flex_container column ">
+            <div class=" flex_container column profile_image_container ">
               <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
               <label class="icon-upload-label pointer" for="upload-img"><i class="fas fa-camera"></i></label>
               <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)" style=" display: none;">

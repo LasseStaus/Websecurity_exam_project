@@ -23,12 +23,12 @@
 <body>
     <header id="header">
         <nav>
-            <a href="/index"><img src="../assets/imgs/logoheader.png" alt="logo"></a>
+            <a href="/index"><img src="/assets/imgs/logoheader.png" alt="logo"></a>
         </nav>
 
         <div class="header-profile">
             <a class="button medium_button" href="/create-product">create product</a>
-            <a class="small_profile_picture" href="/account"><img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="image"></a>
+            <a class="small_profile_picture"><img src="/profile-uploads/<?= $_SESSION['user_image'] ?>" alt="image"></a>
             <!-- <i class="header-chevron fas fa-chevron-down"></i> -->
         </div>
 

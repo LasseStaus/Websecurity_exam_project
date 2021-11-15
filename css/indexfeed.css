@@ -117,7 +117,7 @@ p.description {
 #search-form {
   position: relative;
   min-width: 300px;
-  z-index: 4000;
+  z-index: 1;
 }
 
 #search-form i {

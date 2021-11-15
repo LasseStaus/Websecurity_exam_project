@@ -15,7 +15,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
 ?>
 <main>
 
-    <div class="page-container">
+    <div class="admin-container">
         <h1>ADMIN PAGE</h1>
 
         <table class="users-container">
@@ -49,14 +49,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
                             <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
                             <input type="hidden" name="user_id" value="<?= $user['user_uuid'] ?>">
                             <input type="hidden" name="user_status" value="<?= $user['user_status'] ?>">
-                            <button type="submit"> <?php if ($user['user_status'] == 1) { ?>Block user <?php } else {
-                                                                                                        ?> Unblock user<?php
-                                                                                                                    } ?>
+                            <button class="button medium_button button_bg_light" type="submit"> <?php if ($user['user_status'] == 1) { ?>Block user <?php } else {
+                                                                                                                                                    ?> Unblock user<?php
+                                                                                                                                                                } ?>
                             </button>
                         </form>
                     </td>
                     <td>
-                        <a href="/admin/show_user_products/<?= $user['user_uuid'] ?>">Show products</a>
+                        <a class="link" href="/admin/show_user_products/<?= $user['user_uuid'] ?>">Show products</a>
                     </td>
                 </tr>
             <?php
