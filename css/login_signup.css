@@ -1,5 +1,7 @@
 .main_login_signup {
   padding: 0;
+  margin: 0;
+  max-width: none;
 }
 
 /* --- image container aside -- */
