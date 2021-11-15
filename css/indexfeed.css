@@ -1,7 +1,7 @@
 .product-container,
 #search_results {
   display: grid;
-  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-template-rows: auto;
   gap: 1rem;
   position: relative;
@@ -9,7 +9,7 @@
 
 .new-products-container {
   display: grid;
-  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-template-rows: auto;
   gap: 1rem;
   position: relative;

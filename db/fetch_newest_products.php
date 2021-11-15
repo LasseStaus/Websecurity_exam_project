@@ -12,9 +12,12 @@ if (!isset($_SESSION['user_uuid'])) {
 try {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
     $q = $db->prepare('SELECT * FROM products where product_status = 1
-                        ORDER BY ASC
-                        LIMIT 4');
+        order by product_timestamp DESC
+         LIMIT 4
+
+  ');
     $q->execute();
+
     $newest_products = $q->fetchAll();
 } catch (PDOException $ex) {
     echo $ex;

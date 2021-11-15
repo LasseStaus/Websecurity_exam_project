@@ -37,19 +37,14 @@
   display: none;
 }
 
-
-
-
 /******/
 /* from singleProduct.css
               /*******/
-
 
 .comments-container {
   display: block;
   margin: 0;
 }
-
 
 .single-comment-container {
   display: grid;

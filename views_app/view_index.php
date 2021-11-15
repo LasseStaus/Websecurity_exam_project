@@ -33,8 +33,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
             <div class="new-products-container">
 
 
-                <?php require('./db/fetch_products.php');
-                foreach ($products as $product) {
+                <?php require('./db/fetch_newest_products.php');
+                foreach ($newest_products as $product) {
                     $image = json_decode($product['product_image']);
                     $newest_description = out(openssl_decrypt(base64_decode($product['product_description']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($product['product_iv'])));
                 ?>

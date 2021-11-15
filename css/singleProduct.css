@@ -8,6 +8,10 @@
   background: var(--module-bg);
   padding: var(--p-1);
   margin-top: var(--mt-1-45);
+<<<<<<< HEAD
+=======
+  max-width: 80%;
+>>>>>>> lasseMandag
   /*  border-radius: var(--radius-20);
   filter: var(--drop-shadow-2-4-6-black); */
 }
@@ -21,8 +25,6 @@
   top: var(--top-10);
   right: var(--right-270);
 }
-
-
 
 .goback-href a {
   color: var(--text-normal);
@@ -65,69 +67,54 @@ img {
 
 .img-showcase img {
   min-width: var(--w-100);
+  max-height: 500px;
 }
 
 .img-select {
   display: flex;
+  row-gap: 10px;
 }
 
 .img-item {
-  margin: var(--mb-0-3);
-  width: var(--w-100);
-}
-
-.img-item:nth-child(1),
-.img-item:nth-child(2),
-.img-item:nth-child(3) {
-  margin-right: var(--mr-0);
 }
 
 .img-item:hover {
   opacity: var(--opacity-08);
 }
 
-
 .product-title {
-  font-size: var(--bigger-font-size);
-  text-transform: capitalize;
-  font-weight: var(--font-semi-b-bold);
-  position: relative;
-  color: var(--text-normal);
-  margin: var(--m-1-0);
+  font-weight: var(--font-bold);
 }
 
 .contact-title {
   font-size: var(--f-size-16-px);
-  text-transform: capitalize;
+
   font-weight: var(--font-bold);
   position: relative;
   color: var(--text-normal);
   margin: var(--m-1-0);
 }
 
-
-
 .product-price {
   margin: var(--m-1-0);
-
 }
 
 .product-price p {
   font-size: var(--f-size-16-px);
   font-weight: var(--font-semi-b-bold);
   padding: var(--p-1px);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> lasseMandag
 }
-
-
 
 .product-price span {
   font-weight: var(--font-semi-bold);
   font-size: var(--f-size-xxl);
   color: var(--text-normal);
 }
-
 
 .product-detail h2 {
   text-transform: capitalize;
@@ -155,21 +142,79 @@ img {
   font-size: var(--h4-font-size);
 }
 
+.product-content-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin-top: 3rem;
+}
+.product-imgs {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.product-content {
+  display: grid;
+  margin-top: 10px;
+  grid-template-columns: 66% 34%;
+
+  position: relative;
+}
+.product-content::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 65%;
+  left: 0;
+  border-bottom: 1px solid #e5e5e598;
+}
+.product-content .description {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+}
+.product-content .product-info {
+  padding: 24px;
+  border: solid 1px#E5E5E5;
+  border-radius: 5px;
+  box-shadow: 0 56px 80px 0 rgb(0 0 0 / 1%), 0 7px 10px 0 rgb(0 0 0 / 5%), 0 2px 3px 0 rgb(0 0 0 / 3%), 0 -1px 2px 0 rgb(0 0 0 / 2%);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 100%;
+}
+.product-content .created-by {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.product-content .created-by .price {
+  font-weight: var(--font-semi-bold);
+  font-size: var(--h3-font-size);
+}
+.product-content .created-by p {
+  font-size: var(--smallest-font-size);
+  text-align: right;
+}
+
+.img-select {
+  display: flex;
+  padding: 0 10px;
+  flex-direction: column;
+}
 
 @media screen and (max-width: 333px) {
-  .master-flex {
-    flex-direction: column;
-  }
 }
 
 @media screen and (min-width: 333px) {
-  .comments-container {
-    display: block;
-    margin: var(--m-auto);
-  }
 }
 
 @media screen and (min-width: 992px) {
+<<<<<<< HEAD
   .card {
     display: grid;
     grid-template-columns: var(--grid-template-columns-2-1fr);
@@ -216,3 +261,6 @@ img {
     margin: var(--m-0);
   }
 }
+=======
+}
+>>>>>>> lasseMandag
