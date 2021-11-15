@@ -3,6 +3,7 @@
 .account_container {
   max-width: 1100px;
   margin: 0 auto;
+  margin-top: 60px;
 }
 
 .account_content_container {
@@ -13,7 +14,7 @@
 
 .account-content {
   align-items: flex-start;
-  padding: 30px 1rem 1rem 1rem;
+
   row-gap: 2rem;
 }
 
@@ -121,7 +122,6 @@ button.upload-profile-image.show {
 }
 
 .account-sidenav h1 {
-  padding: 16px 0;
   margin-bottom: 50px;
   font-weight: var(--font-medium);
 }

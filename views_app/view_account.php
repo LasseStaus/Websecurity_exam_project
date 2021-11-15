@@ -21,10 +21,11 @@ require('./db/globals.php');
 <main>
 
   <div class="account_container">
-    <h1>My account</h1>
+
     <div class="account_content_container">
 
       <div class="account-sidenav">
+        <h1 class="h2">My account</h1>
         <ul>
           <li>
           </li>

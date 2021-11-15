@@ -302,9 +302,8 @@ main {
   top: var(--header-height);
   left: 0;
   width: 100%;
-  max-width: 1480px;
+
   margin: 0 auto;
-  padding-top: 50px;
 }
 
 /* --------- error/updates -------- */
