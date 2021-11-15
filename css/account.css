@@ -18,7 +18,7 @@
 }
 
 .account-content h2 {
-  font-weight: var(--font-medium)
+  font-weight: var(--font-medium);
 }
 
 .account-content h3 {
@@ -45,7 +45,6 @@
 .account_content_container .product .img-container {
   overflow: hidden;
 }
-
 
 /* My overview ----profile_image */
 
@@ -99,7 +98,6 @@ button.upload-profile-image.show {
   margin-left: var(--m-20);
 }
 
-
 /* My overview ---my products */
 
 .products-container {
@@ -108,17 +106,16 @@ button.upload-profile-image.show {
   gap: var(--grid-gap-1-5);
 }
 
-.edit_product_container {
-  margin-top: var(--m-5);
-}
-
-.edit_product_container a {
-  margin-left: var(--m-5);
-}
-
-
 /* --------- sidebar ---------- */
 
+.edit_product_container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 20px;
+  align-items: center;
+}
 .account-sidenav {
   width: var(--w-100);
 }
@@ -126,7 +123,7 @@ button.upload-profile-image.show {
 .account-sidenav h1 {
   padding: 16px 0;
   margin-bottom: 50px;
-  font-weight: var(--font-medium)
+  font-weight: var(--font-medium);
 }
 
 .account-sidenav ul {
@@ -177,7 +174,6 @@ button.upload-profile-image.show {
   max-width: 700px;
 }
 
-
 /* --------- MOBILE MEDIA QUERY ---------- */
 
 @media screen and (max-width: 760px) {
@@ -203,7 +199,7 @@ button.upload-profile-image.show {
     height: auto;
     justify-content: space-between;
     overflow-y: scroll;
-    flex-wrap: wrap-reverse
+    flex-wrap: wrap-reverse;
   }
 
   .products-container {

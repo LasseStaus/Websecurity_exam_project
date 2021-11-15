@@ -29,7 +29,7 @@ function search() {
             // populate the results
             document.querySelector("#search_results").innerHTML = ""
             let resultDiv = document.querySelector(".search-result-amount");
-            resultDiv.textContent = products.length + " results";
+            resultDiv.textContent = products.length + " Results";
 
 
 
@@ -39,19 +39,26 @@ function search() {
                 let image = JSON.parse(product.product_image)
                 console.log(image);
                 let single_product = `
-                   <div class="user">
-                   <div class="product">
-                     <img src="../product-images/${image[0]}" alt="Image of product ${product.product_title}">
-                     <div class="title"> ${product.product_title}</div>
-                     <div class="price"> ${product.product_price}<span> Dkk</span></div>
-   
-                     <a href="/single-product/${product.product_id}">
-                   
-                     </a>
-         
-         
-                   </div>
-                 </div>`
+                
+ 
+                 
+                 <div class="product">
+                 <div class="img-container">
+                     <img src="../product-images/${image[0]}" alt="Image of ${product.product_title}">
+                 </div>
+                 <div class="product-info">
+                     <div class="product-info-top">
+                         <div class="title"> ${product.product_title}</div>
+                         <div class="price"> ${product.product_price} <span>Dkk</span></div>
+                     </div>
+            
+                 </div>
+                 <a href="/single-product/${product.product_id}"></a>
+             </div>
+                 
+                 
+                 
+                 `
                 document.querySelector("#search_results").insertAdjacentHTML('beforeend', single_product)
             })
 
@@ -65,6 +72,7 @@ function search() {
 
 function show_results() {
     let searchForm = document.querySelector('.search-input')
+    let newestProducts = document.getElementById("newest-products")
     /*    console.log(event.target.value, "lol") */
     if (searchForm.value.length >= 2) {
         let search_results = document.querySelector("#search_results")
@@ -72,6 +80,7 @@ function show_results() {
         console.log("show results ", search_results, product_container)
         search_results.style.display = "grid"
         product_container.style.display = "none"
+        newestProducts.style.display = "none";
         // display search_results div
         // populate/render the individual results
     }
@@ -81,10 +90,13 @@ function hide_results() {
     // hide search_results div
     let search_results = document.querySelector("#search_results")
     let product_container = document.querySelector(".product-container")
-
+    let newestProducts = document.getElementById("newest-products")
+    let resultDiv = document.querySelector(".search-result-amount");
+    resultDiv.textContent = "All products";
     console.log("hide results ", search_results, product_container)
     search_results.style.display = "none"
     product_container.style.display = "grid"
+    newestProducts.style.display = "grid";
 
 }
 

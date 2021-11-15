@@ -16,7 +16,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
     <div class="broad-page-container">
 
         <div class="search-container">
-            <div class="search-result-amount">
+            <div class="">
 
             </div>
             <form onsubmit="return false" id="search-form">
@@ -29,7 +29,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
 
         <section id="newest-products">
-            <h3 class="h2 section-header">Newest Products</h3>
+            <h3 class="h1 section-header">Newest Products</h3>
             <div class="new-products-container">
 
 
@@ -62,7 +62,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
         </section>
         <section id="main-content">
-            <h3 class="h2 section-header">All Products</h3>
+            <h3 class="h1 section-header search-result-amount">All Products</h3>
             <div class="main-content-container">
 
                 <div id="search_results"></div>

@@ -107,13 +107,13 @@ require('./db/globals.php');
                       <?= $description ?>
                     </p>
                   </div>
-                  <a href="/single-product/<?= $product['product_id'] ?>"></a>
+                  <a href="/single-product/<?= $user_product['product_id'] ?>"></a>
                 </div>
                 <div class="edit_product_container">
-                  <a id="<?= $user_product['product_id'] ?>" title="<?= $user_product['product_title'] ?>" class="pointer link" onclick="open_confirm_modal_product(this)">
+                  <a class="button small" href="/edit-product/<?= $user_product['product_id'] ?>">Edit</a>
+                  <a id="<?= $user_product['product_id'] ?>" title="<?= $user_product['product_title'] ?>" class="link pointer small" onclick="open_confirm_modal_product(this)">
                     Delete
                   </a>
-                  <a class="link" href="/edit-product/<?= $user_product['product_id'] ?>">Edit</a>
                 </div>
               </div>
             <?php
