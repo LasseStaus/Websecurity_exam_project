@@ -87,10 +87,10 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
                 <textarea name="comment_message" id="" placeholder="Enter message" type="submit"></textarea>
 
-                <!--    <label for="" class="input-sizer">
+                <!--    <h5 for="" class="input-sizer">
 
                 <textarea oninput="this.parentNode.dataset.value = this.value" rows="1" placeholder="hi"></textarea>
-            </label> -->
+            </h5> -->
 
                 <!--  <input type="submit"> -->
 
@@ -140,7 +140,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 <h2>Hej. - Dit session id er : <?= $_SESSION['user_uuid'] ?> </h2>
 
 <form id="post-form" action="/create-post" method="POST">
-    <label for="comment_message">Hvad vil du sige nu?...</label>
+    <h5 for="comment_message">Hvad vil du sige nu?...</h5>
     <textarea name="comment_message" maxlength="50" data-validate="str" data-min="2" data-max="50" type="text"></textarea>
     <input for="login-form" type="submit">
     Slå din fucking besked op NU

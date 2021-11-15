@@ -3,8 +3,8 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if (!isset($_SESSION['user_uuid'])) {
-    header('Location: /login');
+if (!isset($_SESSION['admin_user_uuid'])) {
+    header('Location: /admin-login');
     exit();
 }
 

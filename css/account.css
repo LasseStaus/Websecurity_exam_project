@@ -27,6 +27,11 @@
   font-weight: var(--font-medium);
 }
 
+.account-content .form_container_max_width {
+  margin: 20px 0;
+  padding: 0;
+}
+
 .account_content_container .product {
   grid-template-rows: 180px auto;
 }
@@ -43,15 +48,19 @@
 
 
 /* My overview ----profile_image */
-.icon-upload-label {
-  display: inline-block;
+
+.profile_image_container {
   position: relative;
-  padding: 0px;
-  height: var(--h-40-vh);
-  top: -40px;
 }
 
-.icon-upload-label i {
+.icon-upload-h5 {
+  display: inline-block;
+  position: absolute;
+  padding: 0px;
+  bottom: 0;
+}
+
+.icon-upload-h5 i {
   background: gainsboro;
   padding: 0.5rem;
   border-radius: 50%;
@@ -77,9 +86,6 @@ button.upload-profile-image.show {
 }
 
 /* My overview ---name and email */
-.account-subtitle {
-  margin-top: -20px
-}
 
 .account-subtitle p:nth-child(1) {
   font-weight: var(--font-medium);
@@ -180,6 +186,11 @@ button.upload-profile-image.show {
     flex-direction: column;
   }
 
+  .account-content .form_container_max_width {
+    margin: 0 0;
+    padding: 0 16px 16px 0;
+  }
+
   .account_container {
     padding: 1rem;
   }
@@ -202,7 +213,8 @@ button.upload-profile-image.show {
 }
 
 @media screen and (max-width: 1024px) {
-  .account_container {
-    max-width: 700px;
+  .admin-container {
+    width: 100%;
+    overflow-x: scroll;
   }
 }

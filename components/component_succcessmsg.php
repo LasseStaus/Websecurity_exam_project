@@ -1,7 +1,7 @@
 <?php
 if (isset($success_message)) {
 ?>
-    <div>
+    <div class="success-message">
         <h3>
             Success!
         </h3>

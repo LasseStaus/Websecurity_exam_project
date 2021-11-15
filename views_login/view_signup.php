@@ -6,7 +6,7 @@ session_start();
 ?>
 
 
-<main>
+<main class="main_login_signup">
 
   <div class="flex_container">
 

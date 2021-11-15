@@ -55,14 +55,14 @@ try {
                         <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
                         <div class="form-group">
                             <h5 id="new-pword-txt">New password</h5>
-                            <input type="password" name="user_password" data-validate="str" data-min="4" data-max="16" placeholder="Enter new password  ">
-                            <span>Please provide a valid password | 8-50 characters</span>
+                            <input type="password" name="user_password" data-validate="str" data-min="4" data-max="16">
+                            <span class="error-message">Please provide a valid password | 8-50 characters</span>
                         </div>
 
                         <div class="form-group">
                             <h5 id="conf-pword-txt">Confirm password</h5>
-                            <input type="password" name="user_confirm_password" data-match-name="user_password" data-validate="match" data-min="4" data-max="16" placeholder="Confirm new password" id="logpassconfirm">
-                            <span>Your password &amp; confirm password must match | 8-50 characters</span>
+                            <input type="password" name="user_confirm_password" data-match-name="user_password" data-validate="match" data-min="4" data-max="16" id="logpassconfirm">
+                            <span class="error-message">Your password &amp; confirm password must match | 8-50 characters</span>
                         </div>
                         <div class="btn-position">
                             <button type="submit" class="button large">Change password</button>
