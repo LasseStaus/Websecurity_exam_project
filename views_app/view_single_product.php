@@ -101,7 +101,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
           <form id="create_comment" action="/create-comment" method="POST">
             <input type="hidden" name="product_id" value="<?= $product_id ?>">
             <textarea name="comment_message" class="resize-ta" id="" placeholder="Add a comment"></textarea>
-            <button class="button small submit-create-comment" type="submit"> Send</button>
+            <button class="button submit-create-comment" type="submit"> Send</button>
           </form>
         </div>
       </div>

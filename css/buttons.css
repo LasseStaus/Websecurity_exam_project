@@ -2,8 +2,7 @@
   text-decoration: none;
   border-radius: 5px;
   padding: 0.8rem 1.25rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
+
   width: max-content;
   font-size: var(--normal-font-size);
   text-transform: capitalize;
@@ -16,6 +15,10 @@
   color: var(--button-color);
   cursor: pointer;
 }
+.button.small {
+  width: 50%;
+  padding: 0.5rem 1rem;
+}
 
 .button_bg_light {
   background-color: var(--button-bg_grey);
@@ -25,7 +28,9 @@
   width: 100%;
 }
 
-.small_button {}
+.small_button {
+  padding: 0;
+}
 
 .medium_button {
   border-radius: 25px;

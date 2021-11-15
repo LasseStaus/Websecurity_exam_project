@@ -59,26 +59,22 @@ window.addEventListener('scroll', scrollHeader)
 
 
 
-const headerChevron = document.querySelector(".small_profile_picture");
-const profile_container = document.querySelector("main")
-const profileOptions = document.querySelector(".profile-options-container");
-
-console.log(parent);
 
 
 
-headerChevron.addEventListener("mouseover", () => {
-    headerChevron.classList.add("active");
-    profileOptions.classList.add("active");
-
+document.addEventListener('click', function (event) {
+    const headerChevron = document.querySelector(".small_profile_picture");
+    const profileOptions = document.querySelector(".profile-options-container");
+    let isClickInside = headerChevron.contains(event.target);
+    console.log(event.target)
+    if (isClickInside) {
+        console.log('You clicked inside')
+        headerChevron.classList.add("active");
+        profileOptions.classList.add("active");
+    }
+    else {
+        console.log('You clicked outside')
+        headerChevron.classList.remove("active");
+        profileOptions.classList.remove("active");
+    }
 });
-profile_container.addEventListener("mouseover", () => {
-    headerChevron.classList.remove("active");
-    profileOptions.classList.remove("active");
-
-});
-
-/* profileOptionsA.forEach("click", () => {
-    headerChevron.classList.remove("active");
-    profileOptions.classList.remove("active");
-}); */

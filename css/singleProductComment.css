@@ -49,7 +49,7 @@
 .single-comment-container {
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: 1.5rem;
+  column-gap: 15px;
 }
 
 .single-reply-container {
@@ -265,7 +265,7 @@ form#create_comment {
   grid-column: 2;
   margin-top: 30px;
   margin-bottom: 30px;
-  column-gap: 2rem;
+  column-gap: 15px;
 }
 
 button.submit-create-comment {
