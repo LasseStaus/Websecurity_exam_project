@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_login/view_top.php');
 session_start();
 ?>
-<main>
+<main class="main_login_signup">
   <div class="flex_container">
 
     <div class="image_signup_login_container container_login_bg flex flex_center_center">
