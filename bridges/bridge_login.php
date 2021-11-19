@@ -16,7 +16,6 @@ try {
   $time = time();
   $check = hash($algo, $_POST['user_password'] . $user['user_salt'] . $peberstring);
 
-
   if (!$user) {
     $error_message = "The account you are trying to access does not exist";
     header("Location: /login/error/$error_message");
@@ -24,9 +23,7 @@ try {
   }
 
   if ($check !== $user['user_password']) {
-
     //Her tjekkes salt
-
     // if login_attempts are less than 3 then count up +1
     if ($user['user_login_attempts'] < 3) {
 

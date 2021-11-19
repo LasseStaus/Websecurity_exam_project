@@ -63,8 +63,7 @@ function out($text)
   return htmlspecialchars($text);
 }
 
-//check i validering 
-
+//Creates a csrf token if it is not already set
 function set_csrf()
 {
   if (!isset($_SESSION["csrf"])) {
@@ -76,8 +75,9 @@ function set_csrf()
 
 
 
-// lav input
-
+// Validate if a session is active,
+// validates if both the $_post and $_session csrf are set, 
+// Validates if the the validity of the input csrf against the session csrf
 function is_csrf_valid()
 {
 
@@ -90,7 +90,5 @@ function is_csrf_valid()
   if ($_SESSION['csrf'] != $_POST['csrf']) {
     return false;
   }
-
-
   return $_SESSION['csrf'];
 }

@@ -8,8 +8,6 @@ function validate() {
         if (element.value.length < parseInt(element.getAttribute("data-min")) ||
           element.value.length > parseInt(element.getAttribute("data-max"))
         ) {
-          /* element.classList.add("validate_error") */
-          /*  element.parentNode.classList.add("error-message") */
           element.parentNode.classList.add("validate_error")
         }
         break;
@@ -18,7 +16,6 @@ function validate() {
           parseInt(element.value.length) < parseInt(element.getAttribute("data-min")) ||
           parseInt(element.value.length) > parseInt(element.getAttribute("data-max"))
         ) {
-          console.log(parseInt(element.value.length), "min:", parseInt(element.getAttribute("data-min")), "max:", parseInt(element.getAttribute("data-max")))
           element.parentNode.classList.add("validate_error")
         }
         break;

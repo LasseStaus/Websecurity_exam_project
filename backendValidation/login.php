@@ -3,14 +3,11 @@
 // ################### csrf valid ###############################
 
 if (!is_csrf_valid() == true) {
-    $error_message = "You can't hack signup.";
-    header("Location: /signup/error/$error_message");
+    header("Location: /404");
     exit();
 }
 
-// #########################################################
 // ################### ISSET ###############################
-// #########################################################
 
 if (!isset($_SESSION)) {
     session_start();
@@ -21,17 +18,12 @@ if (!isset($_POST['user_email'])) {
     exit();
 }
 
-
 if (!isset($_POST['user_password'])) {
     header("Location: /login/error/$error_message");
     exit();
 }
 
-
-// #########################################################
 // ################ INPUT VALUE VALIDATION #################
-// #########################################################
-
 
 if (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
     $error_message = "Invalid email format";
