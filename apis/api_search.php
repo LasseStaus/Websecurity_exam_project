@@ -14,6 +14,8 @@ if (strlen($_POST['search_for']) > 20) {
   exit();
 }
 
+
+
 try {
   require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
   // full text search

@@ -4,8 +4,7 @@ session_start();
 if (!isset($_SESSION)) {
     session_start();
 }
-
-if (!is_csrf_valid() == true) {
+if (is_csrf_valid() != true) {
     header("Location: /404");
     exit();
 }

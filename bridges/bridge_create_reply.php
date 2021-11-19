@@ -2,6 +2,13 @@
 
 
 session_start();
+
+if (is_csrf_valid() != true) {
+    header("Location: /404");
+    exit();
+}
+
+
 if (!isset($_SESSION)) {
     echo  $_SESSION['user_uuid'];
 }

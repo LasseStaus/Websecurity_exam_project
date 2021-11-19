@@ -2,11 +2,11 @@
 
 // ################### csrf valid ###############################
 
-if (!is_csrf_valid() == true) {
-    $error_message = "You can't hack signup. as";
-    header("Location: /signup/error/$error_message");
+if (is_csrf_valid() != true) {
+    header("Location: /404");
     exit();
 }
+
 
 // #########################################################
 // ################### ISSET ###############################

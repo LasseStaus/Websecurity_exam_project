@@ -5,6 +5,8 @@ if (!isset($_SESSION['user_uuid'])) {
     exit();
 }
 
+
+
 try {
     require_once($_SERVER['DOCUMENT_ROOT'] . '/db/db.php');
     $q = $db->prepare('SELECT * FROM users WHERE user_uuid = :user_uuid');
@@ -52,7 +54,7 @@ try {
                     ?>
 
                     <form class="form_container_max_width margin margin-20-top" id="update-account-information" method="POST" action="/update-user-account-password" onsubmit="return validate();">
-                        <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                        <?= set_old_csrf() ?>
                         <div class="form-group">
                             <h5 id="new-pword-txt">New password</h5>
                             <input type="password" name="user_password" data-validate="str" data-min="4" data-max="16">

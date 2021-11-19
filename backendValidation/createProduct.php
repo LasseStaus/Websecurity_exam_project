@@ -1,11 +1,11 @@
 <?php
 // ################### CSRF ###############################
 
-if (!is_csrf_valid() == true) {
-    $error_message = "You can't hack this form";
-    header("Location: /create-product/error/$error_message");
+if (is_csrf_valid() != true) {
+    header("Location: /404");
     exit();
 }
+
 
 // #########################################################
 // ################### ISSET ###############################

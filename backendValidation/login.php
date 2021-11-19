@@ -2,7 +2,7 @@
 
 // ################### csrf valid ###############################
 
-if (!is_csrf_valid() == true) {
+if (is_csrf_valid() != true) {
     header("Location: /404");
     exit();
 }
