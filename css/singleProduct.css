@@ -252,9 +252,21 @@ img {
   .img-select {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40px, 80px));
+    column-gap: 5px;
   }
   .img-select img {
     max-width: 80px;
+  }
+
+  .product-content::before {
+    content: "";
+    display: block;
+    position: initial;
+    bottom: initial;
+    width: 100%;
+    left: initial;
+    border: none;
+    display: none;
   }
 }
 
