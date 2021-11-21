@@ -69,7 +69,7 @@
 .product {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: min-content;
   position: relative;
   row-gap: 10px;
 }
@@ -77,6 +77,7 @@
   object-fit: cover;
   overflow: hidden;
   box-shadow: 0px -1px 6px 0px rgb(0 0 0 / 38%);
+  position: relative;
 }
 .product img {
   object-fit: cover;
@@ -113,33 +114,45 @@ section:last-child {
 .product-info {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: auto 40px;
+  grid-template-rows: auto;
   height: 100%;
   width: 100%;
   justify-content: center;
-  align-items: center;
-  padding-right: 0.5rem;
-  row-gap: 10px;
+  align-items: flex-start;
 }
 
 .product-info-top {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  flex-direction: row;
-  font-size: var(--normal-font-size);
-  height: 50%;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  row-gap: 10px;
+}
+.img-container .price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px 8px;
+  background: var(--button-bg);
+  color: var(--button-color);
+  border-top: 1px solid rgba(216, 216, 216, 0.322);
+  border-left: 1px solid rgba(216, 216, 216, 0.322);
+  border-radius: 5px 0px 0px 0px;
+}
+.img-container .price span {
+  font-style: italic;
 }
 
 .product-info-top .title {
+  overflow-wrap: anywhere;
   font-weight: var(--font-bold);
+  flex-basis: 2;
 }
 
 p.description {
   font-size: var(--normal-font-size);
   height: 100%;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #index .img-container {
@@ -160,13 +173,10 @@ p.description {
 #index .title,
 .product .title {
   text-transform: capitalize;
+  word-break: break-all;
 }
 
-#index .price,
-.product .title,
-.product .price {
-  font-weight: var(--font-normal);
-
+.product .title {
   font-weight: var(--font-semi-bold);
 }
 
@@ -251,6 +261,12 @@ i.clear-input {
 
   #index .index_intro_banner h1 {
     font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .product-info-top {
+    grid-template-columns: 1fr;
   }
 }
 @media only screen and (max-width: 996px) {

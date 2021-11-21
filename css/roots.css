@@ -233,6 +233,9 @@ a::first-letter {
 .h3 {
   font-size: var(--h3-font-size);
 }
+.h5 {
+  font-size: var(--normal-font-size);
+}
 
 img {
   width: var(--w-100);
@@ -344,7 +347,6 @@ ul {
 .margin-20-bottom {
   margin-bottom: var(--m-20);
 }
-
 
 .small {
   font-size: var(--small-font-size);

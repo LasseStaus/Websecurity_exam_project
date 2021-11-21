@@ -47,13 +47,14 @@ try {
           <h2 class="account-title">Edit user information</h2>
 
 
-          <?php
-          require_once('./components/component_errormsg.php');
-          require_once('./components/component_succcessmsg.php');
-          ?>
+
 
           <form class="form_container_max_width margin margin-20-top" id="update-account-information" method="POST" action="/update-account-information" onsubmit="return validate()">
-            <?= set_old_csrf() ?>
+            <?php
+            require_once('./components/component_errormsg.php');
+            require_once('./components/component_succcessmsg.php');
+            ?>
+            <?= set_csrf() ?>
             <div class="form-group">
               <h5 id="fname-txt">First name</h5>
               <input type="text" name="user_firstname" data-validate="str" data-min="2" data-max="50" value="<?= $user['user_firstname'] ?>">
@@ -88,10 +89,18 @@ try {
     </div>
 
   </main>
+  <script src="/js/headerScroll.js"></script>
 
+
+
+  <script src="/js/validator.js"></script>
+
+  </body>
+
+  </html>
 <?php
 
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
+
 } catch (PDOException $ex) {
   echo $ex;
 }

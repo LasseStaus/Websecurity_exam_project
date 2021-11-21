@@ -23,7 +23,7 @@ session_start();
           require_once('./components/component_errormsg.php');
           require_once('./components/component_succcessmsg.php');
           ?>
-          <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+          <?= set_csrf() ?>
           <div class="form-group">
             <h5 id="fname-txt">First name</h5>
             <input onclick="clear_validate_error()" type="text" name="user_firstname" data-validate="str" data-min="2" data-max="50" value="" id="logfname" autocomplete="off">
@@ -62,7 +62,7 @@ session_start();
           </div>
 
           <div class="btn-position">
-            <button type="submit" class="button large">sign up</button>
+            <button type="submit" class="button large margin">sign up</button>
             <div>
               <p>Already have an account?</p> <a href=" /login" class="link">sign in</a>
             </div>

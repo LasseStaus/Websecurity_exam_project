@@ -3,11 +3,11 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if (!is_csrf_valid() == true) {
-    $error_message = "You can't hack signup. as";
-    header("Location: /signup/error/$error_message");
+if (is_csrf_valid() != true) {
+    header("Location: /404");
     exit();
 }
+
 
 if (!isset($_POST['admin_user_email'])) {
     $error_message = "Please provide an Email";

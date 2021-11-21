@@ -57,12 +57,12 @@ require('./db/globals.php');
 
           <form id="update-profile-image" action="/upload-profile-image" method="POST" enctype="multipart/form-data" onsubmit="return validate();">
 
-            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+            <?= set_csrf() ?>
 
             <div class=" flex_container column profile_image_container ">
-              <img class="img-show-input profile-image-upload profile-image" src="../profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
+              <img class="img-show-input profile-image-upload profile-image" src="/profile-uploads/<?= $user['user_image'] ?>" alt="Profile image of  <?= $user['user_lastname'] ?>">
               <label class="icon-upload-h5 pointer" for="upload-img"><i class="fas fa-camera"></i></label>
-              <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" class="img-input" onchange="loadFile(event)" style=" display: none;">
+              <input class="file-to-upload" id="upload-img" type="file" name="file-to-upload" data-validate="file" class="img-input" onchange="loadFile(event)" style=" display: none;">
             </div>
             <button class="button upload-profile-image" type="submit">Upload image</button>
           </form>
@@ -97,13 +97,12 @@ require('./db/globals.php');
               <div class="product_container">
                 <div class="product">
                   <div class="img-container">
-                    <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($user_product['product_title']) ?>">
+                    <img src="/product-images/<?= out($image[0]) ?>" alt="Image of <?= out($user_product['product_title']) ?>">
+                    <div class="price"> <?= out($user_product['product_price']) ?> <span>dkk</span></div>
+
                   </div>
                   <div class="product-info">
-                    <div class="product-info-top">
-                      <div class="title"> <?= out($user_product['product_title']) ?></div>
-                      <div class="price"> <?= out($user_product['product_price']) ?> <span>Dkk</span></div>
-                    </div>
+                    <p class="h5 title"> <?= out($user_product['product_title']) ?></p>
                     <p class="description">
                       <?= $description ?>
                     </p>
@@ -129,7 +128,7 @@ require('./db/globals.php');
               <p class="margin-5"> You are about to delete your account</p>
               <div class="flex_container flex_row_reverse flex_center_center margin-20-top">
                 <form action="/delete-account" method="POST">
-                  <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                  <?= set_csrf() ?>
                   <button class=" margin-5 button medium_button">Delete account</button>
                 </form>
                 <button class=" margin-5 close_account button medium_button button_bg_light">Cancel</button>
@@ -147,7 +146,7 @@ require('./db/globals.php');
               </div>
               <div class="flex_container flex_row_reverse flex_center_center margin-20-top">
                 <form action="/delete-product" method="POST">
-                  <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                  <?= set_csrf() ?>
                   <input type="hidden" name="user_product" id="user_product" value="">
                   <button class=" margin-5 button medium_button">Delete product</button>
                 </form>
@@ -205,6 +204,9 @@ require('./db/globals.php');
 </script>
 
 
-<?php
+<script src="/js/headerScroll.js"></script>
+<script src="/js/image_preload.js"></script>
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
+</body>
+
+</html>

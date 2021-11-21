@@ -19,6 +19,10 @@
   width: 50%;
   padding: 0.5rem 1rem;
 }
+.button.margin {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
 
 .button_bg_light {
   background-color: var(--button-bg_grey);

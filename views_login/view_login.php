@@ -24,7 +24,7 @@ session_start();
         ?>
 
         <form class="margin-20-top" action="/login" method="POST" onsubmit="return validate()">
-          <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+          <?= set_csrf() ?>
 
           <div class="form-group">
             <h5 id="email-txt">Email</h5>
@@ -45,7 +45,7 @@ session_start();
           </div>
 
           <div class="btn-position">
-            <button type="submit" class="button large">sign in</button>
+            <button type="submit" class="button large margin">sign in</button>
             <div>
               <p>Don't have an account?</p> <a href="/signup" class="link">sign up</a>
             </div>

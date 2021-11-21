@@ -32,7 +32,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
             foreach ($image as $index => $item) {
 
             ?>
-              <img src="../product-images/<?= out($item) ?>" alt="product image">
+              <img src="/product-images/<?= out($item) ?>" alt="product image">
             <?php
 
 
@@ -52,7 +52,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
           ?>
               <div class="img-item">
                 <a href="#" data-id="<?= $count ?>">
-                  <img src="../product-images/<?= out($item) ?>" alt="product image">
+                  <img src="/product-images/<?= out($item) ?>" alt="product image">
                 </a>
               </div>
           <?php
@@ -97,10 +97,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
       <div class="create-comment-container">
         <div class="create-comment-form-container">
           <h4>Write a message to <?= out($product['user_firstname']) ?></h4>
-          <img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="Image of <?= $_SESSION['user_firstname'] ?>">
-          <form id="create_comment" action="/create-comment" method="POST">
-            <input type="hidden" name="product_id" value="<?= $product_id ?>">
-            <textarea name="comment_message" class="resize-ta" id="" placeholder="Add a comment"></textarea>
+          <img src="/profile-uploads/<?= $_SESSION['user_image'] ?>" alt="Image of <?= $_SESSION['user_firstname'] ?>">
+          <form id="create_comment" action="/create-comment/<?= $product_id  ?>" method="POST" onsubmit="return validate(this)">
+            <?= set_csrf() ?>
+            <div class="form-group">
+              <input type="hidden" name="product_id" value="<?= $product_id ?>">
+              <textarea name="comment_message" class="resize-ta" id="" data-validate="str" data-min="1" data-max="800" placeholder="Add a comment"></textarea>
+              <span class="error-message">Comment has to be between 1-800 characters</span>
+            </div>
             <button class="button submit-create-comment" type="submit"> Send</button>
           </form>
         </div>
@@ -111,7 +115,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         ?>
           <div class="single-comment-container">
 
-            <img src="../profile-uploads/<?= $comment['user_image'] ?> " alt="profile image of <?= $comment['user_firstname'] ?>">
+            <img src="/profile-uploads/<?= $comment['user_image'] ?> " alt="profile image of <?= $comment['user_firstname'] ?>">
             <div class="heading">
               <h6><?= $comment['user_firstname'] ?> <?= $comment['user_lastname'] ?></h6><i class="circle fas fa-circle"></i><span><?= $comment['comment_timestamp'] ?></span>
             </div>
@@ -125,10 +129,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
               <button class="replybtn" type="button" data-target="<?= $comment['comment_id'] ?>" onclick="showReplyForm(this)">Reply</button>
 
             </div>
-            <form action="/create-reply/<?= $comment['comment_id'] ?>" data-target="<?= $comment['comment_id'] ?>" method="POST" class="reply-form">
-              <input type="hidden" name="product_id" value="<?= $product_id ?>">
-              <textarea name="reply_message" class="resize-ta" rows="0" placeholder="Reply to comment"></textarea>
-              <button type="submit">Send</button>
+            <form action="/create-reply/<?= $comment['comment_id'] ?>/<?= $product_id  ?>" data-target="<?= $comment['comment_id'] ?>" onsubmit="return validate(this)" method="POST" class="reply-form">
+              <?= set_csrf() ?>
+              <div class="form-group">
+                <input type="hidden" name="product_id" value="<?= $product_id ?>">
+                <textarea name="reply_message" class="resize-ta" rows="0" data-validate="str" data-min="1" data-max="800" placeholder="Reply to comment"></textarea>
+                <span class="error-message">Comment has to be between 1-800 characters</span>
+              </div>
+              <button class="button smallest" type="submit">Send</button>
 
               <i type="button" class="fas fa-times" onclick="cancelReply(this)"></i>
             </form>
@@ -142,7 +150,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
                 $replyMessage = out(openssl_decrypt(base64_decode($reply['reply_body']), $encrypt_algo, $key, OPENSSL_RAW_DATA, base64_decode($reply['reply_iv'])));
               ?>
                 <div class="single-reply-container" data-times="<?= $count ?>">
-                  <img src="../profile-uploads/<?= $reply['user_image'] ?>" alt="Profile image of <?= $reply['user_firstname'] ?> ">
+                  <img src="/profile-uploads/<?= $reply['user_image'] ?>" alt="Profile image of <?= $reply['user_firstname'] ?> ">
                   <div class="heading">
                     <h6><?= $reply['user_firstname'] ?> <?= $reply['user_lastname'] ?></h6><i class="circle fas fa-circle"></i><span><?= $reply['updated_at'] ?></span>
                   </div>
@@ -180,13 +188,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
           <div class="product">
             <div class="img-container">
-              <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+              <img src="/product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+              <div class="price"> <?= out($product['product_price']) ?> <span>dkk</span></div>
             </div>
             <div class="product-info">
-              <div class="product-info-top">
-                <div class="title"> <?= out($product['product_title']) ?></div>
-                <div class="price"> <?= out($product['product_price']) ?> <span>Dkk</span></div>
-              </div>
+              <p class="h5 title"> <?= out($product['product_title']) ?></p>
               <p class="description">
                 <?= $newest_description ?>
               </p>
@@ -206,6 +212,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 </main>
 
 
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+<script src="/js/headerScroll.js"></script>
+<script src="/js/validateSingle.js"></script>
+<script src="/js/singleProduct.js"></script>
+</body>
+
+</html>

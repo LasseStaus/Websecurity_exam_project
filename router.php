@@ -65,7 +65,7 @@ function out($text)
 
 //Creates a csrf token if it is not already set
 
-function set_csrf()
+/* function set_csrf()
 {
   if (session_status() == 1) {
     session_start();
@@ -74,14 +74,20 @@ function set_csrf()
   $_SESSION['csrf'] = $csrf_token;
 
   return $csrf_token;
-}
+} */
 
-function set_old_csrf()
+function set_csrf()
 {
-
-  $csrf_token = bin2hex(random_bytes(50));
-  $_SESSION['csrf'] = $csrf_token;
-  echo '<input type="hidden" name="csrf" value="' . $csrf_token . '">';
+  if (session_status() == 1) {
+    session_start();
+  }
+  if (!isset($_SESSION['csrf'])) {
+    $csrf_token = bin2hex(random_bytes(50));
+    $_SESSION['csrf'] = $csrf_token;
+    echo '<input type="hidden" name="csrf" value="' . $csrf_token . '">';
+  } else {
+    echo '<input type="hidden" name="csrf" value="' . $_SESSION['csrf'] . '">';
+  }
 }
 
 // Validate if a session is active,

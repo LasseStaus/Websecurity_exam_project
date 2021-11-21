@@ -108,6 +108,7 @@ textarea:focus {
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.342);
   grid-row: 1 / span 2;
+  object-fit: cover;
 }
 
 .comment-content {

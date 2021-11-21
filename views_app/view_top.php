@@ -28,7 +28,7 @@
 
         <div class="header-profile">
             <a class="mobile-hide button medium_button" href="/create-product">create product</a>
-            <a class="small_profile_picture"><img src="../profile-uploads/<?= $_SESSION['user_image'] ?>" alt="image"></a>
+            <a class="small_profile_picture"><img src="/profile-uploads/<?= $_SESSION['user_image'] ?>" alt="image"></a>
             <!-- <i class="header-chevron fas fa-chevron-down"></i> -->
         </div>
 

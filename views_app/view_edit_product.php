@@ -24,8 +24,7 @@ $image = json_decode($product['product_image']);
         <h1 class="page-title">Edit Product</h1>
         <form id="create_product" action="/update-product/<?= $product['product_id'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
 
-
-            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+            <?= set_csrf() ?>
             <div class="form-group">
                 <h5 for="product_title">Title </h5>
                 <input name="product_title" type="text" value="<?= $product['product_title'] ?>" placeholder="Enter title" data-validate="str" data-min="1" data-max="50" />
@@ -70,7 +69,7 @@ $image = json_decode($product['product_image']);
                         <?php
                         foreach ($image as $img) {
                         ?>
-                            <img src="../product-images/<?= out($img) ?>" alt="Current product image">
+                            <img src="/product-images/<?= out($img) ?>" alt="Current product image">
                         <?php
                         }
                         ?>
@@ -141,37 +140,14 @@ $image = json_decode($product['product_image']);
         container.insertAdjacentHTML('beforeend', inputPairContent)
 
     }
-
-
-    /* 
-        <div class="form-group">
-                <h5 for="product_images">Images</h5>
-                <input id="input" type="file" name="file-to-upload[]" multiple id="fileToUpload" data-validate="file" data-min="1" data-max="4" value="<?= out($image[0]) ?>" onchange="printImages(this)">
-                <span>Please provide 1-4 images of the product</span>
-            </div> */
-
-
-
-
-
-    /*     let passedArray = <?php echo json_encode($image) ?>;
-        const fileInput = document.querySelector("#input");
-        console.log(passedArray);
-        const dataTransfer = new DataTransfer()
-        let newArray = [];
-        for (var i = 0; i < passedArray.length; i++) {
-            console.log(passedArray[i]);
-            const file = new File(['Hello world!'], passedArray[i], {
-                type: 'png',
-                tmp_name: 'png'
-            })
-            console.log(file);
-            dataTransfer.items.add(file)
-            //Do something
-        }
-        fileInput.files = dataTransfer.files */
 </script>
 
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+<script src="/js/headerScroll.js"></script>
+
+<script src="/js/image_preload.js"></script>
+
+<script src="/js/validator.js"></script>
+
+</body>
+
+</html>

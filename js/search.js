@@ -44,7 +44,7 @@ function search() {
                  
                  <div class="product">
                  <div class="img-container">
-                     <img src="../product-images/${image[0]}" alt="Image of ${product.product_title}">
+                     <img src="/product-images/${image[0]}" alt="Image of ${product.product_title}">
                  </div>
                  <div class="product-info">
                      <div class="product-info-top">

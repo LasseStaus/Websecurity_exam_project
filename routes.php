@@ -148,7 +148,8 @@ get('/confirm/:user_confirmation_key', function ($user_confirmation_key) {
 // ################### Comments ###############################
 // #########################################################
 
-post('/create-comment', function () {
+post('/create-comment/:product_id', function ($product_id) {
+  $product_id = $product_id;
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_comment.php');
 });
 
@@ -156,8 +157,10 @@ post('/create-comment', function () {
 // ################### REPLIES ###############################
 // #########################################################
 
-post('/create-reply/:comment_id', function ($comment_id) {
+post('/create-reply/:comment_id/:product_id', function ($comment_id, $product_id) {
   $comment_id = $comment_id;
+  $product_id = $product_id;
+
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/bridges/bridge_create_reply.php');
 });

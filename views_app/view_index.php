@@ -28,6 +28,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
             </div>
             <form onsubmit="return false" id="search-form">
+                <?= set_csrf() ?>
                 <i class="fas fa-search"></i>
                 <input class="search-input" name="search_for" type="text" placeholder="Search for product" oninput=search(); onclick="show_results()">
                 <i class="clear-input fas fa-times-circle" onclick="clear_input()"></i>
@@ -49,13 +50,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
                     <div class="product">
                         <div class="img-container">
-                            <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+                            <img src="/product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+                            <div class="price"> <?= out($product['product_price']) ?> <span>dkk</span></div>
                         </div>
                         <div class="product-info">
-                            <div class="product-info-top">
-                                <div class="title"> <?= out($product['product_title']) ?></div>
-                                <div class="price"> <?= out($product['product_price']) ?> <span>Dkk</span></div>
-                            </div>
+                            <p class="h5 title"> <?= out($product['product_title']) ?></p>
                             <p class="description">
                                 <?= $newest_description ?>
                             </p>
@@ -82,15 +81,14 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
                     ?>
                         <div class="product">
                             <div class="img-container">
-                                <img src="../product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+                                <img src="/product-images/<?= out($image[0]) ?>" alt="Image of <?= out($product['product_title']) ?>">
+                                <div class="price"> <?= out($product['product_price']) ?> <span>dkk</span></div>
+
                             </div>
                             <div class="product-info">
-                                <div class="product-info-top">
-                                    <div class="title"> <?= out($product['product_title']) ?></div>
-                                    <div class="price"> <?= out($product['product_price']) ?> <span>Dkk</span></div>
-                                </div>
+                                <p class="h5 title"> <?= out($product['product_title']) ?></p>
                                 <p class="description">
-                                    <?= $description ?>
+                                    <?= $newest_description ?>
                                 </p>
                             </div>
                             <a href="/single-product/<?= $product['product_id'] ?>"></a>
@@ -103,6 +101,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         </section>
     </div>
 </main>
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+<script src="/js/headerScroll.js"></script>
+<script src="/js/search.js"></script>
+
+</body>
+
+</html>

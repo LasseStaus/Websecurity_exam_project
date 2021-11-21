@@ -48,13 +48,14 @@ try {
                 <div class="account-content">
                     <h2 class="account-title">Change password</h2>
 
-                    <?php
-                    require_once('./components/component_errormsg.php');
-                    require_once('./components/component_succcessmsg.php');
-                    ?>
+
 
                     <form class="form_container_max_width margin margin-20-top" id="update-account-information" method="POST" action="/update-user-account-password" onsubmit="return validate();">
-                        <?= set_old_csrf() ?>
+                        <?php
+                        require_once('./components/component_errormsg.php');
+                        require_once('./components/component_succcessmsg.php');
+                        ?>
+                        <?= set_csrf() ?>
                         <div class="form-group">
                             <h5 id="new-pword-txt">New password</h5>
                             <input type="password" name="user_password" data-validate="str" data-min="4" data-max="16">
@@ -78,10 +79,18 @@ try {
         </div>
 
     </main>
+    <script src="/js/headerScroll.js"></script>
 
+
+
+    <script src="/js/validator.js"></script>
+
+    </body>
+
+    </html>
 <?php
 
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
+
 } catch (PDOException $ex) {
     echo $ex;
 }

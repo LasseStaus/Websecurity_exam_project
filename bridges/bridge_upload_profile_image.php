@@ -16,7 +16,7 @@ if (!$_FILES['file-to-upload']['name']) {
 
 
 
-$valid_extensions = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'pdf', 'jfif'];
+$valid_extensions = ['png', 'jpg', 'jpeg', 'jfif'];
 
 $image_type = mime_content_type($_FILES['file-to-upload']['tmp_name']); // image/png
 $extension = strrchr($image_type, '/'); // /png ... /tmp ... /jpg

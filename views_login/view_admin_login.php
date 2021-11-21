@@ -25,7 +25,7 @@ session_start();
 
         <form action="/admin-login" method="POST" onsubmit="return validate()">
           <div class="margin-20-top">
-            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+            <?= set_csrf() ?>
 
             <div class="form-group">
               <h5 id="email-txt">Email</h5>

@@ -13,7 +13,7 @@ require('./db/globals.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
 
 ?>
-<main>
+<main id="admin">
 
     <div class="admin-container">
         <h1>ADMIN PAGE</h1>
@@ -46,7 +46,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
                                 } ?></td>
                     <td>
                         <form action="/admin/change-user-status" method="POST">
-                            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                            <?= set_csrf() ?>
                             <input type="hidden" name="user_id" value="<?= $user['user_uuid'] ?>">
                             <input type="hidden" name="user_status" value="<?= $user['user_status'] ?>">
                             <button class="button medium_button button_bg_light" type="submit"> <?php if ($user['user_status'] == 1) { ?>Block user <?php } else {
@@ -65,6 +65,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
         </table>
     </div>
 </main>
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+<script src="/js/headerScroll.js"></script>
+
+</body>
+
+</html>

@@ -64,7 +64,7 @@ try {
     //if login attemps is below og equal to 3...
     if ($user['user_login_attempts'] >= 3) {
       // if timestamp diff is less than 5 minuts... 
-      if (time() - $user['user_login_timestamp'] < 10) {
+      if (time() - $user['user_login_timestamp'] < 300) {
         //block user for 5 minuts
         $error_message = "you cannot login the next 5 minuts";
         header("Location: /login/error/$error_message");

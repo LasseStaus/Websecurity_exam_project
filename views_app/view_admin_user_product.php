@@ -5,7 +5,7 @@ require('./db/fetch_user_products.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
 
 ?>
-<main>
+<main id="admin">
 
     <div class="page-container">
         <a class="link" href="/admin-index">Go back</a>
@@ -43,7 +43,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
                                         } ?></td>
                         <td>
                             <form action="/admin/change-product-status" method="POST">
-                                <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+                                <?= set_csrf() ?>
                                 <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
                                 <input type="hidden" name="user_uuid" value="<?= $product['user_uuid'] ?>">
                                 <input type="hidden" name="product_status" value="<?= $product['product_status'] ?>">
@@ -62,6 +62,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top_admin.php');
             </table>
     </div>
 </main>
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+<script src="/js/headerScroll.js"></script>
+
+
+</body>
+
+</html>

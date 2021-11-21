@@ -5,6 +5,8 @@ function validate() {
   elements_to_validate.forEach(function (element) {
     switch (element.getAttribute("data-validate")) {
       case "str":
+
+        console.log("dlaksædkasdksad")
         if (element.value.length < parseInt(element.getAttribute("data-min")) ||
           element.value.length > parseInt(element.getAttribute("data-max"))
         ) {
@@ -43,6 +45,9 @@ function validate() {
     }
   })
   return one(".validate_error", event.target) ? false : true
+
+
+
 }
 
 // ##############################

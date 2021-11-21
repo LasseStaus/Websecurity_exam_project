@@ -107,7 +107,7 @@ if ($arrayLength < 1 || $arrayLength > 4) {
 }
 
 
-$valid_extensions = ['png', 'jpg', 'jpeg', 'gif', 'zip', 'pdf', 'jfif'];
+$valid_extensions = ['png', 'jpg', 'jpeg', 'jfif'];
 $images = [];
 foreach ($_FILES['file-to-upload']['tmp_name'] as $file) {
     $image_type = mime_content_type($file);

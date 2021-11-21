@@ -13,18 +13,18 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
 
 ?>
 
-<main>
+<main id="edit">
 
     <div class=" text-center form_container_max_width">
         <div>
             <h1>Create product</h1>
+
+        </div>
+        <form id="create_product" action="/create-new-product/<?= $_SESSION['user_uuid'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
             <?php
             require_once($_SERVER['DOCUMENT_ROOT'] . '/components/component_errormsg.php');
             ?>
-        </div>
-        <form id="create_product" action="/create-new-product/<?= $_SESSION['user_uuid'] ?>" method="POST" enctype="multipart/form-data" onsubmit="return validate()">
-
-            <input name="csrf" type="hidden" value="<?= set_csrf() ?>">
+            <?= set_csrf() ?>
             <div class="form-group">
                 <h5 id="product_title">Title</h5>
                 <input name="product_title" type="text" value="" data-validate="str" data-min="1" data-max="50" />
@@ -91,6 +91,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
         }
     }
 </script>
-<?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_bottom.php');
-?>
+<script src="/js/headerScroll.js"></script>
+<script src="/js/image_preload.js"></script>
+<script src="/js/validator.js"></script>
+</body>
+
+</html>
