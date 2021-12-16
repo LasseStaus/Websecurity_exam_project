@@ -88,7 +88,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/views_app/view_top.php');
                             <div class="product-info">
                                 <p class="h5 title"> <?= out($product['product_title']) ?></p>
                                 <p class="description">
-                                    <?= $newest_description ?>
+                                    <?= $description ?>
                                 </p>
                             </div>
                             <a href="/single-product/<?= $product['product_id'] ?>"></a>
